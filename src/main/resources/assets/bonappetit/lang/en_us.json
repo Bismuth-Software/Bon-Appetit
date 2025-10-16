@@ -1,0 +1,12 @@
+{
+  "tab.bonappetit": "Bon Appétit",
+  "item.bonappetit.macaron": "Macaron",
+
+  "bonappetit.configuration.title": "Example Mod Configs",
+  "bonappetit.configuration.section.bonappetit.common.toml": "Example Mod Configs",
+  "bonappetit.configuration.section.bonappetit.common.toml.title": "Example Mod Configs",
+  "bonappetit.configuration.items": "Item List",
+  "bonappetit.configuration.logDirtBlock": "Log Dirt Block",
+  "bonappetit.configuration.magicNumberIntroduction": "Magic Number Text",
+  "bonappetit.configuration.magicNumber": "Magic Number"
+}
