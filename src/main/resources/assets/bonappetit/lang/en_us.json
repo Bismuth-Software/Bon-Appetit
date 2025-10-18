@@ -1,5 +1,8 @@
 {
   "tab.bonappetit": "Bon Appétit",
+  "item.bonappetit.coffee_beans": "Coffee Beans",
+  "item.bonappetit.coffee": "Coffee",
+  "item.bonappetit.merengue": "Coffee",
   "item.bonappetit.macaron": "Macaron",
 
   "bonappetit.configuration.title": "Example Mod Configs",

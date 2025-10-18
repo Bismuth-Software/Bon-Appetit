@@ -2,8 +2,8 @@ package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.BABlocks;
-import net.bi83.bonappetit.core.BAItems;
 import net.bi83.bonappetit.core.BACreativeTabs;
+import net.bi83.bonappetit.core.BAItems;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
