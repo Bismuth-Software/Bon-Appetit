@@ -1,0 +1,31 @@
+{
+  "values": [
+    "bonappetit:cherries",
+    "bonappetit:orange",
+    "bonappetit:mango",
+    "bonappetit:apricot",
+    "bonappetit:pineapple",
+    "bonappetit:lemon",
+    "bonappetit:lime",
+    "bonappetit:kiwi",
+    "bonappetit:pear",
+    "bonappetit:grapes",
+    "bonappetit:peach",
+    "bonappetit:dragon_fruit",
+    "bonappetit:strawberries",
+    "bonappetit:cranberries",
+    "bonappetit:salmonberries",
+    "bonappetit:blueberries",
+    "bonappetit:mulberries",
+    "bonappetit:raspberries",
+    "bonappetit:black_raspberries",
+    "bonappetit:green_tea_leaves",
+    "bonappetit:yellow_tea_leaves",
+    "bonappetit:black_tea_leaves",
+    "bonappetit:coffee_berries",
+    "bonappetit:coffee_beans",
+    "bonappetit:coffee",
+    "bonappetit:merengue",
+    "bonappetit:macaron"
+  ]
+}

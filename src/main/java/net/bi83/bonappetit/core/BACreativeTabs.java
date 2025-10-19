@@ -18,8 +18,34 @@ public class BACreativeTabs {
     public static final Supplier<CreativeModeTab> BA_TAB = CREATIVE_MODE_TAB.register("bonappetit_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(MACARON.get()))
             .title(Component.translatable("tab.bonappetit"))
             .displayItems((itemDisplayParameters, output) -> {
+                output.accept(CHERRIES);
+                output.accept(ORANGE);
+                output.accept(MANGO);
+                output.accept(APRICOT);
+                output.accept(PINEAPPLE);
+                output.accept(LEMON);
+                output.accept(LIME);
+                output.accept(KIWI);
+                output.accept(PEAR);
+                output.accept(GRAPES);
+                output.accept(PEACH);
+                output.accept(DRAGON_FRUIT);
+
+                output.accept(STRAWBERRIES);
+                output.accept(CRANBERRIES);
+                output.accept(SALMONBERRIES);
+                output.accept(BLUEBERRIES);
+                output.accept(MULBERRIES);
+                output.accept(RASPBERRIES);
+                output.accept(BLACK_RASPBERRIES);
+
+                output.accept(GREEN_TEA_LEAVES);
+                output.accept(YELLOW_TEA_LEAVES);
+                output.accept(BLACK_TEA_LEAVES);
+                output.accept(COFFEE_BERRIES);
                 output.accept(COFFEE_BEANS);
                 output.accept(COFFEE);
+
                 output.accept(MERENGUE);
                 output.accept(MACARON);
             }).build());

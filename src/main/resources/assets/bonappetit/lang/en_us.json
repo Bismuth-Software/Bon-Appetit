@@ -1,8 +1,35 @@
 {
   "tab.bonappetit": "Bon Appétit",
+
+  "item.bonappetit.cherries": "Cherries",
+  "item.bonappetit.orange": "Orange",
+  "item.bonappetit.mango": "Mango",
+  "item.bonappetit.apricot": "Apricot",
+  "item.bonappetit.pineapple": "Pineapple",
+  "item.bonappetit.lemon": "Lemon",
+  "item.bonappetit.lime": "Lime",
+  "item.bonappetit.kiwi": "Kiwi",
+  "item.bonappetit.pear": "Pear",
+  "item.bonappetit.grapes": "Grapes",
+  "item.bonappetit.peach": "Peach",
+  "item.bonappetit.dragon_fruit": "Dragon Fruit",
+
+  "item.bonappetit.strawberries": "Strawberries",
+  "item.bonappetit.cranberries": "Cranberries",
+  "item.bonappetit.salmonberries": "Salmonberries",
+  "item.bonappetit.blueberries": "Blueberries",
+  "item.bonappetit.mulberries": "Mulberries",
+  "item.bonappetit.raspberries": "Raspberries",
+  "item.bonappetit.black_raspberries": "Black Raspberries",
+
+  "item.bonappetit.green_tea_leaves": "Green Tea Leaves",
+  "item.bonappetit.yellow_tea_leaves": "Yellow Tea Leaves",
+  "item.bonappetit.black_tea_leaves": "Black Tea Leaves",
+  "item.bonappetit.coffee_berries": "Coffee Berries",
   "item.bonappetit.coffee_beans": "Coffee Beans",
   "item.bonappetit.coffee": "Coffee",
-  "item.bonappetit.merengue": "Coffee",
+
+  "item.bonappetit.merengue": "Merengue",
   "item.bonappetit.macaron": "Macaron",
 
   "bonappetit.configuration.title": "Example Mod Configs",
