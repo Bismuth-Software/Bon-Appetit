@@ -77,6 +77,8 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
                         .add(COFFEE_BERRIES.get());
+        this.tag(Tags.Items.FOODS_CANDY)
+                                .add(MERINGUE.get());
         this.tag(Tags.Items.FOODS_COOKIE)
                                 .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)

@@ -12,7 +12,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class BAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BonAppetit.ID);
-    public static void register(IEventBus eventBus) {ITEMS.register(eventBus); }
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+    }
 
     public static final DeferredItem<Item> CHERRIES = ITEMS.register("cherries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3f).build())));
     public static final DeferredItem<Item> ORANGE = ITEMS.register("orange", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
@@ -39,7 +42,7 @@ public class BAItems {
     public static final DeferredItem<Item> YELLOW_TEA_LEAVES = ITEMS.register("yellow_tea_leaves", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));
     public static final DeferredItem<Item> BLACK_TEA_LEAVES = ITEMS.register("black_tea_leaves", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));
     public static final DeferredItem<Item> COFFEE_BERRIES = ITEMS.register("coffee_berries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));
-    public static final DeferredItem<Item> COFFEE_BEANS = ITEMS.register("coffee_beans", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));
+    public static final DeferredItem<Item> COFFEE_BEANS = ITEMS.register("coffee_beans", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.15f).build())));
     public static final DeferredItem<CoffeeItem> COFFEE = ITEMS.register("coffee", () -> new CoffeeItem(new Item.Properties().food(new FoodProperties.Builder()
             .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 300, 0), 1.0F)
             .nutrition(0)

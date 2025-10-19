@@ -29,14 +29,18 @@
   "item.bonappetit.coffee_beans": "Coffee Beans",
   "item.bonappetit.coffee": "Coffee",
 
-  "item.bonappetit.merengue": "Merengue",
+  "item.bonappetit.meringue": "Meringue",
   "item.bonappetit.macaron": "Macaron",
 
-  "bonappetit.configuration.title": "Example Mod Configs",
-  "bonappetit.configuration.section.bonappetit.common.toml": "Example Mod Configs",
-  "bonappetit.configuration.section.bonappetit.common.toml.title": "Example Mod Configs",
+
+
+  "bonappetit.configuration.title": "Bon Appétit Config",
+  "bonappetit.configuration.section.bonappetit.common.toml": "Bon Appétit Config",
+  "bonappetit.configuration.section.bonappetit.common.toml.title": "Bon Appétit Config",
+
+  "bonappetit.configuration.registerCoffee": "Coffee",
+
   "bonappetit.configuration.items": "Item List",
-  "bonappetit.configuration.logDirtBlock": "Log Dirt Block",
   "bonappetit.configuration.magicNumberIntroduction": "Magic Number Text",
   "bonappetit.configuration.magicNumber": "Magic Number"
 }

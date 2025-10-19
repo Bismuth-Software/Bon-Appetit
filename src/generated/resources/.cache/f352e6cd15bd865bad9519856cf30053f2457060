@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-18T21:46:03.2480354	Item Models: bonappetit
+// 1.21.1	2025-10-18T21:54:37.3060265	Item Models: bonappetit
 40dee4d856a70c0709ac913690fc72c751ee5dd5 assets/bonappetit/models/item/apricot.json
 aa023740ca93b0df0bf8e1046aadd96d814dba51 assets/bonappetit/models/item/black_raspberries.json
 c2dcab64d245688529698264c3369795f90fdf70 assets/bonappetit/models/item/black_tea_leaves.json
@@ -16,7 +16,7 @@ a57b9754f5e01c362ad8421da4faf76faf5bb449 assets/bonappetit/models/item/lemon.jso
 ed1832ff33bf0b5a1a2e2330b4f4534c572955ca assets/bonappetit/models/item/lime.json
 a48a4ada103e2781096c183e17811e9b6ca6fa92 assets/bonappetit/models/item/macaron.json
 e00d01738683289f4a421c1477ae0f99456a1e7d assets/bonappetit/models/item/mango.json
-e125fc85975e5f2daecb136cffcc801b81a1f3f5 assets/bonappetit/models/item/merengue.json
+b6df632b84da3c8823f1bd21cd02c08474c4230d assets/bonappetit/models/item/meringue.json
 51733e1c3d3777aa5f3daa908d96808d13e52431 assets/bonappetit/models/item/mulberries.json
 7af2f75e53e6393cf1dae3607d845378500f671e assets/bonappetit/models/item/orange.json
 432e0a0c2e3d50a18519304b401ef6dc90e13ca4 assets/bonappetit/models/item/peach.json
