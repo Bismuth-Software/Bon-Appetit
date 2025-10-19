@@ -40,7 +40,7 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(COFFEE_BEANS.get());
         basicItem(COFFEE.get());
 
-        basicItem(MERENGUE.get());
+        basicItem(MERINGUE.get());
         basicItem(MACARON.get());
     }
 }

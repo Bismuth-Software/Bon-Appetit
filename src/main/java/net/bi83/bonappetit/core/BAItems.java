@@ -45,9 +45,9 @@ public class BAItems {
             .nutrition(0)
             .saturationModifier(0.7f).build())));
 
-    public static final DeferredItem<Item> MERENGUE = ITEMS.register("merengue", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
-            .nutrition(1)
-            .saturationModifier(0.05f).build())));
+    public static final DeferredItem<Item> MERINGUE = ITEMS.register("meringue", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
+            .nutrition(0)
+            .saturationModifier(0.15f).build())));
     public static final DeferredItem<Item> MACARON = ITEMS.register("macaron", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .nutrition(4)
             .saturationModifier(0.225f).build())));

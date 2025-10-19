@@ -46,7 +46,7 @@ public class BACreativeTabs {
                 output.accept(COFFEE_BEANS);
                 output.accept(COFFEE);
 
-                output.accept(MERENGUE);
+                output.accept(MERINGUE);
                 output.accept(MACARON);
             }).build());
 

@@ -45,7 +45,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                         .add(COFFEE_BERRIES.get())
                         .add(COFFEE_BEANS.get())
                         .add(COFFEE.get())
-                            .add(MERENGUE.get())
+                            .add(MERINGUE.get())
                             .add(MACARON.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
