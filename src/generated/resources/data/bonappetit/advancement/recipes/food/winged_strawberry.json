@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_strawberries": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bonappetit:strawberries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bonappetit:winged_strawberry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_strawberries"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bonappetit:winged_strawberry"
+    ]
+  }
+}

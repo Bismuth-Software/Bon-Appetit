@@ -1,14 +1,16 @@
-// 1.21.1	2025-10-18T21:54:37.3060265	Item Models: bonappetit
+// 1.21.1	2025-10-19T23:02:52.538395	Item Models: bonappetit
 40dee4d856a70c0709ac913690fc72c751ee5dd5 assets/bonappetit/models/item/apricot.json
 aa023740ca93b0df0bf8e1046aadd96d814dba51 assets/bonappetit/models/item/black_raspberries.json
 c2dcab64d245688529698264c3369795f90fdf70 assets/bonappetit/models/item/black_tea_leaves.json
 731c08575605e9d52dc4548685f7bc1614073756 assets/bonappetit/models/item/blueberries.json
 a6e280a10ccc4a670158adbbf17999fb213aac63 assets/bonappetit/models/item/cherries.json
-0d7147ff054b06efe35fdc8b26b7bb2f1254a399 assets/bonappetit/models/item/coffee.json
+8fd651e2fafa0cc0b87456a7af49b5b0eb24c390 assets/bonappetit/models/item/coffee.json
 570aac9f558216ac4d658dcf0892bfddf35f2dc2 assets/bonappetit/models/item/coffee_beans.json
 ce125b3f4f4774f39099b17ea829c47e1bea2d61 assets/bonappetit/models/item/coffee_berries.json
 78a66ddfa49542c43ca498a598c2fe14f9ef381d assets/bonappetit/models/item/cranberries.json
 7b82696f480bb4d41f646dd67abf5cbf2dfb0262 assets/bonappetit/models/item/dragon_fruit.json
+d11163c937917a40406ebc9af63621881e47fd70 assets/bonappetit/models/item/golden_cherries.json
+83da0ccc84437faa6212dbaa65db0f7c90a8f75e assets/bonappetit/models/item/golden_strawberries.json
 cf97728fec83171bf8e3602f82bb51ce813d2880 assets/bonappetit/models/item/grapes.json
 e0880d68e545f353c867792fab397a024324314d assets/bonappetit/models/item/green_tea_leaves.json
 bd58d5b5f38c130660ba91ba434ba60d3b782ca5 assets/bonappetit/models/item/kiwi.json
@@ -25,4 +27,6 @@ b39e21bdb97ceaadc00fd68dcddc48ba5b1341ec assets/bonappetit/models/item/pineapple
 010089800fc997bf953b7fd4a132d5cc7c4f90d7 assets/bonappetit/models/item/raspberries.json
 45aaac85d59fad8605967bda85b8532b2b65f66c assets/bonappetit/models/item/salmonberries.json
 641169b810df31f312a016483902b936a2443ee6 assets/bonappetit/models/item/strawberries.json
+784638f0f08bfd4072e031cb116b5e6d34367403 assets/bonappetit/models/item/winged_golden_strawberry.json
+64640a869911af1f3e25fbd2515f5c174cfd65d5 assets/bonappetit/models/item/winged_strawberry.json
 1f3ccb23c3f247101a3cc423afa5bded2d265f2b assets/bonappetit/models/item/yellow_tea_leaves.json

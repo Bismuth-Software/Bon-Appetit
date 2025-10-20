@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bonappetit:strawberries"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "pattern": [
+    "F#F"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:winged_strawberry"
+  }
+}

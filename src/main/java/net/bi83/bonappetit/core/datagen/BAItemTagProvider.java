@@ -21,6 +21,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(Tags.Items.FOODS)
                 .add(CHERRIES.get())
+                .add(GOLDEN_CHERRIES.get())
                 .add(ORANGE.get())
                 .add(MANGO.get())
                 .add(APRICOT.get())
@@ -47,12 +48,12 @@ public class BAItemTagProvider extends ItemTagsProvider {
                         .add(BLACK_TEA_LEAVES.get())
                         .add(COFFEE_BERRIES.get())
                         .add(COFFEE_BEANS.get())
-                        .add(COFFEE.get())
                             .add(MERINGUE.get())
                             .add(MACARON.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
                 .add(CHERRIES.get())
+                .add(GOLDEN_CHERRIES.get())
                 .add(ORANGE.get())
                 .add(MANGO.get())
                 .add(APRICOT.get())

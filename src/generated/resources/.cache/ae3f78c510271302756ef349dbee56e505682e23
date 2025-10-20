@@ -1,9 +1,9 @@
-// 1.21.1	2025-10-18T22:13:46.6822831	Tags for minecraft:item mod id bonappetit
+// 1.21.1	2025-10-19T21:56:41.0500662	Tags for minecraft:item mod id bonappetit
 69298800f5cbf5117c3f31f9793e53f18f8a9f52 data/c/tags/item/drinks.json
-0822e905fbef8434019a3bac2235b5899f92c84a data/c/tags/item/foods.json
-5904529ef8b4157047e4c114fe0d77b4f97f9703 data/c/tags/item/foods/berry.json
+ed44a64f7e445f3fd8e438dd9fb23178eec91d79 data/c/tags/item/foods.json
+7bcb508f3d5bd4ba7d9457102fd9831f733e3ba2 data/c/tags/item/foods/berry.json
 df0f3bb5a675afdebd39722f670f3c0e7a5a3302 data/c/tags/item/foods/candy.json
 04ea942870ac837968703c292f35ad78f91e41b5 data/c/tags/item/foods/cookie.json
-79b60b6533963f938ad7abb894d69fc583295610 data/c/tags/item/foods/fruit.json
+11a3975c41621816787771352d4bc5fe633ebdc8 data/c/tags/item/foods/fruit.json
 04ea942870ac837968703c292f35ad78f91e41b5 data/minecraft/tags/item/dyeable.json
-5904529ef8b4157047e4c114fe0d77b4f97f9703 data/minecraft/tags/item/fox_food.json
+473491d41c7976a896eb787891dbd7baefea499f data/minecraft/tags/item/fox_food.json

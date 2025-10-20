@@ -1,7 +1,12 @@
 {
   "tab.bonappetit": "Bon Appétit",
 
+  "emi.info.macarons": "Macarons are able to be dyed like leather armor!",
+
+
+
   "item.bonappetit.cherries": "Cherries",
+  "item.bonappetit.golden_cherries": "Golden Cherries",
   "item.bonappetit.orange": "Orange",
   "item.bonappetit.mango": "Mango",
   "item.bonappetit.apricot": "Apricot",
@@ -34,6 +39,8 @@
 
   "item.bonappetit.meringue": "Meringue",
   "item.bonappetit.macaron": "Macaron",
+
+  "effect.bonappetit.hearttrickle": "Hearttrickle",
 
 
 

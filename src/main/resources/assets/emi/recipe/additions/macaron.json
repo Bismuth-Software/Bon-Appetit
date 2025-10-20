@@ -1,0 +1,13 @@
+{
+  "type": "emi:info",
+  "stacks": [
+    "item:bonappetit:macaron",
+    "item:minecraft:red_dye",
+    "item:minecraft:orange_dye",
+    "item:minecraft:yellow_dye",
+    "item:minecraft:lime_dye",
+    "item:minecraft:light_blue_dye",
+    "item:minecraft:pink_dye"
+  ],
+  "text": "emi.info.macarons"
+}

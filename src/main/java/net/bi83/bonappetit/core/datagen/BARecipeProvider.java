@@ -1,12 +1,11 @@
 package net.bi83.bonappetit.core.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.BAItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -14,12 +13,20 @@ import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import static net.bi83.bonappetit.core.BAItems.*;
+
 public class BARecipeProvider extends RecipeProvider implements IConditionBuilder {
     public BARecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {super(output, registries);}
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_CHERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
+                .define('#', CHERRIES.get()).define('G', Items.GOLD_INGOT).unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_STRAWBERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
+                .define('#', STRAWBERRIES.get()).define('G', Items.GOLD_INGOT).unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, WINGED_STRAWBERRY.get(), 1)
+                .pattern("F#F")
+                .define('#', STRAWBERRIES.get()).define('F', Items.FEATHER).unlockedBy("has_strawberries", has(STRAWBERRIES)).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
