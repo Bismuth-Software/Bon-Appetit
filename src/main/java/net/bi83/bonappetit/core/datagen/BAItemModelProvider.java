@@ -42,8 +42,9 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(BLACK_TEA_LEAVES.get());
         basicItem(COFFEE_BERRIES.get());
         basicItem(COFFEE_BEANS.get());
-        handheldItem(COFFEE.get());
+        basicItem(COFFEE.get());
 
+        basicItem(PIE_CRUST.get());
         basicItem(MERINGUE.get());
         basicItem(MACARON.get());
     }

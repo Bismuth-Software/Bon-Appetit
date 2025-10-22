@@ -48,6 +48,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                         .add(BLACK_TEA_LEAVES.get())
                         .add(COFFEE_BERRIES.get())
                         .add(COFFEE_BEANS.get())
+                            .add(PIE_CRUST.get())
                             .add(MERINGUE.get())
                             .add(MACARON.get());
 

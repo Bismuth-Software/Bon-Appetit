@@ -6,10 +6,15 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class HearttrickleEffect extends MobEffect {
     public HearttrickleEffect() {super(MobEffectCategory.BENEFICIAL, 0x8B1F39);}
+    @Override
+    public boolean shouldApplyEffectTickThisTick(int tickCount, int amplifier) {
+        return tickCount % 20 == 0;
+    }
 
     @Override
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-        float healAmount = 1.0F * (amplifier + 1); entity.heal(healAmount);
+        float healAmount = 1.0F * (amplifier + 1);
+        entity.heal(healAmount);
         return true;
     }
 }

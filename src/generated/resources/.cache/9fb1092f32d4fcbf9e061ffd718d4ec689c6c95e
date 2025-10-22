@@ -1,7 +1,9 @@
-// 1.21.1	2025-10-19T21:56:41.0500662	Recipes
+// 1.21.1	2025-10-20T18:27:20.936459	Recipes
 a551ef7317971e9c8220c2f4e72c66fbbfabcf18 data/bonappetit/advancement/recipes/food/golden_cherries.json
 98202dff862f1e221be87b031dea22a43eae621f data/bonappetit/advancement/recipes/food/golden_strawberries.json
+445906660b18b69c513789b8b2106a6cee8f9838 data/bonappetit/advancement/recipes/food/pie_crust.json
 5f2352f247c2aaaede851faa6f43bca0ca42a4dd data/bonappetit/advancement/recipes/food/winged_strawberry.json
 743286e6be5108a0a7dffc3d62541917ad910103 data/bonappetit/recipe/golden_cherries.json
 8cc6cc7ed9bbdef60d392298918d097397f71f0a data/bonappetit/recipe/golden_strawberries.json
+11bee6ed4371264bdfb97eb91a3ba55facf7576d data/bonappetit/recipe/pie_crust.json
 7cc47f3b4dbe954123707dc8d3d98de01d6449eb data/bonappetit/recipe/winged_strawberry.json

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bonappetit:item/coffee"
+    "layer0": "bonappetit:item/pie_crust"
   }
 }
