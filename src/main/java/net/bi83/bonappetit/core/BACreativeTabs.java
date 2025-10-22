@@ -25,12 +25,16 @@ public class BACreativeTabs {
                 output.accept(APRICOT);
                 output.accept(PINEAPPLE);
                 output.accept(LEMON);
+                output.accept(LEMON_SLICE);
                 output.accept(LIME);
+                output.accept(LIME_SLICE);
                 output.accept(KIWI);
                 output.accept(PEAR);
                 output.accept(GRAPES);
                 output.accept(PEACH);
                 output.accept(DRAGON_FRUIT);
+                output.accept(POMEGRANATE);
+                output.accept(POMEGRANATE_SLICE);
 
                 output.accept(STRAWBERRIES);
                 output.accept(GOLDEN_STRAWBERRIES);
