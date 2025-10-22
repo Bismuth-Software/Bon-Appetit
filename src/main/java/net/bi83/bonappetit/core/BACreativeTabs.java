@@ -18,6 +18,8 @@ public class BACreativeTabs {
     public static final Supplier<CreativeModeTab> BA_TAB = CREATIVE_MODE_TAB.register("bonappetit_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(MACARON.get()))
             .title(Component.translatable("tab.bonappetit"))
             .displayItems((itemDisplayParameters, output) -> {
+                output.accept(PAPER_PLATE);
+
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
                 output.accept(ORANGE);

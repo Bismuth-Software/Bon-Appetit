@@ -17,6 +17,8 @@ public class BAItems {
         ITEMS.register(eventBus);
     }
 
+    public static final DeferredItem<Item> PAPER_PLATE = ITEMS.register("paper_plate", () -> new Item(new Item.Properties()));
+
     public static final DeferredItem<Item> CHERRIES = ITEMS.register("cherries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3f).build())));
     public static final DeferredItem<Item> GOLDEN_CHERRIES = ITEMS.register("golden_cherries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.85f)
                 .effect(new MobEffectInstance(BAEffects.HEARTTRICKLE, 100, 1), 1.0F)

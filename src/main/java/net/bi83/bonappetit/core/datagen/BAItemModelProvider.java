@@ -12,6 +12,8 @@ public class BAItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        basicItem(PAPER_PLATE.get());
+
         basicItem(CHERRIES.get());
         basicItem(GOLDEN_CHERRIES.get());
         basicItem(ORANGE.get());
