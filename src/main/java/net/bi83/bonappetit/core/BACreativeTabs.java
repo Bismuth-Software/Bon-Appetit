@@ -30,13 +30,15 @@ public class BACreativeTabs {
                 output.accept(PINEAPPLE);
                 output.accept(LEMON);
                 output.accept(LEMON_SLICE);
+                output.accept(LEMONADE);
                 output.accept(LIME);
                 output.accept(LIME_SLICE);
+                output.accept(LIMEADE);
                 output.accept(KIWI);
                 output.accept(PEAR);
                 output.accept(GRAPES);
                 output.accept(PEACH);
-                output.accept(DRAGON_FRUIT);
+                //output.accept(DRAGON_FRUIT);
                 output.accept(POMEGRANATE);
                 output.accept(POMEGRANATE_SLICE);
 
@@ -60,6 +62,7 @@ public class BACreativeTabs {
 
                 output.accept(MERINGUE);
                 output.accept(MACARON);
+                output.accept(PINK_LEMONADE);
             }).build());
 
     public static void register(IEventBus eventBus) {

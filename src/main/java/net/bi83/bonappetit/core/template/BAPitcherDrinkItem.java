@@ -1,5 +1,6 @@
-package net.bi83.bonappetit.core.item;
+package net.bi83.bonappetit.core.template;
 
+import net.bi83.bonappetit.core.BAItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -11,14 +12,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.EffectCures;
 
-public class CoffeeItem extends Item {
+public class BAPitcherDrinkItem extends Item {
     private static final int DRINK_DURATION = 32;
-
-    public CoffeeItem(Item.Properties properties) {
-        super(properties);
-    }
+    public BAPitcherDrinkItem(Item.Properties properties) {super(properties);}
 
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
         super.finishUsingItem(stack, level, entityLiving);
@@ -26,18 +23,14 @@ public class CoffeeItem extends Item {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverplayer, stack);
             serverplayer.awardStat(Stats.ITEM_USED.get(this));
         }
-/*
-        if (!level.isClientSide) {
-            entityLiving.removeEffectsCuredBy(EffectCures.HONEY);
-        }*/
 
         if (stack.isEmpty()) {
-            return new ItemStack(Items.GLASS_BOTTLE);
+            return new ItemStack(BAItems.GLASS_PITCHER.get());
         } else {
             if (entityLiving instanceof Player) {
                 Player player = (Player)entityLiving;
                 if (!player.hasInfiniteMaterials()) {
-                    ItemStack itemstack = new ItemStack(Items.GLASS_BOTTLE);
+                    ItemStack itemstack = new ItemStack(BAItems.GLASS_PITCHER.get());
                     if (!player.getInventory().add(itemstack)) {
                         player.drop(itemstack, false);
                     }
@@ -49,7 +42,7 @@ public class CoffeeItem extends Item {
     }
 
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        return 40;
+        return 32;
     }
 
     public UseAnim getUseAnimation(ItemStack stack) {
@@ -61,7 +54,7 @@ public class CoffeeItem extends Item {
     }
 
     public SoundEvent getEatingSound() {
-        return SoundEvents.HONEY_DRINK;
+        return SoundEvents.GENERIC_DRINK;
     }
 
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {

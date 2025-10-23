@@ -34,7 +34,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(PEAR.get())
                 .add(GRAPES.get())
                 .add(PEACH.get())
-                .add(DRAGON_FRUIT.get())
+                //.add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
                 .add(POMEGRANATE_SLICE.get())
                     .add(STRAWBERRIES.get())
@@ -70,7 +70,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(PEAR.get())
                 .add(GRAPES.get())
                 .add(PEACH.get())
-                .add(DRAGON_FRUIT.get())
+                //.add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
                 .add(POMEGRANATE_SLICE.get())
                     .add(STRAWBERRIES.get())
@@ -112,7 +112,10 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(BLACK_RASPBERRIES.get())
                         .add(COFFEE_BERRIES.get());
         this.tag(Tags.Items.DRINKS)
-                            .add(COFFEE.get());
+                            .add(LEMONADE.get())
+                            .add(LIMEADE.get())
+                            .add(COFFEE.get())
+                            .add(PINK_LEMONADE.get());
 
         this.tag(ItemTags.DYEABLE)
                                 .add(MACARON.get());

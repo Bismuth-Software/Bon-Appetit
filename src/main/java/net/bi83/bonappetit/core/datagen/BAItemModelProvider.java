@@ -24,13 +24,15 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(PINEAPPLE.get());
         basicItem(LEMON.get());
         basicItem(LEMON_SLICE.get());
+        basicItem(LEMONADE.get());
         basicItem(LIME.get());
         basicItem(LIME_SLICE.get());
+        basicItem(LIMEADE.get());
         basicItem(KIWI.get());
         basicItem(PEAR.get());
         basicItem(GRAPES.get());
         basicItem(PEACH.get());
-        basicItem(DRAGON_FRUIT.get());
+        //basicItem(DRAGON_FRUIT.get());
         basicItem(POMEGRANATE.get());
         basicItem(POMEGRANATE_SLICE.get());
 
@@ -54,5 +56,6 @@ public class BAItemModelProvider extends ItemModelProvider {
 
         basicItem(MERINGUE.get());
         basicItem(MACARON.get());
+        basicItem(PINK_LEMONADE.get());
     }
 }
