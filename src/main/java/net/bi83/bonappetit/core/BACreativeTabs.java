@@ -24,7 +24,11 @@ public class BACreativeTabs {
 
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
+                output.accept(APPLE_SLICE);
+                output.accept(GRAPEFRUIT);
+                output.accept(GRAPEFRUIT_SLICE);
                 output.accept(ORANGE);
+                output.accept(ORANGE_SLICE);
                 output.accept(MANGO);
                 output.accept(APRICOT);
                 output.accept(PINEAPPLE);

@@ -2,7 +2,11 @@
   "values": [
     "bonappetit:cherries",
     "bonappetit:golden_cherries",
+    "bonappetit:apple_slice",
+    "bonappetit:grapefruit",
+    "bonappetit:grapefruit_slice",
     "bonappetit:orange",
+    "bonappetit:orange_slice",
     "bonappetit:mango",
     "bonappetit:apricot",
     "bonappetit:pineapple",

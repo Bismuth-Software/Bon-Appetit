@@ -18,7 +18,11 @@ public class BAItemModelProvider extends ItemModelProvider {
 
         basicItem(CHERRIES.get());
         basicItem(GOLDEN_CHERRIES.get());
+        basicItem(APPLE_SLICE.get());
+        basicItem(GRAPEFRUIT.get());
+        basicItem(GRAPEFRUIT_SLICE.get());
         basicItem(ORANGE.get());
+        basicItem(ORANGE_SLICE.get());
         basicItem(MANGO.get());
         basicItem(APRICOT.get());
         basicItem(PINEAPPLE.get());
