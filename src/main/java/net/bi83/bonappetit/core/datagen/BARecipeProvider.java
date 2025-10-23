@@ -14,21 +14,27 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static net.bi83.bonappetit.core.BAItems.*;
+import static net.minecraft.world.item.Items.*;
 
 public class BARecipeProvider extends RecipeProvider implements IConditionBuilder {
     public BARecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {super(output, registries);}
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_CHERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
-                .define('#', CHERRIES.get()).define('G', Items.GOLD_INGOT).unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_STRAWBERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
-                .define('#', STRAWBERRIES.get()).define('G', Items.GOLD_INGOT).unlockedBy("has_gold_ingot", has(Items.GOLD_INGOT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, WINGED_STRAWBERRY.get(), 1).pattern("F#F")
-                .define('#', STRAWBERRIES.get()).define('F', Items.FEATHER).unlockedBy("has_strawberries", has(STRAWBERRIES)).save(recipeOutput);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PIE_CRUST.get(), 2).pattern("# #").pattern(" # ")
-                .define('#', Items.WHEAT).unlockedBy("has_wheat", has(Items.WHEAT)).save(recipeOutput);
+                .define('#', WHEAT).unlockedBy("has_wheat", has(WHEAT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GLASS_PITCHER.get(), 4).pattern("# #").pattern("# #").pattern(" # ")
+                .define('#', GLASS).unlockedBy("has_glass", has(GLASS)).save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_CHERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
+                .define('#', CHERRIES.get()).define('G', GOLD_INGOT).unlockedBy("has_gold_ingot", has(GOLD_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_STRAWBERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
+                .define('#', STRAWBERRIES.get()).define('G', GOLD_INGOT).unlockedBy("has_gold_ingot", has(GOLD_INGOT)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, WINGED_STRAWBERRY.get(), 1).pattern("F#F")
+                .define('#', STRAWBERRIES.get()).define('F', FEATHER).unlockedBy("has_strawberries", has(STRAWBERRIES)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, MERINGUE.get(), 2).requires(EGG).requires(SUGAR)
+                .unlockedBy("has_sugar", has(SUGAR)).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

@@ -11,4 +11,5 @@ public class BAEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, BonAppetit.ID);
 
     public static final DeferredHolder<MobEffect, HearttrickleEffect> HEARTTRICKLE = EFFECTS.register("hearttrickle", HearttrickleEffect::new);
+    public static final DeferredHolder<MobEffect, HearttrickleEffect> CONCENTRATION = EFFECTS.register("concentration", HearttrickleEffect::new);
 }

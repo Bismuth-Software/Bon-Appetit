@@ -19,6 +19,8 @@ public class BACreativeTabs {
             .title(Component.translatable("tab.bonappetit"))
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(PAPER_PLATE);
+                output.accept(PIE_CRUST);
+                output.accept(GLASS_PITCHER);
 
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
@@ -56,7 +58,6 @@ public class BACreativeTabs {
                 output.accept(COFFEE_BEANS);
                 output.accept(COFFEE);
 
-                output.accept(PIE_CRUST);
                 output.accept(MERINGUE);
                 output.accept(MACARON);
             }).build());

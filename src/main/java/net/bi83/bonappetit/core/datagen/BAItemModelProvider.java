@@ -13,6 +13,8 @@ public class BAItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(PAPER_PLATE.get());
+        basicItem(PIE_CRUST.get());
+        basicItem(GLASS_PITCHER.get());
 
         basicItem(CHERRIES.get());
         basicItem(GOLDEN_CHERRIES.get());
@@ -50,7 +52,6 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(COFFEE_BEANS.get());
         basicItem(COFFEE.get());
 
-        basicItem(PIE_CRUST.get());
         basicItem(MERINGUE.get());
         basicItem(MACARON.get());
     }

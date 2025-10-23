@@ -6,6 +6,8 @@
 
 
   "item.bonappetit.paper_plate": "Paper Plate",
+  "item.bonappetit.pie_crust": "Pie Crust",
+  "item.bonappetit.glass_pitcher": "Glass Pitcher",
 
   "item.bonappetit.cherries": "Cherries",
   "item.bonappetit.golden_cherries": "Golden Cherries",
@@ -43,11 +45,12 @@
   "item.bonappetit.coffee_beans": "Coffee Beans",
   "item.bonappetit.coffee": "Coffee",
 
-  "item.bonappetit.pie_crust": "Pie Crust",
   "item.bonappetit.meringue": "Meringue",
   "item.bonappetit.macaron": "Macaron",
+  "item.bonappetit.pink_lemonade": "Pink Lemonade",
 
   "effect.bonappetit.hearttrickle": "Hearttrickle",
+  "effect.bonappetit.concentrate": "Concentrate",
 
 
 

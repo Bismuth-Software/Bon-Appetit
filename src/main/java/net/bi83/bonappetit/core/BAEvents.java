@@ -22,8 +22,8 @@ public class BAEvents {
     @SubscribeEvent
     public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {
         event.register((p_329705_, p_329706_) -> {
-                    event.register((stack, index) -> index == 0 ? DyedItemColor.getOrDefault(stack, -1) : -1, BAItems.MACARON);
-                    return 0xFFFFFFFF;
-                }, BAItems.MACARON.value());
+            event.register((stack, index) -> index == 0 ? DyedItemColor.getOrDefault(stack, -1) : -1, BAItems.MACARON);
+            return 0xFFFFFFFF;
+        }, BAItems.MACARON.value());
     }
 }
