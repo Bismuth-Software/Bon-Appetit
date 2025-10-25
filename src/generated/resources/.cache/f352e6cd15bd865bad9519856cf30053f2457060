@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-23T18:44:42.0596964	Item Models: bonappetit
+// 1.21.1	2025-10-25T00:14:52.3705585	Item Models: bonappetit
 cfb8636dc9c45f518e21e9ac5e90393db726aa05 assets/bonappetit/models/item/apple_slice.json
 40dee4d856a70c0709ac913690fc72c751ee5dd5 assets/bonappetit/models/item/apricot.json
 aa023740ca93b0df0bf8e1046aadd96d814dba51 assets/bonappetit/models/item/black_raspberries.json
@@ -9,6 +9,7 @@ a6e280a10ccc4a670158adbbf17999fb213aac63 assets/bonappetit/models/item/cherries.
 570aac9f558216ac4d658dcf0892bfddf35f2dc2 assets/bonappetit/models/item/coffee_beans.json
 ce125b3f4f4774f39099b17ea829c47e1bea2d61 assets/bonappetit/models/item/coffee_berries.json
 78a66ddfa49542c43ca498a598c2fe14f9ef381d assets/bonappetit/models/item/cranberries.json
+7b82696f480bb4d41f646dd67abf5cbf2dfb0262 assets/bonappetit/models/item/dragon_fruit.json
 f07a83e64b4450d567f377e07f050db146749549 assets/bonappetit/models/item/glass_pitcher.json
 d11163c937917a40406ebc9af63621881e47fd70 assets/bonappetit/models/item/golden_cherries.json
 83da0ccc84437faa6212dbaa65db0f7c90a8f75e assets/bonappetit/models/item/golden_strawberries.json

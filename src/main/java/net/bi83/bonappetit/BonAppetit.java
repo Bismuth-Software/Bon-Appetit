@@ -1,10 +1,8 @@
 package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
-import net.bi83.bonappetit.core.BABlocks;
-import net.bi83.bonappetit.core.BACreativeTabs;
-import net.bi83.bonappetit.core.BAEffects;
-import net.bi83.bonappetit.core.BAItems;
+import net.bi83.bonappetit.core.*;
+import net.bi83.bonappetit.core.effect.RicochetEvent;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -29,8 +27,7 @@ public class BonAppetit {
 
         BAEffects.EFFECTS.register(modEventBus);
 
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
-        NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.register(RicochetEvent.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
 

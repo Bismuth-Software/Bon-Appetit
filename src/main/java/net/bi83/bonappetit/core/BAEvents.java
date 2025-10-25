@@ -1,14 +1,27 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.entity.goal.BeeMoveToFruitBushGoal;
+import net.bi83.bonappetit.core.entity.goal.BeePollinateFruitGoal;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.Bee;
+import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.phys.EntityHitResult;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 
 @Mod(value = BonAppetit.ID) @EventBusSubscriber(modid = BonAppetit.ID)
 public class BAEvents {
@@ -18,6 +31,15 @@ public class BAEvents {
 
         builder.addMix(Potions.AWKWARD, BAItems.GOLDEN_STRAWBERRIES.get(), Potions.REGENERATION);
     }
+    @SubscribeEvent
+    public static void onBeeJoin(EntityJoinLevelEvent join) {
+        if (join.getEntity() instanceof Bee bee) {
+            bee.getGoalSelector().addGoal(3, new BeePollinateFruitGoal(bee));
+            bee.getGoalSelector().addGoal(4, new BeeMoveToFruitBushGoal(bee));
+        }
+    }
+
+
 
     @SubscribeEvent
     public static void registerItemColorHandlers(RegisterColorHandlersEvent.Item event) {

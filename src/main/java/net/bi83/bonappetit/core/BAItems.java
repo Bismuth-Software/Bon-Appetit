@@ -62,7 +62,7 @@ public class BAItems {
 
     public static final DeferredItem<Item> PEACH = ITEMS.register("peach", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
 
-    //public static final DeferredItem<Item> DRAGON_FRUIT = ITEMS.register("dragon_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
+    public static final DeferredItem<Item> DRAGON_FRUIT = ITEMS.register("dragon_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
 
     public static final DeferredItem<Item> POMEGRANATE = ITEMS.register("pomegranate", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.075f)
             .effect(new MobEffectInstance(MobEffects.CONFUSION, 300, 0), 0.9F).build())));
@@ -112,7 +112,7 @@ public class BAItems {
 
     /*|* Vanilla Foods *|*/
     public static final Map<Item, FoodProperties> VANILLA_FOODS = (new ImmutableMap.Builder<Item, FoodProperties>())
-            .put(Items.MUSHROOM_STEW, (new FoodProperties.Builder())
-                    .effect(new MobEffectInstance(MobEffects.CONFUSION, 300, 0), 1.0F).build())
+            .put(Items.BEETROOT_SOUP, (new FoodProperties.Builder())
+                    .effect(new MobEffectInstance(MobEffects.REGENERATION, 300, 0), 1.0F).build())
             .build();
 }
