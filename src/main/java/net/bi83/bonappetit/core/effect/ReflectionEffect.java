@@ -16,11 +16,11 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /*\
- * Ricochet deflects all projectiles that attempt to hit you
- * It takes momentum into account
+ * Reflection reflects all projectiles that attempt to hit you.
+ * Starting % is 40 at amplifier 0, and adding 30 for every amplifier up to 100% at amplifier 2
 \*/
-public class RicochetEffect extends MobEffect implements Holder<MobEffect> {
-    public RicochetEffect() {super(MobEffectCategory.BENEFICIAL, 0xCD282E);}
+public class ReflectionEffect extends MobEffect implements Holder<MobEffect> {
+    public ReflectionEffect() {super(MobEffectCategory.BENEFICIAL, 0xCD282E);}
 
     @Override
     public boolean applyEffectTick(@NotNull LivingEntity entity, int amplifier) {

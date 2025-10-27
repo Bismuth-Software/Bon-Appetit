@@ -2,7 +2,7 @@ package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
-import net.bi83.bonappetit.core.effect.RicochetEvent;
+import net.bi83.bonappetit.core.event.ReflectionEvent;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -27,7 +27,7 @@ public class BonAppetit {
 
         BAEffects.EFFECTS.register(modEventBus);
 
-        NeoForge.EVENT_BUS.register(RicochetEvent.class);
+        NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
 
