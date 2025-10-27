@@ -42,7 +42,7 @@ public class BACreativeTabs {
                 output.accept(PEAR);
                 output.accept(GRAPES);
                 output.accept(PEACH);
-                //output.accept(DRAGON_FRUIT);
+                output.accept(DRAGON_FRUIT);
                 output.accept(POMEGRANATE);
                 output.accept(POMEGRANATE_SLICE);
 
