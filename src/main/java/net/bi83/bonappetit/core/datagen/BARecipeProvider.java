@@ -23,7 +23,9 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
     protected void buildRecipes(RecipeOutput recipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PIE_CRUST.get(), 2).pattern("# #").pattern(" # ")
                 .define('#', WHEAT).unlockedBy("has_wheat", has(WHEAT)).save(recipeOutput);
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GLASS_PITCHER.get(), 4).pattern("# #").pattern("# #").pattern(" # ")
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GLASS_PITCHER.get(), 5).pattern("# #").pattern("# #").pattern(" # ")
+                .define('#', GLASS).unlockedBy("has_glass", has(GLASS)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GLASS_COCKTAIL.get(), 6).pattern("# #").pattern(" # ").pattern("###")
                 .define('#', GLASS).unlockedBy("has_glass", has(GLASS)).save(recipeOutput);
 
 

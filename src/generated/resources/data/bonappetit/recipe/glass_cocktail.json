@@ -8,11 +8,11 @@
   },
   "pattern": [
     "# #",
-    "# #",
-    " # "
+    " # ",
+    "###"
   ],
   "result": {
-    "count": 5,
-    "id": "bonappetit:glass_pitcher"
+    "count": 6,
+    "id": "bonappetit:glass_cocktail"
   }
 }

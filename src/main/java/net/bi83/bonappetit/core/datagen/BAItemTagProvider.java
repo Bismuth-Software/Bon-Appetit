@@ -121,7 +121,8 @@ public class BAItemTagProvider extends ItemTagsProvider {
                             .add(LEMONADE.get())
                             .add(LIMEADE.get())
                             .add(COFFEE.get())
-                            .add(PINK_LEMONADE.get());
+                            .add(PINK_LEMONADE.get())
+                            .add(PINK_LADY.get());
 
         this.tag(ItemTags.DYEABLE)
                                 .add(MACARON.get());

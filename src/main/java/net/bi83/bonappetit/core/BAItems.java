@@ -2,6 +2,7 @@ package net.bi83.bonappetit.core;
 
 import com.google.common.collect.ImmutableMap;
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.template.BACocktailDrinkItem;
 import net.bi83.bonappetit.core.template.BAPitcherDrinkItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -25,6 +26,7 @@ public class BAItems {
     public static final DeferredItem<Item> PAPER_PLATE = ITEMS.register("paper_plate", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> PIE_CRUST = ITEMS.register("pie_crust", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.4f).build())));
     public static final DeferredItem<Item> GLASS_PITCHER = ITEMS.register("glass_pitcher", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> GLASS_COCKTAIL = ITEMS.register("glass_cocktail", () -> new Item(new Item.Properties()));
 
     /*|* Mod Foods *|*/
     public static final DeferredItem<Item> CHERRIES = ITEMS.register("cherries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3f).build())));
@@ -107,6 +109,9 @@ public class BAItems {
             .nutrition(4)
             .saturationModifier(0.225f).build())));
     public static final DeferredItem<Item> PINK_LEMONADE = ITEMS.register("pink_lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().alwaysEdible()
+            .nutrition(7)
+            .saturationModifier(0.6f).build())));
+    public static final DeferredItem<Item> PINK_LADY = ITEMS.register("pink_lady", () -> new BACocktailDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().alwaysEdible()
             .nutrition(7)
             .saturationModifier(0.6f).build())));
 

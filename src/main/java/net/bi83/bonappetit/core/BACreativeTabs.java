@@ -21,6 +21,7 @@ public class BACreativeTabs {
                 output.accept(PAPER_PLATE);
                 output.accept(PIE_CRUST);
                 output.accept(GLASS_PITCHER);
+                output.accept(GLASS_COCKTAIL);
 
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
@@ -67,6 +68,7 @@ public class BACreativeTabs {
                 output.accept(MERINGUE);
                 output.accept(MACARON);
                 output.accept(PINK_LEMONADE);
+                output.accept(PINK_LADY);
             }).build());
 
     public static void register(IEventBus eventBus) {
