@@ -40,6 +40,8 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(DRAGON_FRUIT.get());
         basicItem(POMEGRANATE.get());
         basicItem(POMEGRANATE_SLICE.get());
+        basicItem(COCONUT.get());
+        basicItem(COCONUT_SLICE.get());
 
         basicItem(STRAWBERRIES.get());
         basicItem(GOLDEN_STRAWBERRIES.get());

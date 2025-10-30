@@ -1,6 +1,7 @@
 package net.bi83.bonappetit.core.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.BATags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -41,6 +42,8 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
                 .add(POMEGRANATE_SLICE.get())
+                .add(COCONUT.get())
+                .add(COCONUT_SLICE.get())
                     .add(STRAWBERRIES.get())
                     .add(GOLDEN_STRAWBERRIES.get())
                     .add(WINGED_STRAWBERRY.get())
@@ -81,6 +84,8 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
                 .add(POMEGRANATE_SLICE.get())
+                .add(COCONUT.get())
+                .add(COCONUT_SLICE.get())
                     .add(STRAWBERRIES.get())
                     .add(GOLDEN_STRAWBERRIES.get())
                     .add(WINGED_STRAWBERRY.get())

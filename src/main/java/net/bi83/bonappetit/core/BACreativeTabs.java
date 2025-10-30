@@ -46,6 +46,8 @@ public class BACreativeTabs {
                 output.accept(DRAGON_FRUIT);
                 output.accept(POMEGRANATE);
                 output.accept(POMEGRANATE_SLICE);
+                output.accept(COCONUT);
+                output.accept(COCONUT_SLICE);
 
                 output.accept(STRAWBERRIES);
                 output.accept(GOLDEN_STRAWBERRIES);

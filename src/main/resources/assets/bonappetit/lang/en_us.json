@@ -33,6 +33,8 @@
   "item.bonappetit.dragon_fruit": "Dragon Fruit",
   "item.bonappetit.pomegranate": "Pomegranate",
   "item.bonappetit.pomegranate_slice": "Pomegranate Slice",
+  "item.bonappetit.coconut": "Coconut",
+  "item.bonappetit.coconut_slice": "Coconut Slice",
 
   "item.bonappetit.strawberries": "Strawberries",
   "item.bonappetit.golden_strawberries": "Golden Strawberries",
@@ -60,6 +62,8 @@
   "effect.bonappetit.hearttrickle": "Hearttrickle",
   "effect.bonappetit.reflection": "Reflection",
   "effect.bonappetit.concentrate": "Concentrate",
+  "effect.bonappetit.resonance": "Resonance",
+  "effect.bonappetit.dissonance": "Dissonance",
 
 
 

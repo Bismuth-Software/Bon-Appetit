@@ -9,6 +9,5 @@ public class BATags {
     public static class EntityTypes {
         public static final TagKey<EntityType<?>> RICOCHET_IMMUNE = createTag("ricochet_immune");
 
-        private static TagKey<EntityType<?>> createTag(String name) {return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace(name)); }
+        private static TagKey<EntityType<?>> createTag(String name) {return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace(name));}}
     }
-}
