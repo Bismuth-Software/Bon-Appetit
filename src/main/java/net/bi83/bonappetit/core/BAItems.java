@@ -61,6 +61,7 @@ public class BAItems {
     public static final DeferredItem<Item> LEMONADE = ITEMS.register("lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.45f).alwaysEdible()
                 .effect(() -> new MobEffectInstance(BAEffects.RESONANCE.get(), 600, 0, false, true), 1.0F).build())));
 
+    public static final DeferredItem<Item> LIME = ITEMS.register("lime", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
     public static final DeferredItem<Item> LIME_SLICE = ITEMS.register("lime_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.175f).build())));
     public static final DeferredItem<Item> LIMEADE = ITEMS.register("limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible()
                 .effect(() -> new MobEffectInstance(BAEffects.DISSONANCE.get(), 600, 0, false, true), 1.0F).build())));
