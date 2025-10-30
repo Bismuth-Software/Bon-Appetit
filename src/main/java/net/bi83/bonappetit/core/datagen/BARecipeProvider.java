@@ -41,11 +41,17 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ORANGE_SLICE.get(), 2).requires(ORANGE)
                 .unlockedBy("has_orange", has(ORANGE)).save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PUMPKIN_SLICE.get(), 9).requires(PUMPKIN)
+                .unlockedBy("has_pumpkin", has(PUMPKIN)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, LEMON_SLICE.get(), 2).requires(LEMON)
                 .unlockedBy("has_lemon", has(LEMON)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, LIME_SLICE.get(), 2).requires(LIME)
                 .unlockedBy("has_lime", has(LIME)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, MELON_SLICE, 9).requires(MELON)
+                .unlockedBy("has_melon", has(MELON)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, POMEGRANATE_SLICE.get(), 2).requires(POMEGRANATE)
                 .unlockedBy("has_pomegranate", has(POMEGRANATE)).save(recipeOutput);

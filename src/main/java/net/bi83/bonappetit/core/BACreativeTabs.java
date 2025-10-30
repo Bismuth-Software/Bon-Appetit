@@ -30,6 +30,7 @@ public class BACreativeTabs {
                 output.accept(GRAPEFRUIT_SLICE);
                 output.accept(ORANGE);
                 output.accept(ORANGE_SLICE);
+                output.accept(PUMPKIN_SLICE);
                 output.accept(MANGO);
                 output.accept(APRICOT);
                 output.accept(PINEAPPLE);

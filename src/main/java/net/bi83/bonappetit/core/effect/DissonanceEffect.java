@@ -23,7 +23,7 @@ import java.util.stream.Stream;
  * It also only gives you a small portion of the effect duration. The cloud lasts for 5 seconds at amplifier 0, and adds 2.5 seconds of lifespan for every amplifier
 \*/
 public class DissonanceEffect extends MobEffect implements Holder<MobEffect> {
-    public DissonanceEffect() {super(MobEffectCategory.NEUTRAL, 0xE8FED8);}
+    public DissonanceEffect(MobEffectCategory neutral, int i) {super(MobEffectCategory.NEUTRAL, 0xE8FED8);}
 
     @Override
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {

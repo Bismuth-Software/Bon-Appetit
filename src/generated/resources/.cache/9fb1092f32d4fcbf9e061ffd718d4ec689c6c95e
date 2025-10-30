@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-29T17:32:56.2090987	Recipes
+// 1.21.1	2025-10-30T17:02:16.1844915	Recipes
 75668a3a5e725f8dce29ba1687b03594fbb08a95 data/bonappetit/advancement/recipes/food/apple_slice.json
 ea2d1ecd62592ca300eda523f341503dc1215ad4 data/bonappetit/advancement/recipes/food/coconut_slice.json
 fed9087ef8c51de1fe6b9c01127cf4cc0624084d data/bonappetit/advancement/recipes/food/glass_cocktail.json
@@ -12,6 +12,7 @@ ba1c8e82fd31e182a76197416806937b9d74e43a data/bonappetit/advancement/recipes/foo
 7db3999fb418bae2ed4ee4107932c0002553d744 data/bonappetit/advancement/recipes/food/orange_slice.json
 445906660b18b69c513789b8b2106a6cee8f9838 data/bonappetit/advancement/recipes/food/pie_crust.json
 572f216187ab9d26e435598ecd40df81c8cf2049 data/bonappetit/advancement/recipes/food/pomegranate_slice.json
+1e30679fd3b847be603aeb60e9e26ad26010be91 data/bonappetit/advancement/recipes/food/pumpkin_slice.json
 5f2352f247c2aaaede851faa6f43bca0ca42a4dd data/bonappetit/advancement/recipes/food/winged_strawberry.json
 1989967d6e2f1da5bb296c729ac98e04ba5b4e95 data/bonappetit/recipe/apple_slice.json
 3096db180b0212c366b9762306616e7643b3d589 data/bonappetit/recipe/coconut_slice.json
@@ -26,4 +27,7 @@ ba76d10aa089336366feee347e324f1f23e0171c data/bonappetit/recipe/lime_slice.json
 00ebe81984f8f50850bd8c8ead58061568024ae6 data/bonappetit/recipe/orange_slice.json
 11bee6ed4371264bdfb97eb91a3ba55facf7576d data/bonappetit/recipe/pie_crust.json
 f127179c36a2005c8160ddbda53e500070da4f11 data/bonappetit/recipe/pomegranate_slice.json
+ab1fcdf0080384079012567ffcb03b91de154869 data/bonappetit/recipe/pumpkin_slice.json
 7cc47f3b4dbe954123707dc8d3d98de01d6449eb data/bonappetit/recipe/winged_strawberry.json
+228610d4e2a70c119982885719087abc61e00c29 data/minecraft/advancement/recipes/food/melon_slice.json
+aac6e2708ab0454aec724da83a190215007cda45 data/minecraft/recipe/melon_slice.json

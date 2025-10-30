@@ -3,6 +3,9 @@ package net.bi83.bonappetit;
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
 import net.bi83.bonappetit.core.event.ReflectionEvent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -29,6 +32,10 @@ public class BonAppetit {
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
+    }
+
+    public static ResourceLocation asResource(String path) {
+        return ResourceLocation.fromNamespaceAndPath(ID, path);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

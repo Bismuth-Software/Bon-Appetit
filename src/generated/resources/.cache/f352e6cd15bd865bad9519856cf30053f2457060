@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-29T17:32:56.2070173	Item Models: bonappetit
+// 1.21.1	2025-10-30T17:02:16.1834917	Item Models: bonappetit
 cfb8636dc9c45f518e21e9ac5e90393db726aa05 assets/bonappetit/models/item/apple_slice.json
 40dee4d856a70c0709ac913690fc72c751ee5dd5 assets/bonappetit/models/item/apricot.json
 aa023740ca93b0df0bf8e1046aadd96d814dba51 assets/bonappetit/models/item/black_raspberries.json
@@ -42,6 +42,7 @@ b39e21bdb97ceaadc00fd68dcddc48ba5b1341ec assets/bonappetit/models/item/pineapple
 0b9162aa47c47b581edfed573f657197665a72a5 assets/bonappetit/models/item/pink_lemonade.json
 1c0ef38323b0d3389f7f83950c3182dd66a9c4d3 assets/bonappetit/models/item/pomegranate.json
 3a6c51f2471e4bec99cef12a5c8ca8d36b136716 assets/bonappetit/models/item/pomegranate_slice.json
+e4e40881018e59d02ff8a65a365a8612349c3a8d assets/bonappetit/models/item/pumpkin_slice.json
 010089800fc997bf953b7fd4a132d5cc7c4f90d7 assets/bonappetit/models/item/raspberries.json
 45aaac85d59fad8605967bda85b8532b2b65f66c assets/bonappetit/models/item/salmonberries.json
 641169b810df31f312a016483902b936a2443ee6 assets/bonappetit/models/item/strawberries.json

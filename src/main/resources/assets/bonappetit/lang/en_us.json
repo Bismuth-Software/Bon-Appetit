@@ -17,6 +17,7 @@
   "item.bonappetit.grapefruit_slice": "Grapefruit Slice",
   "item.bonappetit.orange": "Orange",
   "item.bonappetit.orange_slice": "Orange Slice",
+  "item.bonappetit.pumpkin_slice": "Pumpkin Slice",
   "item.bonappetit.mango": "Mango",
   "item.bonappetit.apricot": "Apricot",
   "item.bonappetit.pineapple": "Pineapple",
@@ -60,10 +61,19 @@
   "item.bonappetit.pink_lady": "Pink Lady",
 
   "effect.bonappetit.hearttrickle": "Hearttrickle",
+  "effect.bonappetit.hearttrickle.description": "Temporary description!",
   "effect.bonappetit.reflection": "Reflection",
+  "effect.bonappetit.reflection.description": "Reflects any projectiles that make contact with the user; higher levels increase the chance.",
   "effect.bonappetit.concentrate": "Concentrate",
+  "effect.bonappetit.concentrate.description": "Temporary description!",
   "effect.bonappetit.resonance": "Resonance",
+  "effect.bonappetit.resonance.description": "Spawns a potion cloud with all your positive effects; higher levels increase the cloud duration and size.",
   "effect.bonappetit.dissonance": "Dissonance",
+  "effect.bonappetit.dissonance.description": "Spawns a potion cloud with all your negative effects; higher levels increase the cloud duration and size.",
+  "effect.bonappetit.rooted": "Rooted",
+  "effect.bonappetit.rooted.description": "Increases knockback resistance and armor for the user.",
+  "effect.bonappetit.caffeinated": "Caffeinated",
+  "effect.bonappetit.caffeinated.description": "Increases movement speed and mining speed.",
 
 
 

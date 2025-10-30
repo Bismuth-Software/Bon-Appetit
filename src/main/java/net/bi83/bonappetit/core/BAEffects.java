@@ -4,6 +4,9 @@ import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.effect.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -13,8 +16,16 @@ public class BAEffects {
     public static final DeferredHolder<MobEffect, HearttrickleEffect> HEARTTRICKLE = EFFECTS.register("hearttrickle", HearttrickleEffect::new);
     public static final DeferredHolder<MobEffect, ReflectionEffect> REFLECTION = EFFECTS.register("reflection", ReflectionEffect::new);
     public static final DeferredHolder<MobEffect, ConcentrationEffect> CONCENTRATION = EFFECTS.register("concentration", ConcentrationEffect::new);
-    public static final DeferredHolder<MobEffect, ResonanceEffect> RESONANCE = EFFECTS.register("resonance", ResonanceEffect::new);
-    public static final DeferredHolder<MobEffect, DissonanceEffect> DISSONANCE = EFFECTS.register("dissonance", DissonanceEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> RESONANCE = EFFECTS.register("resonance", () -> new ResonanceEffect(MobEffectCategory.NEUTRAL, 0xFCF5CA)
+            .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.resonance.armor"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
+    public static final DeferredHolder<MobEffect, MobEffect> DISSONANCE = EFFECTS.register("dissonance", () -> new DissonanceEffect(MobEffectCategory.NEUTRAL, 0xE8FED8)
+            .addAttributeModifier(Attributes.ATTACK_DAMAGE, BonAppetit.asResource("effect.dissonance.attack_damage"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
 
-    public static final DeferredHolder<MobEffect, CaffeinatedEffect> CAFFEINATED = EFFECTS.register("caffeinated", CaffeinatedEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> ROOTED = EFFECTS.register("rooted", () -> new RootedEffect(MobEffectCategory.BENEFICIAL, 0xA4272C)
+            .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, BonAppetit.asResource("effect.rooted.knockback_resistance"), 2F, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.rooted.armor"), 1.5F, AttributeModifier.Operation.ADD_VALUE));
+
+    public static final DeferredHolder<MobEffect, MobEffect> CAFFEINATED = EFFECTS.register("caffeinated", () -> new CaffeinatedEffect(MobEffectCategory.BENEFICIAL, 0x270D0A)
+            .addAttributeModifier(Attributes.ATTACK_SPEED, BonAppetit.asResource("effect.caffeinated.attack_speed"), 0.2F, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, BonAppetit.asResource("effect.caffeinated.block_break_speed"), -0.2F, AttributeModifier.Operation.ADD_VALUE));
 }
