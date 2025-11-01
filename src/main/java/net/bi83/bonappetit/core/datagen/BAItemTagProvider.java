@@ -1,7 +1,6 @@
 package net.bi83.bonappetit.core.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.core.BATags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -55,14 +54,17 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(MULBERRIES.get())
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
-                        .add(GREEN_TEA_LEAVES.get())
-                        .add(YELLOW_TEA_LEAVES.get())
-                        .add(BLACK_TEA_LEAVES.get())
-                        .add(COFFEE_BERRIES.get())
-                        .add(COFFEE_BEANS.get())
-                            .add(PIE_CRUST.get())
-                            .add(MERINGUE.get())
-                            .add(MACARON.get());
+                        .add(CORN.get())
+                        .add(CORN_ON_A_COB.get())
+                        .add(POPCORN.get())
+                            .add(GREEN_TEA_LEAVES.get())
+                            .add(YELLOW_TEA_LEAVES.get())
+                            .add(BLACK_TEA_LEAVES.get())
+                            .add(COFFEE_BERRIES.get())
+                            .add(COFFEE_BEANS.get())
+                                .add(PIE_CRUST.get())
+                                .add(MERINGUE.get())
+                                .add(MACARON.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
                 .add(CHERRIES.get())
@@ -109,11 +111,14 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(MULBERRIES.get())
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
-                        .add(COFFEE_BERRIES.get());
+                            .add(COFFEE_BERRIES.get());
+        this.tag(Tags.Items.FOODS_VEGETABLE)
+                        .add(CORN.get())
+                        .add(CORN_ON_A_COB.get());
         this.tag(Tags.Items.FOODS_CANDY)
-                                .add(MERINGUE.get());
+                                    .add(MERINGUE.get());
         this.tag(Tags.Items.FOODS_COOKIE)
-                                .add(MACARON.get());
+                                    .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)
                     .add(STRAWBERRIES.get())
                     .add(GOLDEN_STRAWBERRIES.get())
@@ -123,15 +128,15 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(MULBERRIES.get())
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
-                        .add(COFFEE_BERRIES.get());
+                            .add(COFFEE_BERRIES.get());
         this.tag(Tags.Items.DRINKS)
-                            .add(LEMONADE.get())
-                            .add(LIMEADE.get())
-                            .add(COFFEE.get())
-                            .add(PINK_LEMONADE.get())
-                            .add(PINK_LADY.get());
+                                .add(LEMONADE.get())
+                                .add(LIMEADE.get())
+                                .add(COFFEE.get())
+                                .add(PINK_LEMONADE.get())
+                                .add(PINK_LADY.get());
 
         this.tag(ItemTags.DYEABLE)
-                                .add(MACARON.get());
+                                    .add(MACARON.get());
     }
 }

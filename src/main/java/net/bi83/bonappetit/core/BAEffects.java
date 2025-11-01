@@ -27,5 +27,6 @@ public class BAEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> CAFFEINATED = EFFECTS.register("caffeinated", () -> new CaffeinatedEffect(MobEffectCategory.BENEFICIAL, 0x270D0A)
             .addAttributeModifier(Attributes.ATTACK_SPEED, BonAppetit.asResource("effect.caffeinated.attack_speed"), 0.2F, AttributeModifier.Operation.ADD_VALUE)
-            .addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, BonAppetit.asResource("effect.caffeinated.block_break_speed"), -0.2F, AttributeModifier.Operation.ADD_VALUE));
+            .addAttributeModifier(Attributes.MOVEMENT_EFFICIENCY, BonAppetit.asResource("effect.caffeinated.movement_speed"), 0.65F, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.BLOCK_BREAK_SPEED, BonAppetit.asResource("effect.caffeinated.block_break_speed"), 0.2F, AttributeModifier.Operation.ADD_VALUE));
 }

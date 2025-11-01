@@ -1,0 +1,6 @@
+{
+  "parent": "bonappetit:block/crop_cross",
+  "textures": {
+    "cross": "bonappetit:block/corn_bottom_1"
+  }
+}

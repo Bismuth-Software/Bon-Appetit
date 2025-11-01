@@ -29,7 +29,7 @@ public class DissonanceEffect extends MobEffect implements Holder<MobEffect> {
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {
         Level level = entity.level();
         if (level.isClientSide) return true;
-        float radius = 2.0f + amplifier;
+        float radius = 3.0f + amplifier;
 
         boolean hasOtherHarmful = false;
         for (MobEffectInstance instance : entity.getActiveEffects()) {

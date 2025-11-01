@@ -48,6 +48,12 @@
   "item.bonappetit.raspberries": "Raspberries",
   "item.bonappetit.black_raspberries": "Black Raspberries",
 
+  "block.bonappetit.corn_block": "Corn",
+  "item.bonappetit.corn": "Corn",
+  "item.bonappetit.corn_on_a_cob": "Corn on a Cob",
+  "item.bonappetit.corn_kernels": "Corn Kernels",
+  "item.bonappetit.popcorn": "Popcorn",
+
   "item.bonappetit.green_tea_leaves": "Green Tea Leaves",
   "item.bonappetit.yellow_tea_leaves": "Yellow Tea Leaves",
   "item.bonappetit.black_tea_leaves": "Black Tea Leaves",
@@ -73,7 +79,7 @@
   "effect.bonappetit.rooted": "Rooted",
   "effect.bonappetit.rooted.description": "Increases knockback resistance and armor for the user.",
   "effect.bonappetit.caffeinated": "Caffeinated",
-  "effect.bonappetit.caffeinated.description": "Increases movement speed and mining speed.",
+  "effect.bonappetit.caffeinated.description": "Increases attack speed and mining speed, and reduces the slowdown from blocks like Soul Sand.",
 
 
 

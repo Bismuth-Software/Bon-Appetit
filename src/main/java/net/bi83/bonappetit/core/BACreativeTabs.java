@@ -61,6 +61,11 @@ public class BACreativeTabs {
                 output.accept(RASPBERRIES);
                 output.accept(BLACK_RASPBERRIES);
 
+                output.accept(CORN);
+                output.accept(CORN_ON_A_COB);
+                output.accept(CORN_KERNELS);
+                output.accept(POPCORN);
+
                 output.accept(GREEN_TEA_LEAVES);
                 output.accept(YELLOW_TEA_LEAVES);
                 output.accept(BLACK_TEA_LEAVES);
