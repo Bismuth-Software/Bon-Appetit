@@ -5,7 +5,7 @@ import net.bi83.bonappetit.core.BABlocks;
 import net.bi83.bonappetit.core.BACreativeTabs;
 import net.bi83.bonappetit.core.BAEffects;
 import net.bi83.bonappetit.core.BAItems;
-import net.bi83.bonappetit.core.event.ReflectionEvent;
+import net.bi83.bonappetit.core.common.event.ReflectionEvent;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;

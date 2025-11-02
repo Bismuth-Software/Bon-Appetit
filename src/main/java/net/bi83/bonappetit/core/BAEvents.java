@@ -1,8 +1,8 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.core.entity.goal.BeeMoveToFruitBushGoal;
-import net.bi83.bonappetit.core.entity.goal.BeePollinateFruitGoal;
+import net.bi83.bonappetit.core.content.entity.goal.BeeMoveToFruitBushGoal;
+import net.bi83.bonappetit.core.content.entity.goal.BeePollinateFruitGoal;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -81,6 +82,15 @@ public class BAEvents {
             }
         }
     }*/
+
+    public static float getBoatFriction(Boat boat, float v) {
+        for (var passenger : boat.getPassengers()) {
+            if (passenger instanceof LivingEntity entity && entity.hasEffect(BAEffects.SLIPPING)) {
+                return Math.max(0.98f, v);
+            }
+        }
+        return v;
+    }
 
     @SubscribeEvent
     public static void onBeeJoin(EntityJoinLevelEvent join) {

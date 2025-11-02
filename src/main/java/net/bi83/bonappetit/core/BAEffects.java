@@ -1,7 +1,7 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.core.effect.*;
+import net.bi83.bonappetit.core.content.effect.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -16,6 +16,8 @@ public class BAEffects {
     public static final DeferredHolder<MobEffect, HearttrickleEffect> HEARTTRICKLE = EFFECTS.register("hearttrickle", HearttrickleEffect::new);
     public static final DeferredHolder<MobEffect, ReflectionEffect> REFLECTION = EFFECTS.register("reflection", ReflectionEffect::new);
     public static final DeferredHolder<MobEffect, ConcentrationEffect> CONCENTRATION = EFFECTS.register("concentration", ConcentrationEffect::new);
+    public static final DeferredHolder<MobEffect, MobEffect> SLIPPING = EFFECTS.register("slipping", () -> new SlippingEffect(MobEffectCategory.NEUTRAL, 0xFCF5CA)
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, BonAppetit.asResource("effect.slipping.movement_speed"), 0.125F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> RESONANCE = EFFECTS.register("resonance", () -> new ResonanceEffect(MobEffectCategory.NEUTRAL, 0xFCF5CA)
             .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.resonance.armor"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> DISSONANCE = EFFECTS.register("dissonance", () -> new DissonanceEffect(MobEffectCategory.NEUTRAL, 0xE8FED8)

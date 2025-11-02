@@ -1,17 +1,14 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.core.block.CornCropBlock;
-import net.bi83.bonappetit.core.block.CornCropBlockTop;
+import net.bi83.bonappetit.core.content.block.CornCropBlock;
+import net.bi83.bonappetit.core.content.block.CornCropBlockTop;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
