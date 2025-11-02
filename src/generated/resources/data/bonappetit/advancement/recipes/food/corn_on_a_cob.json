@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_sugar": {
+    "has_corn": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:sugar"
+            "items": "bonappetit:corn"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bonappetit:meringue"
+        "recipe": "bonappetit:corn_on_a_cob"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_sugar"
+      "has_corn"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bonappetit:meringue"
+      "bonappetit:corn_on_a_cob"
     ]
   }
 }

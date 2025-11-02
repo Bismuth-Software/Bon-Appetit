@@ -68,13 +68,9 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
                 .unlockedBy("has_corn", has(CORN)).save(recipeOutput);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CORN_ON_A_COB.get(), 1).requires(STICK).requires(CORN)
                 .unlockedBy("has_corn", has(CORN)).save(recipeOutput);
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 200);
-        SimpleCookingRecipeBuilder.smoking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 100);
-        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 600);
-
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, MERINGUE.get(), 2).requires(EGG).requires(SUGAR)
-                .unlockedBy("has_sugar", has(SUGAR)).save(recipeOutput);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 200).unlockedBy("has_corn", has(CORN)).save(recipeOutput);
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 100).unlockedBy("has_corn", has(CORN)).save(recipeOutput, "bonappetit:popcorn_from_smoking");
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 600).unlockedBy("has_corn", has(CORN)).save(recipeOutput, "bonappetit:popcorn_from_campfire_cooking");
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

@@ -85,7 +85,7 @@ public class BAEvents {
 
     public static float getBoatFriction(Boat boat, float v) {
         for (var passenger : boat.getPassengers()) {
-            if (passenger instanceof LivingEntity entity && entity.hasEffect(BAEffects.SLIPPING)) {
+            if (passenger instanceof LivingEntity entity && entity.hasEffect(BAEffects.AGILITY)) {
                 return Math.max(0.98f, v);
             }
         }

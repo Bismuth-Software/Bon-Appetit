@@ -19,28 +19,74 @@ public class BAItemModelProvider extends ItemModelProvider {
 
         basicItem(CHERRIES.get());
         basicItem(GOLDEN_CHERRIES.get());
+        
         basicItem(APPLE_SLICE.get());
+        basicItem(GREEN_APPLE.get());
+        basicItem(HONEY_APPLE.get());
+        basicItem(CARAMEL_APPLE.get());
+        basicItem(CANDY_APPLE.get());
+        basicItem(APPLE_PIE.get());
+        basicItem(APPLE_PIE_SLICE.get());
+        basicItem(APPLE_CAKE_SLICE.get());
+        basicItem(APPLE_JUICE.get());
+        basicItem(APPLE_CIDER.get());
+        basicItem(APPLEJACK.get());
+        
         basicItem(GRAPEFRUIT.get());
         basicItem(GRAPEFRUIT_SLICE.get());
+        
         basicItem(ORANGE.get());
         basicItem(ORANGE_SLICE.get());
+        basicItem(CANDIED_ORANGE_PEELS.get());
+        basicItem(ORANGE_CAKE_SLICE.get());
+        basicItem(ORANGE_SORBET.get());
+        basicItem(ORANGE_SHERBET.get());
+        basicItem(ORANGE_PUDDING.get());
+        basicItem(ORANGE_JUICE.get());
+        
         basicItem(PUMPKIN_SLICE.get());
+        
         basicItem(MANGO.get());
+        
         basicItem(APRICOT.get());
+        
         basicItem(PINEAPPLE.get());
+
+        basicItem(BANANA.get());
+        basicItem(DRIED_BANANA.get());
+        basicItem(BANANA_BREAD.get());
+        basicItem(BANANA_CAKE_SLICE.get());
+        basicItem(BANANA_SMOOTHIE.get());
+
         basicItem(LEMON.get());
         basicItem(LEMON_SLICE.get());
+        basicItem(LEMON_TART.get());
+        basicItem(LEMON_MERINGUE_PIE.get());
+        basicItem(LEMON_MERINGUE_PIE_SLICE.get());
+        basicItem(LEMON_CAKE_SLICE.get());
         basicItem(LEMONADE.get());
+
         basicItem(LIME.get());
         basicItem(LIME_SLICE.get());
+        basicItem(LIME_COOKIE.get());
+        basicItem(LIME_POPSICLE.get());
+        basicItem(DOUBLE_LIME_POPSICLE.get());
+        basicItem(LIME_CAKE_SLICE.get());
         basicItem(LIMEADE.get());
+        
         basicItem(KIWI.get());
+        
         basicItem(PEAR.get());
+        
         basicItem(GRAPES.get());
+        
         basicItem(PEACH.get());
+        
         basicItem(DRAGON_FRUIT.get());
+        
         basicItem(POMEGRANATE.get());
         basicItem(POMEGRANATE_SLICE.get());
+        
         basicItem(COCONUT.get());
         basicItem(COCONUT_SLICE.get());
 
@@ -48,10 +94,15 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(GOLDEN_STRAWBERRIES.get());
         basicItem(WINGED_STRAWBERRY.get());
         basicItem(WINGED_GOLDEN_STRAWBERRY.get());
+        
         basicItem(CRANBERRIES.get());
+        
         basicItem(SALMONBERRIES.get());
+        
         basicItem(BLUEBERRIES.get());
+        
         basicItem(MULBERRIES.get());
+        
         basicItem(RASPBERRIES.get());
         basicItem(BLACK_RASPBERRIES.get());
 
@@ -63,13 +114,16 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(GREEN_TEA_LEAVES.get());
         basicItem(YELLOW_TEA_LEAVES.get());
         basicItem(BLACK_TEA_LEAVES.get());
+        
         basicItem(COFFEE_BERRIES.get());
         basicItem(COFFEE_BEANS.get());
         basicItem(COFFEE.get());
 
-        basicItem(MERINGUE.get());
         basicItem(MACARON.get());
+        basicItem(AMBROSIA_SALAD.get());
+        basicItem(STRAWBERRY_BANANA_SMOOTHIE.get());
         basicItem(PINK_LEMONADE.get());
         basicItem(PINK_LADY.get());
+        basicItem(BERRY_LIMEADE.get());
     }
 }

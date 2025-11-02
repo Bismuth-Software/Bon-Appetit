@@ -63,7 +63,6 @@ public class BAItemTagProvider extends ItemTagsProvider {
                             .add(COFFEE_BERRIES.get())
                             .add(COFFEE_BEANS.get())
                                 .add(PIE_CRUST.get())
-                                .add(MERINGUE.get())
                                 .add(MACARON.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
@@ -115,8 +114,6 @@ public class BAItemTagProvider extends ItemTagsProvider {
         this.tag(Tags.Items.FOODS_VEGETABLE)
                         .add(CORN.get())
                         .add(CORN_ON_A_COB.get());
-        this.tag(Tags.Items.FOODS_CANDY)
-                                    .add(MERINGUE.get());
         this.tag(Tags.Items.FOODS_COOKIE)
                                     .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)

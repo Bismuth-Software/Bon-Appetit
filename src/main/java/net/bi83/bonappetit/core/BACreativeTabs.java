@@ -25,28 +25,74 @@ public class BACreativeTabs {
 
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
+
                 output.accept(APPLE_SLICE);
+                output.accept(GREEN_APPLE);
+                output.accept(HONEY_APPLE);
+                output.accept(CARAMEL_APPLE);
+                output.accept(CANDY_APPLE);
+                output.accept(APPLE_PIE);
+                output.accept(APPLE_PIE_SLICE);
+                output.accept(APPLE_CAKE_SLICE);
+                output.accept(APPLE_JUICE);
+                output.accept(APPLE_CIDER);
+                output.accept(APPLEJACK);
+
                 output.accept(GRAPEFRUIT);
                 output.accept(GRAPEFRUIT_SLICE);
+
                 output.accept(ORANGE);
                 output.accept(ORANGE_SLICE);
+                output.accept(CANDIED_ORANGE_PEELS);
+                output.accept(ORANGE_CAKE_SLICE);
+                output.accept(ORANGE_SORBET);
+                output.accept(ORANGE_SHERBET);
+                output.accept(ORANGE_PUDDING);
+                output.accept(ORANGE_JUICE);
+
                 output.accept(PUMPKIN_SLICE);
+
                 output.accept(MANGO);
+
                 output.accept(APRICOT);
+
                 output.accept(PINEAPPLE);
+
+                output.accept(BANANA);
+                output.accept(DRIED_BANANA);
+                output.accept(BANANA_BREAD);
+                output.accept(BANANA_CAKE_SLICE);
+                output.accept(BANANA_SMOOTHIE);
+
                 output.accept(LEMON);
                 output.accept(LEMON_SLICE);
+                output.accept(LEMON_TART);
+                output.accept(LEMON_MERINGUE_PIE);
+                output.accept(LEMON_MERINGUE_PIE_SLICE);
+                output.accept(LEMON_CAKE_SLICE);
                 output.accept(LEMONADE);
+
                 output.accept(LIME);
                 output.accept(LIME_SLICE);
+                output.accept(LIME_COOKIE);
+                output.accept(LIME_POPSICLE);
+                output.accept(DOUBLE_LIME_POPSICLE);
+                output.accept(LIME_CAKE_SLICE);
                 output.accept(LIMEADE);
+
                 output.accept(KIWI);
+
                 output.accept(PEAR);
+
                 output.accept(GRAPES);
+
                 output.accept(PEACH);
+
                 output.accept(DRAGON_FRUIT);
+
                 output.accept(POMEGRANATE);
                 output.accept(POMEGRANATE_SLICE);
+
                 output.accept(COCONUT);
                 output.accept(COCONUT_SLICE);
 
@@ -54,10 +100,15 @@ public class BACreativeTabs {
                 output.accept(GOLDEN_STRAWBERRIES);
                 output.accept(WINGED_STRAWBERRY);
                 output.accept(WINGED_GOLDEN_STRAWBERRY);
+
                 output.accept(CRANBERRIES);
+
                 output.accept(SALMONBERRIES);
+
                 output.accept(BLUEBERRIES);
+
                 output.accept(MULBERRIES);
+
                 output.accept(RASPBERRIES);
                 output.accept(BLACK_RASPBERRIES);
 
@@ -69,14 +120,17 @@ public class BACreativeTabs {
                 output.accept(GREEN_TEA_LEAVES);
                 output.accept(YELLOW_TEA_LEAVES);
                 output.accept(BLACK_TEA_LEAVES);
+
                 output.accept(COFFEE_BERRIES);
                 output.accept(COFFEE_BEANS);
                 output.accept(COFFEE);
 
-                output.accept(MERINGUE);
                 output.accept(MACARON);
+                output.accept(AMBROSIA_SALAD);
+                output.accept(STRAWBERRY_BANANA_SMOOTHIE);
                 output.accept(PINK_LEMONADE);
                 output.accept(PINK_LADY);
+                output.accept(BERRY_LIMEADE);
             }).build());
 
     public static void register(IEventBus eventBus) {
