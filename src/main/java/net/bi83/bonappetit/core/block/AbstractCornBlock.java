@@ -30,18 +30,21 @@ public abstract class AbstractCornBlock extends CropBlock {
         return !this.isMaxAge(state);
     }
 
-    /*public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (PlatHelper.isAreaLoaded(level, pos, 1)) {
+    public static boolean isAreaLoaded(LevelReader level, BlockPos pos, int maxRange) {return true;}
+    public static boolean fireOnPreGrowCrops(ServerLevel level, BlockPos pos, BlockState state, boolean bool) {return true;}
+    public static void fireOnPostGrowCrops(ServerLevel level, BlockPos pos, BlockState state) {}
+    public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (isAreaLoaded(level, pos, 1)) {
             if (level.getRawBrightness(pos, 0) >= 9 && (double)level.random.nextFloat() < 0.6 && this.isValidBonemealTarget(level, pos, state)) {
-                float f = HHPlatformStuff.getGrowthSpeed(state, level, pos);
-                if (ForgeHelper.fireOnCropsGrowPre(level, pos, state, random.nextInt((int)(30.0F / f) + 1) == 0)) {
+                float f = getGrowthSpeed(state, level, pos);
+                if (fireOnPreGrowCrops(level, pos, state, random.nextInt((int)(50.0F / f) + 1) == 0)) {
                     this.growCropBy(level, pos, state, 1);
-                    ForgeHelper.fireOnCropsGrowPost(level, pos, state);
+                    fireOnPostGrowCrops(level, pos, state);
                 }
             }
 
         }
-    }*/
+    }
 
     public void growCropBy(Level level, BlockPos pos, BlockState state, int increment) {
         if (increment > 0) {

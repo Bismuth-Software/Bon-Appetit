@@ -5,14 +5,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class CornCobItem extends Item {
-    private static final double KERNEL_CHANCE = 0.65;
+public class CornItem extends Item {
+    private static final double KERNEL_CHANCE = 0.75;
 
-    public CornCobItem(Properties properties) {
+    public CornItem(Properties properties) {
         super(properties);
     }
 
@@ -29,22 +28,8 @@ public class CornCobItem extends Item {
                     }
                 }
             }
-            super.finishUsingItem(stack, world, entityLiving);
-            if (stack.isEmpty()) {
-                return new ItemStack(Items.STICK);
-            } else {
-                if (entityLiving instanceof Player) {
-                    if (!player.hasInfiniteMaterials()) {
-                        ItemStack itemstack = new ItemStack(Items.STICK);
-                        if (!player.getInventory().add(itemstack)) {
-                            player.drop(itemstack, false);
-                        }
-                    }
-                }
-                return stack;
-            }
+            return super.finishUsingItem(stack, world, entityLiving);
         }
         return stack;
     }
 }
-

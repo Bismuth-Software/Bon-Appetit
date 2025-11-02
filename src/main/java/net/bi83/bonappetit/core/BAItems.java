@@ -3,6 +3,8 @@ package net.bi83.bonappetit.core;
 import com.google.common.collect.ImmutableMap;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.item.CornCobItem;
+import net.bi83.bonappetit.core.item.CornItem;
+import net.bi83.bonappetit.core.item.PopcornItem;
 import net.bi83.bonappetit.core.template.BACocktailDrinkItem;
 import net.bi83.bonappetit.core.template.BAPitcherDrinkItem;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -102,10 +104,10 @@ public class BAItems {
     public static final DeferredItem<Item> BLACK_RASPBERRIES = ITEMS.register("black_raspberries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.1f).build())));
 
 
-    public static final DeferredItem<Item> CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
+    public static final DeferredItem<Item> CORN = ITEMS.register("corn", () -> new CornItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
     public static final DeferredItem<Item> CORN_ON_A_COB = ITEMS.register("corn_on_a_cob", () -> new CornCobItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.2f).build())));
     public static final DeferredItem<BlockItem> CORN_KERNELS = ITEMS.register("corn_kernels", () -> new ItemNameBlockItem(BABlocks.CORN_BASE.get(), new Item.Properties()));
-    public static final DeferredItem<Item> POPCORN = ITEMS.register("popcorn", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().fast().nutrition(2).saturationModifier(0.1f).build())));
+    public static final DeferredItem<Item> POPCORN = ITEMS.register("popcorn", () -> new PopcornItem(new Item.Properties().food(new FoodProperties.Builder().fast().nutrition(2).saturationModifier(0.1f).build())));
 
 
     public static final DeferredItem<Item> GREEN_TEA_LEAVES = ITEMS.register("green_tea_leaves", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));

@@ -36,7 +36,7 @@ public class ReflectionEvent {
 
             if (reflectionInstance != null && victim.level() instanceof ServerLevel server) {
                 float chance = Math.min(0.4f + 0.35f * reflectionInstance.getAmplifier(), 1.0f); float roll = server.random.nextFloat();
-                if (roll >= chance) return; //
+                if (roll >= chance) return;
 
                 Vec3 motion = impact.getProjectile().getDeltaMovement();
                 Vec3 newMotion = new Vec3(-motion.x, -motion.y, -motion.z).add(0, -0.03, 0);
