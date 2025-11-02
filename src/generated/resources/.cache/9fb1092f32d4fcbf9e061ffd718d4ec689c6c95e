@@ -1,6 +1,7 @@
-// 1.21.1	2025-10-30T17:02:16.1844915	Recipes
+// 1.21.1	2025-11-02T00:44:58.5916359	Recipes
 75668a3a5e725f8dce29ba1687b03594fbb08a95 data/bonappetit/advancement/recipes/food/apple_slice.json
 ea2d1ecd62592ca300eda523f341503dc1215ad4 data/bonappetit/advancement/recipes/food/coconut_slice.json
+d01f944761ad05bd8a95399a40a33696eaa178d7 data/bonappetit/advancement/recipes/food/corn_kernels.json
 fed9087ef8c51de1fe6b9c01127cf4cc0624084d data/bonappetit/advancement/recipes/food/glass_cocktail.json
 3090f543ef9457f385f293d835e9ecef28d7324b data/bonappetit/advancement/recipes/food/glass_pitcher.json
 a551ef7317971e9c8220c2f4e72c66fbbfabcf18 data/bonappetit/advancement/recipes/food/golden_cherries.json
@@ -16,6 +17,7 @@ ba1c8e82fd31e182a76197416806937b9d74e43a data/bonappetit/advancement/recipes/foo
 5f2352f247c2aaaede851faa6f43bca0ca42a4dd data/bonappetit/advancement/recipes/food/winged_strawberry.json
 1989967d6e2f1da5bb296c729ac98e04ba5b4e95 data/bonappetit/recipe/apple_slice.json
 3096db180b0212c366b9762306616e7643b3d589 data/bonappetit/recipe/coconut_slice.json
+94d73a33191f3b5c2b478ddfd2719a3a65f784e5 data/bonappetit/recipe/corn_kernels.json
 39a0d3e9343d2f5e9d541ca933f67a064cba29ae data/bonappetit/recipe/glass_cocktail.json
 d6dca6b36815147b9493b53768149f044f657423 data/bonappetit/recipe/glass_pitcher.json
 743286e6be5108a0a7dffc3d62541917ad910103 data/bonappetit/recipe/golden_cherries.json
