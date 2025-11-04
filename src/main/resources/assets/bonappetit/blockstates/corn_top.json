@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bonappetit:block/corn_top_2"
+    },
+    "age=1": {
+      "model": "bonappetit:block/corn_top_3"
+    }
+  }
+}

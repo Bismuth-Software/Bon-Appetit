@@ -1,5 +1,6 @@
 {
   "parent": "bonappetit:block/crop_cross",
+  "render_type": "minecraft:cutout",
   "textures": {
     "cross": "bonappetit:block/corn_top_2"
   }

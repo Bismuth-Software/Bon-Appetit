@@ -23,7 +23,7 @@ public abstract class AbstractCornBlock extends CropBlock {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{this.getAgeProperty()});
+        builder.add(this.getAgeProperty());
     }
 
     public boolean isRandomlyTicking(BlockState state) {
@@ -37,7 +37,7 @@ public abstract class AbstractCornBlock extends CropBlock {
         if (isAreaLoaded(level, pos, 1)) {
             if (level.getRawBrightness(pos, 0) >= 9 && (double)level.random.nextFloat() < 0.6 && this.isValidBonemealTarget(level, pos, state)) {
                 float f = getGrowthSpeed(state, level, pos);
-                if (fireOnPreGrowCrops(level, pos, state, random.nextInt((int)(50.0F / f) + 1) == 0)) {
+                if (fireOnPreGrowCrops(level, pos, state, random.nextInt((int)(40.0F / f) + 1) == 0)) {
                     this.growCropBy(level, pos, state, 1);
                     fireOnPostGrowCrops(level, pos, state);
                 }
@@ -111,7 +111,7 @@ public abstract class AbstractCornBlock extends CropBlock {
     }
 
     protected int getBonemealAgeIncrease(Level level) {
-        return super.getBonemealAgeIncrease(level) / 3;
+        return super.getBonemealAgeIncrease(level) / 2;
     }
 
     protected abstract @Nullable Block getTopBlock();
@@ -142,7 +142,7 @@ public abstract class AbstractCornBlock extends CropBlock {
     public static boolean spawn(BlockPos pos, LevelAccessor level, int age) {
         if (level.getBlockState(pos).isAir()) {
             boolean top = false;
-            if (age > 1) {
+            if (age > 2) {
                 if (!level.getBlockState(pos.above()).isAir()) {
                     return false;
                 }
@@ -158,7 +158,7 @@ public abstract class AbstractCornBlock extends CropBlock {
                     level.setBlock(above, (BlockState) ((Block) BABlocks.CORN_TOP.get()).defaultBlockState().setValue(CornCropBlockTop.AGE, Math.min(age - 5, 1)), 2);
                 }
 
-                level.setBlock(pos, (BlockState) ((Block) BABlocks.CORN_BASE.get()).defaultBlockState().setValue(CornCropBlock.AGE, Math.min(age, 2)), 2);
+                level.setBlock(pos, (BlockState) ((Block) BABlocks.CORN_BASE.get()).defaultBlockState().setValue(CornCropBlock.AGE, Math.min(age, 3)), 2);
                 if (top && level.getBlockState(pos).isAir()) {
                     boolean var6 = true;
                 }

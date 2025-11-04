@@ -17,7 +17,7 @@ public class BAEffects {
     public static final DeferredHolder<MobEffect, ReflectionEffect> REFLECTION = EFFECTS.register("reflection", ReflectionEffect::new);
     public static final DeferredHolder<MobEffect, ConcentrationEffect> CONCENTRATION = EFFECTS.register("concentration", ConcentrationEffect::new);
     public static final DeferredHolder<MobEffect, MobEffect> AGILITY = EFFECTS.register("agility", () -> new AgilityEffect(MobEffectCategory.NEUTRAL, 0xFCF5CA)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, BonAppetit.asResource("effect.agility.movement_speed"), 0.125F, AttributeModifier.Operation.ADD_VALUE));
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, BonAppetit.asResource("effect.agility.movement_speed"), 0.025F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> RESONANCE = EFFECTS.register("resonance", () -> new ResonanceEffect(MobEffectCategory.NEUTRAL, 0xFCF5CA)
             .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.resonance.armor"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> DISSONANCE = EFFECTS.register("dissonance", () -> new DissonanceEffect(MobEffectCategory.NEUTRAL, 0xE8FED8)

@@ -12,8 +12,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CornCropBlock extends AbstractCornBlock {
-    public static final int MAX_AGE = 2;
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 2);
+    public static final int MAX_AGE = 3;
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{Block.box(6.0F, 0.0F, 6.0F, 10.0F, 4.0F, 10.0F), Block.box(5.0F, 0.0F, 5.0F, 11.0F, 8.0F, 11.0F), Block.box(3.0F, 0.0F, 3.0F, 13.0F, 12.0F, 13.0F), Block.box(1.0F, 0.0F, 1.0F, 15.0F, 16.0F, 15.0F)};
 
     public CornCropBlock(BlockBehaviour.Properties properties) {super(properties);}
