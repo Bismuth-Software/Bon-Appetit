@@ -1,4 +1,4 @@
-// 1.21.1	2025-11-02T15:28:15.2843566	Item Models: bonappetit
+// 1.21.1	2025-11-07T15:48:01.6696346	Item Models: bonappetit
 5953bac818e0925ab2b3cb45857599a494346edf assets/bonappetit/models/item/ambrosia_salad.json
 266dcda34367858bd4b0259218d0cae14ceecf89 assets/bonappetit/models/item/applejack.json
 7d6c0786636808d4c79d6c4d4fce64126b309b14 assets/bonappetit/models/item/apple_cake_slice.json
@@ -20,6 +20,7 @@ d4889c0329d0e24d6e8613fa3f762fe5c37c8e44 assets/bonappetit/models/item/candied_o
 3d05da8b7ba1cef0df702baabc4bc34d67b76cb3 assets/bonappetit/models/item/candy_apple.json
 117a20e68aff37f5a31d3764fc7865a00ecf3118 assets/bonappetit/models/item/caramel_apple.json
 a6e280a10ccc4a670158adbbf17999fb213aac63 assets/bonappetit/models/item/cherries.json
+ab50e12c28b11c26e19bda53afbb5fccbbb1a50c assets/bonappetit/models/item/cinnamon.json
 eb0ccdfb955010f53d934f3ef027f28119968a27 assets/bonappetit/models/item/coconut.json
 a722361cbe7dd199d35d7378a06e4e5a5679d09b assets/bonappetit/models/item/coconut_slice.json
 0d7147ff054b06efe35fdc8b26b7bb2f1254a399 assets/bonappetit/models/item/coffee.json

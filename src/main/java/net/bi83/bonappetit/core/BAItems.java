@@ -3,26 +3,25 @@ package net.bi83.bonappetit.core;
 import com.google.common.collect.ImmutableMap;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.common.template.BABottleDrinkItem;
+import net.bi83.bonappetit.core.common.template.BACocktailDrinkItem;
+import net.bi83.bonappetit.core.common.template.BAPitcherDrinkItem;
 import net.bi83.bonappetit.core.content.item.CornCobItem;
 import net.bi83.bonappetit.core.content.item.CornItem;
 import net.bi83.bonappetit.core.content.item.PopcornItem;
-import net.bi83.bonappetit.core.common.template.BACocktailDrinkItem;
-import net.bi83.bonappetit.core.common.template.BAPitcherDrinkItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Map;
 
-import static net.minecraft.world.item.Items.*;
-
-public class BAItems {
+public abstract class BAItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(BonAppetit.ID);
     public static void register(IEventBus eventBus) {ITEMS.register(eventBus);}
 
@@ -192,6 +191,10 @@ public class BAItems {
     public static final DeferredItem<Item> COFFEE = ITEMS.register("coffee", () -> new BAPitcherDrinkItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(0).saturationModifier(0.7f).alwaysEdible()
             .effect(new MobEffectInstance(BAEffects.CAFFEINATED, 600, 0), 1.0F).build())));
 
+    /* SPICES */
+    //Cinnamon
+    public static final DeferredItem<Item> CINNAMON = ITEMS.register("cinnamon", () -> new Item(new Item.Properties()));
+
     /* MEALS */
     public static final DeferredItem<Item> MACARON = ITEMS.register("macaron", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .nutrition(4)
@@ -217,6 +220,6 @@ public class BAItems {
     /*|* VANILLA FOODS *|*/
     //-------------------//
     public static final Map<Item, FoodProperties> VANILLA_EFFECTS = (new ImmutableMap.Builder<Item, FoodProperties>())
-            .put(BEETROOT_SOUP, (new FoodProperties.Builder()).effect(() -> rooted(SHORT_DURATION), 1.0F).build())
+            .put(Items.BEETROOT_SOUP, (new FoodProperties.Builder()).effect(() -> rooted(SHORT_DURATION), 1.0F).build())
             .build();
 }
