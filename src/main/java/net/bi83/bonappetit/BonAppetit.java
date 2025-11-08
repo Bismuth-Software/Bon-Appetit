@@ -6,7 +6,10 @@ import net.bi83.bonappetit.core.BACreativeTabs;
 import net.bi83.bonappetit.core.BAEffects;
 import net.bi83.bonappetit.core.BAItems;
 import net.bi83.bonappetit.core.common.event.ReflectionEvent;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -14,6 +17,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
@@ -22,8 +27,10 @@ public class BonAppetit {
     public static final String ID = "bonappetit";
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static ResourceLocation asResource(String path) {return ResourceLocation.fromNamespaceAndPath(ID, path);}
     public BonAppetit(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::modifyComponents);
 
         BABlocks.register(modEventBus);
         BAItems.register(modEventBus);
@@ -35,8 +42,10 @@ public class BonAppetit {
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
 
-    public static ResourceLocation asResource(String path) {
-        return ResourceLocation.fromNamespaceAndPath(ID, path);
+    @SubscribeEvent
+    public void modifyComponents(ModifyDefaultComponentsEvent event) {
+        event.modify(Items.COOKIE, builder -> builder.set(DataComponents.FOOD, new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().build()));
+        event.modifyMatching(item -> item.hasCraftingRemainingItem(), builder -> builder.remove(DataComponents.BUCKET_ENTITY_DATA));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

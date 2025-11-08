@@ -118,6 +118,11 @@
   "item.bonappetit.coffee_beans": "Coffee Beans",
   "item.bonappetit.coffee": "Coffee",
 
+  "item.bonappetit.cinnamon_sticks": "Cinnamon Sticks",
+
+  "item.bonappetit.plain_cookie": "Plain Cookie",
+  "item.bonappetit.snickerdoodle": "Snickerdoodle",
+  "item.bonappetit.golden_cookie": "Golden Cookie",
   "item.bonappetit.macaron": "Macaron",
   "item.bonappetit.strawberry_banana_smoothie": "Strawberry Banana Smoothie",
   "item.bonappetit.ambrosia_salad": "Ambrosia Salad",
@@ -142,6 +147,17 @@
   "effect.bonappetit.rooted.description": "Increases knockback resistance and armor for the user.",
   "effect.bonappetit.caffeinated": "Caffeinated",
   "effect.bonappetit.caffeinated.description": "Increases attack speed and mining speed, and reduces the slowdown from blocks like Soul Sand.",
+
+
+
+  "advancements.husbandry.wake_and_bake.title": "Wake And Bake",
+  "advancements.husbandry.wake_and_bake.description": "Bake a cookie",
+
+  "advancements.husbandry.lucky_day.title": "Lucky Day",
+  "advancements.husbandry.lucky_day.description": "Consume a golden cookie",
+
+  "advancements.husbandry.black_cats_paw.title": "Black Cat's Paw",
+  "advancements.husbandry.black_cats_paw.description": "Obtain 777 golden cookies and question your sanity",
 
 
 

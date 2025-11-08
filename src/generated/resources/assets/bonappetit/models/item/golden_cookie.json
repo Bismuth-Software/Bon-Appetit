@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bonappetit:item/cinnamon"
+    "layer0": "bonappetit:item/golden_cookie"
   }
 }

@@ -115,6 +115,9 @@ public class BAItemTagProvider extends ItemTagsProvider {
                         .add(CORN.get())
                         .add(CORN_ON_A_COB.get());
         this.tag(Tags.Items.FOODS_COOKIE)
+                                    .add(PLAIN_COOKIE.get())
+                                    .add(SNICKERDOODLE.get())
+                                    .add(GOLDEN_COOKIE.get())
                                     .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)
                     .add(STRAWBERRIES.get())

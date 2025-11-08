@@ -1,0 +1,39 @@
+{
+  "parent": "bonappetit:husbandry/lucky_day",
+  "criteria": {
+    "golden_cookies": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bonappetit:golden_cookie",
+            "count": 777
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.black_cats_paw.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "bonappetit:golden_cookie"
+    },
+    "title": {
+      "translate": "advancements.husbandry.black_cats_paw.title"
+    }
+  },
+  "requirements": [
+    [
+      "golden_cookies"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

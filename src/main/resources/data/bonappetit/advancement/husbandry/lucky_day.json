@@ -1,0 +1,32 @@
+{
+  "parent": "bonappetit:husbandry/wake_and_bake",
+  "criteria": {
+    "golden_cookie": {
+      "conditions": {
+        "item": {
+          "items": "bonappetit:golden_cookie"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.lucky_day.description"
+    },
+    "frame": "task",
+    "icon": {
+      "count": 1,
+      "id": "bonappetit:golden_cookie"
+    },
+    "title": {
+      "translate": "advancements.husbandry.lucky_day.title"
+    }
+  },
+  "requirements": [
+    [
+      "golden_cookie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

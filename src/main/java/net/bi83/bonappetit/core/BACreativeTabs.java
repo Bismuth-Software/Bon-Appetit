@@ -29,8 +29,8 @@ public class BACreativeTabs {
                 output.accept(APPLE_SLICE);
                 output.accept(GREEN_APPLE);
                 output.accept(HONEY_APPLE);
-                output.accept(CARAMEL_APPLE);
                 output.accept(CANDY_APPLE);
+                output.accept(CARAMEL_APPLE);
                 output.accept(APPLE_PIE);
                 output.accept(APPLE_PIE_SLICE);
                 output.accept(APPLE_CAKE_SLICE);
@@ -125,6 +125,11 @@ public class BACreativeTabs {
                 output.accept(COFFEE_BEANS);
                 output.accept(COFFEE);
 
+                output.accept(CINNAMON_STICKS);
+
+                output.accept(PLAIN_COOKIE);
+                output.accept(SNICKERDOODLE);
+                output.accept(GOLDEN_COOKIE);
                 output.accept(MACARON);
                 output.accept(AMBROSIA_SALAD);
                 output.accept(STRAWBERRY_BANANA_SMOOTHIE);

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "cookie": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:foods/cookie"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.wake_and_bake.description"
+    },
+    "frame": "task",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:cookie"
+    },
+    "title": {
+      "translate": "advancements.husbandry.wake_and_bake.title"
+    }
+  },
+  "requirements": [
+    [
+      "cookie"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
