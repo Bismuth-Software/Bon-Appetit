@@ -7,6 +7,7 @@ import net.bi83.bonappetit.core.common.template.BACocktailDrinkItem;
 import net.bi83.bonappetit.core.common.template.BAPitcherDrinkItem;
 import net.bi83.bonappetit.core.content.item.CornCobItem;
 import net.bi83.bonappetit.core.content.item.CornItem;
+import net.bi83.bonappetit.core.content.item.EclipsedCookieItem;
 import net.bi83.bonappetit.core.content.item.PopcornItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -38,6 +39,8 @@ public abstract class BAItems {
     public static final DeferredItem<Item> PIE_CRUST = ITEMS.register("pie_crust", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.4f).build())));
     public static final DeferredItem<Item> GLASS_PITCHER = ITEMS.register("glass_pitcher", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> GLASS_COCKTAIL = ITEMS.register("glass_cocktail", () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> WAFER = ITEMS.register("wafer", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
 
     /*|* MOD FOODS *|*/
     //---------------//
@@ -204,6 +207,9 @@ public abstract class BAItems {
     public static final DeferredItem<Item> SNICKERDOODLE = ITEMS.register("snickerdoodle", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().fast()
             .nutrition(2)
             .saturationModifier(0.15f).build())));
+    public static final DeferredItem<Item> ECLIPSED_COOKIE = ITEMS.register("eclipsed_cookie", () -> new EclipsedCookieItem(new Item.Properties().food(new FoodProperties.Builder().fast()
+            .nutrition(2)
+            .saturationModifier(0.2f).build())));
     public static final DeferredItem<Item> GOLDEN_COOKIE = ITEMS.register("golden_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().fast()
             .nutrition(4)
             .saturationModifier(0.8f).build())));

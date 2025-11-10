@@ -17,6 +17,8 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(GLASS_PITCHER.get());
         basicItem(GLASS_COCKTAIL.get());
 
+        basicItem(WAFER.get());
+
         basicItem(CHERRIES.get());
         basicItem(GOLDEN_CHERRIES.get());
         
@@ -123,6 +125,7 @@ public class BAItemModelProvider extends ItemModelProvider {
 
         basicItem(PLAIN_COOKIE.get());
         basicItem(SNICKERDOODLE.get());
+        basicItem(ECLIPSED_COOKIE.get());
         basicItem(GOLDEN_COOKIE.get());
         basicItem(MACARON.get());
         basicItem(AMBROSIA_SALAD.get());

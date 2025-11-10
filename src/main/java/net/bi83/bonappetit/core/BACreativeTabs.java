@@ -23,6 +23,8 @@ public class BACreativeTabs {
                 output.accept(GLASS_PITCHER);
                 output.accept(GLASS_COCKTAIL);
 
+                output.accept(WAFER);
+
                 output.accept(CHERRIES);
                 output.accept(GOLDEN_CHERRIES);
 
@@ -129,6 +131,7 @@ public class BACreativeTabs {
 
                 output.accept(PLAIN_COOKIE);
                 output.accept(SNICKERDOODLE);
+                output.accept(ECLIPSED_COOKIE);
                 output.accept(GOLDEN_COOKIE);
                 output.accept(MACARON);
                 output.accept(AMBROSIA_SALAD);

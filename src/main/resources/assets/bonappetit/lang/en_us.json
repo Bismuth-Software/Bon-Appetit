@@ -10,6 +10,8 @@
   "item.bonappetit.glass_pitcher": "Glass Pitcher",
   "item.bonappetit.glass_cocktail": "Glass Cocktail",
 
+  "item.bonappetit.wafer": "Wafer",
+
   "item.bonappetit.cherries": "Cherries",
   "item.bonappetit.golden_cherries": "Golden Cherries",
 
@@ -122,6 +124,7 @@
 
   "item.bonappetit.plain_cookie": "Plain Cookie",
   "item.bonappetit.snickerdoodle": "Snickerdoodle",
+  "item.bonappetit.eclipsed_cookie": "Eclipsed Cookie",
   "item.bonappetit.golden_cookie": "Golden Cookie",
   "item.bonappetit.macaron": "Macaron",
   "item.bonappetit.strawberry_banana_smoothie": "Strawberry Banana Smoothie",

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "open=false": { "model": "bonappetit:block/copper_tank" },
+    "open=true":  { "model": "bonappetit:block/copper_tank_open" }
+  }
+}

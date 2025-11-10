@@ -1,10 +1,7 @@
 package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
-import net.bi83.bonappetit.core.BABlocks;
-import net.bi83.bonappetit.core.BACreativeTabs;
-import net.bi83.bonappetit.core.BAEffects;
-import net.bi83.bonappetit.core.BAItems;
+import net.bi83.bonappetit.core.*;
 import net.bi83.bonappetit.core.common.event.ReflectionEvent;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -16,23 +13,34 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.util.thread.SidedThreadGroups;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
+
+import java.util.AbstractMap;
+import java.util.Collection;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Mod(BonAppetit.ID)
 public class BonAppetit {
     public static final String ID = "bonappetit";
     public static final Logger LOGGER = LogUtils.getLogger();
+    private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue();
 
     public static ResourceLocation asResource(String path) {return ResourceLocation.fromNamespaceAndPath(ID, path);}
+    public static void queueServerWork(int tick, Runnable action) {
+        if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {
+            workQueue.add(new AbstractMap.SimpleEntry(action, tick));
+        }
+    }
     public BonAppetit(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::modifyComponents);
 
         BABlocks.register(modEventBus);
+        BABlockEntities.register(modEventBus);
         BAItems.register(modEventBus);
         BACreativeTabs.register(modEventBus);
 

@@ -20,6 +20,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(Tags.Items.FOODS)
+                .add(WAFER.get())
                 .add(CHERRIES.get())
                 .add(GOLDEN_CHERRIES.get())
                 .add(APPLE_SLICE.get())
@@ -117,6 +118,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
         this.tag(Tags.Items.FOODS_COOKIE)
                                     .add(PLAIN_COOKIE.get())
                                     .add(SNICKERDOODLE.get())
+                                    .add(ECLIPSED_COOKIE.get())
                                     .add(GOLDEN_COOKIE.get())
                                     .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)
