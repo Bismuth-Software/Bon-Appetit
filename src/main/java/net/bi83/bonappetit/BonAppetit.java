@@ -2,6 +2,7 @@ package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
+import net.bi83.bonappetit.core.common.event.ConcentrationEvent;
 import net.bi83.bonappetit.core.common.event.ReflectionEvent;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -47,6 +48,7 @@ public class BonAppetit {
         BAEffects.EFFECTS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
+        NeoForge.EVENT_BUS.register(ConcentrationEvent.class);
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
 
