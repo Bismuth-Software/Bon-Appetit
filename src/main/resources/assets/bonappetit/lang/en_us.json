@@ -42,6 +42,7 @@
   "item.bonappetit.orange_juice": "Orange Juice",
 
   "item.bonappetit.pumpkin_slice": "Pumpkin Slice",
+  "item.bonappetit.pumpkin_pie_slice": "Pumpkin Pie Slice",
 
   "item.bonappetit.mango": "Mango",
 
@@ -122,9 +123,10 @@
 
   "item.bonappetit.cinnamon_sticks": "Cinnamon Sticks",
 
+  "item.bonappetit.brownie": "Brownie",
   "item.bonappetit.plain_cookie": "Plain Cookie",
   "item.bonappetit.snickerdoodle": "Snickerdoodle",
-  "item.bonappetit.eclipsed_cookie": "Eclipsed Cookie",
+  "item.bonappetit.eclipse_cookie": "Eclipse Cookie",
   "item.bonappetit.golden_cookie": "Golden Cookie",
   "item.bonappetit.macaron": "Macaron",
   "item.bonappetit.strawberry_banana_smoothie": "Strawberry Banana Smoothie",

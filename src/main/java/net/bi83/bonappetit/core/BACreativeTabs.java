@@ -53,6 +53,7 @@ public class BACreativeTabs {
                 output.accept(ORANGE_JUICE);
 
                 output.accept(PUMPKIN_SLICE);
+                output.accept(PUMPKIN_PIE_SLICE);
 
                 output.accept(MANGO);
 
@@ -129,9 +130,10 @@ public class BACreativeTabs {
 
                 output.accept(CINNAMON_STICKS);
 
+                output.accept(BROWNIE);
                 output.accept(PLAIN_COOKIE);
                 output.accept(SNICKERDOODLE);
-                output.accept(ECLIPSED_COOKIE);
+                output.accept(ECLIPSE_COOKIE);
                 output.accept(GOLDEN_COOKIE);
                 output.accept(MACARON);
                 output.accept(AMBROSIA_SALAD);

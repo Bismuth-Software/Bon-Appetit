@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 
 import java.util.List;
@@ -30,8 +31,14 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_CHERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
                 .define('#', CHERRIES.get()).define('G', GOLD_INGOT).unlockedBy("has_gold_ingot", has(GOLD_INGOT)).save(recipeOutput);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, APPLE_SLICE.get(), 2).requires(APPLE)
-                .unlockedBy("has_apple", has(APPLE)).save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, APPLE_SLICE.get(), 2).requires(APPLE).unlockedBy("has_apple", has(APPLE)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, CANDY_APPLE.get(), 1).pattern("T").pattern("#").pattern("S").define('#', APPLE).define('S', SUGAR).define('T', STICK).unlockedBy("has_apple", has(APPLE)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, APPLE_PIE.get(), 2).pattern("SES").pattern("###").pattern("WPW")
+                .define('#', APPLE).define('E', Tags.Items.EGGS).define('S', SUGAR).define('P', PIE_CRUST).define('W', WHEAT).unlockedBy("has_apple", has(APPLE)).save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, APPLE_PIE_SLICE.get(), 4).requires(APPLE_PIE)
+                .unlockedBy("has_apple_pie", has(APPLE_PIE)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, APPLE_PIE.get(), 1).pattern("##").pattern("##")
+                .define('#', APPLE_PIE_SLICE).unlockedBy("has_apple_pie_slice", has(APPLE_PIE_SLICE)).save(recipeOutput, "bonappetit:apple_pie_from_slices");
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, GRAPEFRUIT_SLICE.get(), 2).requires(GRAPEFRUIT)
                 .unlockedBy("has_grapefruit", has(GRAPEFRUIT)).save(recipeOutput);
@@ -41,7 +48,13 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PUMPKIN_SLICE.get(), 9).requires(PUMPKIN)
                 .unlockedBy("has_pumpkin", has(PUMPKIN)).save(recipeOutput);
-
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PUMPKIN_PIE, 2).pattern("SES").pattern("###").pattern("WPW")
+                .define('#', PUMPKIN).define('E', Tags.Items.EGGS).define('S', SUGAR).define('P', PIE_CRUST).define('W', WHEAT).unlockedBy("has_pumpkin", has(PUMPKIN)).save(recipeOutput, "bonappetit:pumpkin_pie");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PUMPKIN_PIE_SLICE.get(), 4).requires(PUMPKIN_PIE)
+                .unlockedBy("has_pumpkin_pie", has(PUMPKIN_PIE)).save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PUMPKIN_PIE, 1).pattern("##").pattern("##")
+                .define('#', PUMPKIN_PIE_SLICE).unlockedBy("has_pumpkin_pie_slice", has(PUMPKIN_PIE_SLICE)).save(recipeOutput, "bonappetit:pumpkin_pie_from_slices");
+        
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, LEMON_SLICE.get(), 2).requires(LEMON)
                 .unlockedBy("has_lemon", has(LEMON)).save(recipeOutput);
 

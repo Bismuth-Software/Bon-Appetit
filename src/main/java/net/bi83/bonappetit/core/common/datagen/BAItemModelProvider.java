@@ -47,7 +47,8 @@ public class BAItemModelProvider extends ItemModelProvider {
         basicItem(ORANGE_JUICE.get());
         
         basicItem(PUMPKIN_SLICE.get());
-        
+        basicItem(PUMPKIN_PIE_SLICE.get());
+
         basicItem(MANGO.get());
         
         basicItem(APRICOT.get());
@@ -123,9 +124,10 @@ public class BAItemModelProvider extends ItemModelProvider {
 
         handheldItem(CINNAMON_STICKS.get());
 
+        basicItem(BROWNIE.get());
         basicItem(PLAIN_COOKIE.get());
         basicItem(SNICKERDOODLE.get());
-        basicItem(ECLIPSED_COOKIE.get());
+        basicItem(ECLIPSE_COOKIE.get());
         basicItem(GOLDEN_COOKIE.get());
         basicItem(MACARON.get());
         basicItem(AMBROSIA_SALAD.get());

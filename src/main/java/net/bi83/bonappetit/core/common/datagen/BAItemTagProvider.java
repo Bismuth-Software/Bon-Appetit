@@ -20,6 +20,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(Tags.Items.FOODS)
+                .add(PIE_CRUST.get())
                 .add(WAFER.get())
                 .add(CHERRIES.get())
                 .add(GOLDEN_CHERRIES.get())
@@ -29,6 +30,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(ORANGE.get())
                 .add(ORANGE_SLICE.get())
                 .add(PUMPKIN_SLICE.get())
+                .add(PUMPKIN_PIE_SLICE.get())
                 .add(MANGO.get())
                 .add(APRICOT.get())
                 .add(PINEAPPLE.get())
@@ -63,7 +65,11 @@ public class BAItemTagProvider extends ItemTagsProvider {
                             .add(BLACK_TEA_LEAVES.get())
                             .add(COFFEE_BERRIES.get())
                             .add(COFFEE_BEANS.get())
-                                .add(PIE_CRUST.get())
+                                .add(BROWNIE.get())
+                                .add(PLAIN_COOKIE.get())
+                                .add(SNICKERDOODLE.get())
+                                .add(ECLIPSE_COOKIE.get())
+                                .add(GOLDEN_COOKIE.get())
                                 .add(MACARON.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
@@ -118,7 +124,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
         this.tag(Tags.Items.FOODS_COOKIE)
                                     .add(PLAIN_COOKIE.get())
                                     .add(SNICKERDOODLE.get())
-                                    .add(ECLIPSED_COOKIE.get())
+                                    .add(ECLIPSE_COOKIE.get())
                                     .add(GOLDEN_COOKIE.get())
                                     .add(MACARON.get());
         this.tag(ItemTags.FOX_FOOD)

@@ -1,5 +1,6 @@
 {
   "values": [
+    "bonappetit:pie_crust",
     "bonappetit:wafer",
     "bonappetit:cherries",
     "bonappetit:golden_cherries",
@@ -9,6 +10,7 @@
     "bonappetit:orange",
     "bonappetit:orange_slice",
     "bonappetit:pumpkin_slice",
+    "bonappetit:pumpkin_pie_slice",
     "bonappetit:mango",
     "bonappetit:apricot",
     "bonappetit:pineapple",
@@ -43,7 +45,11 @@
     "bonappetit:black_tea_leaves",
     "bonappetit:coffee_berries",
     "bonappetit:coffee_beans",
-    "bonappetit:pie_crust",
+    "bonappetit:brownie",
+    "bonappetit:plain_cookie",
+    "bonappetit:snickerdoodle",
+    "bonappetit:eclipse_cookie",
+    "bonappetit:golden_cookie",
     "bonappetit:macaron"
   ]
 }
