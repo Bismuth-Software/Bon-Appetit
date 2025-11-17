@@ -57,9 +57,7 @@ public class BonAppetit {
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("Bon Appetit successfully loaded");
 /*
-        if (Config.LOG_DIRT_BLOCK.getAsBoolean()) {
-            LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
-        }
+        if (Config.LOG_DIRT_BLOCK.getAsBoolean()) {LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));}
 
         LOGGER.info("{}{}", Config.MAGIC_NUMBER_INTRODUCTION.get(), Config.MAGIC_NUMBER.getAsInt());
 
