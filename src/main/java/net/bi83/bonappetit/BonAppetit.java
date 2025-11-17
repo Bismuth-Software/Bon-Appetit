@@ -31,11 +31,7 @@ public class BonAppetit {
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue();
 
     public static ResourceLocation asResource(String path) {return ResourceLocation.fromNamespaceAndPath(ID, path);}
-    public static void queueServerWork(int tick, Runnable action) {
-        if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {
-            workQueue.add(new AbstractMap.SimpleEntry(action, tick));
-        }
-    }
+    public static void queueServerWork(int tick, Runnable action) {if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {workQueue.add(new AbstractMap.SimpleEntry(action, tick));}}
     public BonAppetit(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::modifyComponents);
