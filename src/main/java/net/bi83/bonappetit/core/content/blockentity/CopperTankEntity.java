@@ -3,11 +3,9 @@ package net.bi83.bonappetit.core.content.blockentity;
 import net.bi83.bonappetit.core.BABlockEntities;
 import net.bi83.bonappetit.core.content.block.CopperTankBlock;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -15,29 +13,18 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Containers;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.capabilities.CapabilityRegistry;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CopperTankEntity extends BlockEntity {
@@ -114,17 +101,12 @@ public class CopperTankEntity extends BlockEntity {
 
         BlockPos below = worldPosition.below();
         BlockState belowState = level.getBlockState(below);
-
-        // Only convert if there's ice below
         if (belowState.is(Blocks.ICE) || belowState.is(Blocks.BLUE_ICE) || belowState.is(Blocks.PACKED_ICE)) {
-
-            // Compute dynamic conversion time
-            int fluidAmount = stack.getAmount(); // in mB
-            int baseTime = 300; // for first 1000 mB
-            int extra = fluidAmount - 1000; // extra mB beyond first bucket
+            int fluidAmount = stack.getAmount();
+            int baseTime = 300;
+            int extra = fluidAmount - 1000;
             if (extra < 0) extra = 0;
 
-            // extra time = extra * 0.3 ticks → round to integer
             int extraTicks = Math.round(extra * 0.15f);
             int conversionTime = baseTime + extraTicks;
 
@@ -134,25 +116,18 @@ public class CopperTankEntity extends BlockEntity {
                 int amount = stack.getAmount();
                 tank.drain(amount, IFluidHandler.FluidAction.EXECUTE);
 
-                // default result
                 Fluid resultFluid = Fluids.WATER;
-
-                // change fluid based on augment
                 if (hasAugment()) {
                     ItemStack augment = getAugment();
                     if (augment.is(Items.REDSTONE)) {
-                        resultFluid = Fluids.LAVA; // example: redstone makes it lava
+                        resultFluid = Fluids.LAVA;
                     } else if (augment.is(Items.GLOWSTONE_DUST)) {
-                        resultFluid = Fluids.EMPTY; // if you ever have a milk fluid, or just leave WATER
+                        resultFluid = Fluids.EMPTY;
                     }
                     clearAugment();
                 }
-
                 tank.fill(new FluidStack(resultFluid, amount), IFluidHandler.FluidAction.EXECUTE);
-
                 level.playSound(null, worldPosition, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 0.8F, 1.0F);
-
-                // snowflake particles
                 RandomSource rand = level.getRandom();
                 if (level instanceof ServerLevel server) {
                     for (int i = 0; i < 6; i++) {
@@ -165,12 +140,10 @@ public class CopperTankEntity extends BlockEntity {
                         server.sendParticles(ParticleTypes.SNOWFLAKE, x, y, z, 0, d0, d1, d2, 0.5);
                     }
                 }
-
                 conversionProgress = 0;
             }
-
         } else {
-            conversionProgress = 0; // reset if no ice below
+            conversionProgress = 0;
         }
     }
 
