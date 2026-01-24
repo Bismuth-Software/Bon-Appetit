@@ -1,15 +1,15 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.core.content.block.CopperTankBlock;
-import net.bi83.bonappetit.core.content.block.CornCropBlock;
-import net.bi83.bonappetit.core.content.block.CornCropBlockTop;
+import net.bi83.bonappetit.core.content.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -19,6 +19,9 @@ import java.util.function.Supplier;
 public class BABlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(BonAppetit.ID);
 
+    public static final DeferredBlock<CakeBlock> LEMON_CAKE = BLOCKS.register("lemon_cake", () -> new LemonCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE)));
+    public static final DeferredBlock<DryingRackBlock> DRYING_RACK = registerBlock("drying_rack",
+            () -> new DryingRackBlock(BlockBehaviour.Properties.of().dynamicShape().sound(SoundType.WOOD).noOcclusion()));
     public static final DeferredBlock<CopperTankBlock> COPPER_TANK = registerBlock("copper_tank",
             () -> new CopperTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_COPPER_BLOCK).sound(SoundType.COPPER).noOcclusion()));
 

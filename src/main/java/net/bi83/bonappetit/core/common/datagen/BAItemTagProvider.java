@@ -1,6 +1,7 @@
 package net.bi83.bonappetit.core.common.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.BATags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -8,6 +9,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.internal.NeoForgeItemTagsProvider;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -19,6 +21,12 @@ public class BAItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(BATags.Items.CITRUS_FRUITS)
+                .add(GRAPEFRUIT.get())
+                .add(ORANGE.get())
+                .add(LEMON.get())
+                .add(LIME.get());
+
         this.tag(Tags.Items.FOODS)
                 .add(PIE_CRUST.get())
                 .add(WAFER.get())
@@ -41,6 +49,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(KIWI.get())
                 .add(PEAR.get())
                 .add(GRAPES.get())
+                .add(RAISINS.get())
                 .add(PEACH.get())
                 .add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
@@ -70,7 +79,9 @@ public class BAItemTagProvider extends ItemTagsProvider {
                                 .add(SNICKERDOODLE.get())
                                 .add(ECLIPSE_COOKIE.get())
                                 .add(GOLDEN_COOKIE.get())
-                                .add(MACARON.get());
+                                .add(MACARON.get())
+                                .add(PANETTONE.get())
+                                .add(AMBROSIA_SALAD.get());
 
         this.tag(Tags.Items.FOODS_FRUIT)
                 .add(CHERRIES.get())
@@ -90,6 +101,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                 .add(KIWI.get())
                 .add(PEAR.get())
                 .add(GRAPES.get())
+                .add(RAISINS.get())
                 .add(PEACH.get())
                 .add(DRAGON_FRUIT.get())
                 .add(POMEGRANATE.get())
@@ -127,6 +139,13 @@ public class BAItemTagProvider extends ItemTagsProvider {
                                     .add(ECLIPSE_COOKIE.get())
                                     .add(GOLDEN_COOKIE.get())
                                     .add(MACARON.get());
+        this.tag(Tags.Items.FOODS_GOLDEN)
+                    .add(GOLDEN_CHERRIES.get())
+                    .add(GOLDEN_ORANGE.get())
+                    .add(GOLDEN_STRAWBERRIES.get())
+                    .add(WINGED_STRAWBERRY.get())
+                    .add(WINGED_GOLDEN_STRAWBERRY.get())
+                    .add(GOLDEN_COOKIE.get());
         this.tag(ItemTags.FOX_FOOD)
                     .add(STRAWBERRIES.get())
                     .add(GOLDEN_STRAWBERRIES.get())

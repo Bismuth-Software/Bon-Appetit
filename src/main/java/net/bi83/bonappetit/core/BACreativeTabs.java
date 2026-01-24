@@ -18,11 +18,14 @@ public class BACreativeTabs {
     public static final Supplier<CreativeModeTab> BA_TAB = CREATIVE_MODE_TAB.register("bonappetit_tab", () -> CreativeModeTab.builder().icon(() -> new ItemStack(MACARON.get()))
             .title(Component.translatable("tab.bonappetit"))
             .displayItems((itemDisplayParameters, output) -> {
+                output.accept(BABlocks.DRYING_RACK);
+
                 output.accept(PAPER_PLATE);
                 output.accept(PIE_CRUST);
                 output.accept(GLASS_PITCHER);
                 output.accept(GLASS_COCKTAIL);
 
+                output.accept(DOUGH);
                 output.accept(WAFER);
 
                 output.accept(CHERRIES);
@@ -88,6 +91,7 @@ public class BACreativeTabs {
                 output.accept(PEAR);
 
                 output.accept(GRAPES);
+                output.accept(RAISINS);
 
                 output.accept(PEACH);
 
@@ -136,11 +140,12 @@ public class BACreativeTabs {
                 output.accept(ECLIPSE_COOKIE);
                 output.accept(GOLDEN_COOKIE);
                 output.accept(MACARON);
+                output.accept(PANETTONE);
                 output.accept(AMBROSIA_SALAD);
                 output.accept(STRAWBERRY_BANANA_SMOOTHIE);
                 output.accept(PINK_LEMONADE);
                 output.accept(PINK_LADY);
-                output.accept(BERRY_LIMEADE);
+                output.accept(BLUEBERRY_LIMEADE);
             }).build());
 
     public static void register(IEventBus eventBus) {

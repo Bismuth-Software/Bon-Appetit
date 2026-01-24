@@ -173,26 +173,36 @@ public class CopperTankBlock extends BaseEntityBlock implements EntityBlock {
         }
 
         if (handler != null) {
-            FluidStack fillTank = handler.drain(Integer.MAX_VALUE, IFluidHandler.FluidAction.EXECUTE);
+            // Attempt to drain the held container into the tank
+            FluidStack fillTank = handler.drain(handler.getTankCapacity(0), IFluidHandler.FluidAction.SIMULATE);
             if (!fillTank.isEmpty()) {
-                tub.getTank().fill(fillTank, IFluidHandler.FluidAction.EXECUTE);
-                player.setItemInHand(InteractionHand.MAIN_HAND, handler.getContainer());
-                level.playSound(null, pos, getFluidSound(fillTank, false), SoundSource.BLOCKS, 0.8F, 1.0F);
-                return InteractionResult.sidedSuccess(false);
+                int filled = tub.getTank().fill(fillTank, IFluidHandler.FluidAction.EXECUTE);
+                if (filled > 0) {
+                    handler.drain(filled, IFluidHandler.FluidAction.EXECUTE);
+                    player.setItemInHand(InteractionHand.MAIN_HAND, handler.getContainer());
+                    level.playSound(null, pos, getFluidSound(fillTank, false), SoundSource.BLOCKS, 0.8F, 1.0F);
+                    return InteractionResult.sidedSuccess(false);
+                }
             }
 
-            FluidStack drainTank = tub.getTank().drain(1000, IFluidHandler.FluidAction.SIMULATE);
-            if (!drainTank.isEmpty() && inHand.getItem() instanceof BucketItem) {
-                inHand.shrink(1);
+            // Attempt to fill the held container from the tank
+            FluidStack drainTank = tub.getTank().drain(handler.getTankCapacity(0), IFluidHandler.FluidAction.SIMULATE);
+            if (!drainTank.isEmpty()) {
+                FluidStack drained = tub.getTank().drain(drainTank.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                ItemStack filledStack = new ItemStack(drainTank.getFluid().getBucket());
 
-                ItemStack filled = new ItemStack(drainTank.getFluid().getBucket());
-                if (inHand.isEmpty()) {player.setItemInHand(InteractionHand.MAIN_HAND, filled);} else {player.getInventory().add(filled);}
-                tub.getTank().drain(1000, IFluidHandler.FluidAction.EXECUTE);
-                level.playSound(null, pos, getFluidSound(drainTank, false), SoundSource.BLOCKS, 0.8F, 1.0F);
+                if (inHand.getCount() == 1) {
+                    player.setItemInHand(InteractionHand.MAIN_HAND, filledStack);
+                } else {
+                    inHand.shrink(1);
+                    player.getInventory().add(filledStack);
+                }
 
+                level.playSound(null, pos, getFluidSound(drained, false), SoundSource.BLOCKS, 0.8F, 1.0F);
                 return InteractionResult.sidedSuccess(false);
             }
         }
+
         return InteractionResult.PASS;
     }
 

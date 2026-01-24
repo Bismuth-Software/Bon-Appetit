@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "bonappetit:dough"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "tag": "minecraft:citrus_fruits"
+    },
+    {
+      "item": "bonappetit:raisins"
+    },
+    {
+      "item": "bonappetit:raisins"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:panettone"
+  }
+}

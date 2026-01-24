@@ -1,6 +1,7 @@
 package net.bi83.bonappetit.core.common.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.BATags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -70,13 +71,13 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, COCONUT_SLICE.get(), 2).requires(COCONUT)
                 .unlockedBy("has_coconut", has(COCONUT)).save(recipeOutput);
 
-
+        //strawberry
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GOLDEN_STRAWBERRIES.get(), 1).pattern("GGG").pattern("G#G").pattern("GGG")
                 .define('#', STRAWBERRIES.get()).define('G', GOLD_INGOT).unlockedBy("has_gold_ingot", has(GOLD_INGOT)).save(recipeOutput);
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, WINGED_STRAWBERRY.get(), 1).pattern("F#F")
                 .define('#', STRAWBERRIES.get()).define('F', FEATHER).unlockedBy("has_strawberries", has(STRAWBERRIES)).save(recipeOutput);
 
-
+        //corn
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CORN_KERNELS.get(), 1).requires(CORN)
                 .unlockedBy("has_corn", has(CORN)).save(recipeOutput);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CORN_ON_A_COB.get(), 1).requires(STICK).requires(CORN)
@@ -84,6 +85,11 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 200).unlockedBy("has_corn", has(CORN)).save(recipeOutput);
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 100).unlockedBy("has_corn", has(CORN)).save(recipeOutput, "bonappetit:popcorn_from_smoking");
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 600).unlockedBy("has_corn", has(CORN)).save(recipeOutput, "bonappetit:popcorn_from_campfire_cooking");
+
+        //meals
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PANETTONE.get(), 1)
+                .requires(MILK_BUCKET).requires(DOUGH).requires(SUGAR).requires(BATags.Items.CITRUS_FRUITS).requires(RAISINS).requires(RAISINS)
+                .unlockedBy("has_corn", has(BATags.Items.CITRUS_FRUITS)).save(recipeOutput);
     }
 
     protected static void oreSmelting(RecipeOutput recipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {oreCooking(recipeOutput, RecipeSerializer.SMELTING_RECIPE, SmeltingRecipe::new, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");}

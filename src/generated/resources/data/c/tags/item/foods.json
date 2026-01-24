@@ -21,6 +21,7 @@
     "bonappetit:kiwi",
     "bonappetit:pear",
     "bonappetit:grapes",
+    "bonappetit:raisins",
     "bonappetit:peach",
     "bonappetit:dragon_fruit",
     "bonappetit:pomegranate",
@@ -50,6 +51,8 @@
     "bonappetit:snickerdoodle",
     "bonappetit:eclipse_cookie",
     "bonappetit:golden_cookie",
-    "bonappetit:macaron"
+    "bonappetit:macaron",
+    "bonappetit:panettone",
+    "bonappetit:ambrosia_salad"
   ]
 }

@@ -5,11 +5,14 @@
 
 
 
+  "block.bonappetit.drying_rack": "Drying Rack",
+
   "item.bonappetit.paper_plate": "Paper Plate",
   "item.bonappetit.pie_crust": "Pie Crust",
   "item.bonappetit.glass_pitcher": "Glass Pitcher",
   "item.bonappetit.glass_cocktail": "Glass Cocktail",
 
+  "item.bonappetit.dough": "Dough",
   "item.bonappetit.wafer": "Wafer",
 
   "item.bonappetit.cherries": "Cherries",
@@ -62,6 +65,7 @@
   "item.bonappetit.lemon_tart": "Lemon Tart",
   "item.bonappetit.lemon_meringue_pie": "Lemon Meringue Pie",
   "item.bonappetit.lemon_meringue_pie_slice": "Lemon Meringue Pie Slice",
+  "block.bonappetit.lemon_cake": "Lemon Cake",
   "item.bonappetit.lemon_cake": "Lemon Cake",
   "item.bonappetit.lemon_cake_slice": "Lemon Cake Slice",
   "item.bonappetit.lemonade": "Lemonade",
@@ -71,6 +75,7 @@
   "item.bonappetit.lime_cookie": "Lime Cookie",
   "item.bonappetit.lime_popsicle": "Lime Popsicle",
   "item.bonappetit.double_lime_popsicle": "Double Lime Popsicle",
+  "block.bonappetit.lime_cake": "Lime Cake",
   "item.bonappetit.lime_cake": "Lime Cake",
   "item.bonappetit.lime_cake_slice": "Lime Cake Slice",
   "item.bonappetit.limeade": "Limeade",
@@ -80,6 +85,7 @@
   "item.bonappetit.pear": "Pear",
 
   "item.bonappetit.grapes": "Grapes",
+  "item.bonappetit.raisins": "Raisins",
 
   "item.bonappetit.peach": "Peach",
 
@@ -130,10 +136,11 @@
   "item.bonappetit.golden_cookie": "Golden Cookie",
   "item.bonappetit.macaron": "Macaron",
   "item.bonappetit.strawberry_banana_smoothie": "Strawberry Banana Smoothie",
+  "item.bonappetit.panettone": "Panettone",
   "item.bonappetit.ambrosia_salad": "Ambrosia Salad",
   "item.bonappetit.pink_lemonade": "Pink Lemonade",
   "item.bonappetit.pink_lady": "Pink Lady",
-  "item.bonappetit.berry_limeade": "Berry Limeade",
+  "item.bonappetit.blueberry_limeade": "Blueberry Limeade",
 
 
   "effect.bonappetit.hearttrickle": "Hearttrickle",

@@ -48,6 +48,7 @@ public class BAEvents {
             }
         }
     }
+
     @SubscribeEvent
     public static void addTooltipToVanillaFoods(ItemTooltipEvent event) {
         Item food = event.getItemStack().getItem();

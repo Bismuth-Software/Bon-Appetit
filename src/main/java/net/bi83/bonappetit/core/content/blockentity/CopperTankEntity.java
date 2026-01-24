@@ -55,7 +55,6 @@ public class CopperTankEntity extends BlockEntity {
     }
 
     private boolean isValidAugment(ItemStack stack) {
-        // Define valid augment items here
         return stack.is(Items.REDSTONE) || stack.is(Items.GLOWSTONE_DUST);
     }
 
@@ -95,7 +94,7 @@ public class CopperTankEntity extends BlockEntity {
 
         FluidStack stack = tank.getFluid();
         if (stack.isEmpty() || stack.getFluid() != NeoForgeMod.MILK.get()) {
-            conversionProgress = 0; // reset if not milk
+            conversionProgress = 0;
             return;
         }
 

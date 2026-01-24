@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bonappetit:block/drying_rack",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "bonappetit:block/drying_rack",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "bonappetit:block/drying_rack",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "bonappetit:block/drying_rack",
+      "y": 0
+    }
+  }
+}
