@@ -30,5 +30,6 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new BAItemModelProvider(packOutput, existingFileHelper));
 
         generator.addProvider(event.includeServer(), new BARecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new BAEnglishLanguageProvider(packOutput));
     }
 }

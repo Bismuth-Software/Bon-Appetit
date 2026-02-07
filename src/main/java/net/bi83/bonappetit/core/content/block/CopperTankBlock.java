@@ -178,8 +178,10 @@ public class CopperTankBlock extends BaseEntityBlock implements EntityBlock {
             if (!fillTank.isEmpty()) {
                 int filled = tub.getTank().fill(fillTank, IFluidHandler.FluidAction.EXECUTE);
                 if (filled > 0) {
-                    handler.drain(filled, IFluidHandler.FluidAction.EXECUTE);
-                    player.setItemInHand(InteractionHand.MAIN_HAND, handler.getContainer());
+                    if (!player.isCreative()) {
+                        handler.drain(filled, IFluidHandler.FluidAction.EXECUTE);
+                        player.setItemInHand(InteractionHand.MAIN_HAND, handler.getContainer());
+                    }
                     level.playSound(null, pos, getFluidSound(fillTank, false), SoundSource.BLOCKS, 0.8F, 1.0F);
                     return InteractionResult.sidedSuccess(false);
                 }
@@ -188,13 +190,21 @@ public class CopperTankBlock extends BaseEntityBlock implements EntityBlock {
             // Attempt to fill the held container from the tank
             FluidStack drainTank = tub.getTank().drain(handler.getTankCapacity(0), IFluidHandler.FluidAction.SIMULATE);
             if (!drainTank.isEmpty()) {
-                FluidStack drained = tub.getTank().drain(drainTank.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                FluidStack drained = tub.getTank().drain(
+                        player.isCreative() ? 0 : drainTank.getAmount(),
+                        IFluidHandler.FluidAction.EXECUTE
+                );
+
                 ItemStack filledStack = new ItemStack(drainTank.getFluid().getBucket());
 
-                if (inHand.getCount() == 1) {
-                    player.setItemInHand(InteractionHand.MAIN_HAND, filledStack);
+                if (!player.isCreative()) {
+                    if (inHand.getCount() == 1) {
+                        player.setItemInHand(InteractionHand.MAIN_HAND, filledStack);
+                    } else {
+                        inHand.shrink(1);
+                        player.getInventory().add(filledStack);
+                    }
                 } else {
-                    inHand.shrink(1);
                     player.getInventory().add(filledStack);
                 }
 

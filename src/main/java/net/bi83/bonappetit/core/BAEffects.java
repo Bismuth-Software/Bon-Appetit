@@ -22,10 +22,11 @@ public class BAEffects {
             .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.resonance.armor"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> DISSONANCE = EFFECTS.register("dissonance", () -> new DissonanceEffect(MobEffectCategory.NEUTRAL, 0xE8FED8)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, BonAppetit.asResource("effect.dissonance.attack_damage"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
-
     public static final DeferredHolder<MobEffect, MobEffect> ROOTED = EFFECTS.register("rooted", () -> new RootedEffect(MobEffectCategory.BENEFICIAL, 0xA4272C)
             .addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, BonAppetit.asResource("effect.rooted.knockback_resistance"), 2F, AttributeModifier.Operation.ADD_VALUE)
             .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.rooted.armor"), 1.5F, AttributeModifier.Operation.ADD_VALUE));
+
+    public static final DeferredHolder<MobEffect, VigorEffect> VIGOR = EFFECTS.register("vigor", VigorEffect::new);
 
     public static final DeferredHolder<MobEffect, MobEffect> CAFFEINATED = EFFECTS.register("caffeinated", () -> new CaffeinatedEffect(MobEffectCategory.BENEFICIAL, 0x270D0A)
             .addAttributeModifier(Attributes.ATTACK_SPEED, BonAppetit.asResource("effect.caffeinated.attack_speed"), 0.2F, AttributeModifier.Operation.ADD_VALUE)

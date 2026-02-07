@@ -1,6 +1,7 @@
 package net.bi83.bonappetit.core;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.content.blockentity.CookingPotEntity;
 import net.bi83.bonappetit.core.content.blockentity.CopperTankEntity;
 import net.bi83.bonappetit.core.content.blockentity.DryingRackEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,6 +14,9 @@ import java.util.function.Supplier;
 public class BABlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, BonAppetit.ID);
 
+    public static final Supplier<BlockEntityType<CookingPotEntity>> COOKING_POT =
+            BLOCK_ENTITIES.register("cooking_pot", () -> BlockEntityType.Builder.of(
+                    CookingPotEntity::new, BABlocks.COOKING_POT.get()).build(null));
     public static final Supplier<BlockEntityType<DryingRackEntity>> DRYING_RACK =
             BLOCK_ENTITIES.register("drying_rack", () -> BlockEntityType.Builder.of(
                     DryingRackEntity::new, BABlocks.DRYING_RACK.get()).build(null));

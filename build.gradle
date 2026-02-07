@@ -192,3 +192,11 @@ idea {
         downloadJavadoc = true
     }
 }
+
+tasks.register("runDataAndClientAuth") {
+    group = "mod development"
+    description = "Runs runData then runClientAuth"
+
+    dependsOn("runData")
+    finalizedBy("runClientAuth")
+}

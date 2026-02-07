@@ -26,7 +26,8 @@ public class ReflectionEvent {
                 && result.getEntity() instanceof LivingEntity victim
                 && !victim.level().isClientSide)
         {
-            boolean hasReflection = false; MobEffectInstance reflectionInstance = null;
+            boolean hasReflection = false;
+            MobEffectInstance reflectionInstance = null;
             for (var effectInstance : victim.getActiveEffects()) {
                 if (effectInstance.getEffect().getRegisteredName().equals("bonappetit:reflection")) {
                     reflectionInstance = effectInstance;

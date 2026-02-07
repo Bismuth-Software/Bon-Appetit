@@ -9,7 +9,6 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.common.data.internal.NeoForgeItemTagsProvider;
 
 import javax.annotation.Nullable;
 import java.util.concurrent.CompletableFuture;
@@ -72,7 +71,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                             .add(GREEN_TEA_LEAVES.get())
                             .add(YELLOW_TEA_LEAVES.get())
                             .add(BLACK_TEA_LEAVES.get())
-                            .add(COFFEE_BERRIES.get())
+                            .add(COFFEE_CHERRIES.get())
                             .add(COFFEE_BEANS.get())
                                 .add(BROWNIE.get())
                                 .add(PLAIN_COOKIE.get())
@@ -129,7 +128,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(MULBERRIES.get())
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
-                            .add(COFFEE_BERRIES.get());
+                            .add(COFFEE_CHERRIES.get());
         this.tag(Tags.Items.FOODS_VEGETABLE)
                         .add(CORN.get())
                         .add(CORN_ON_A_COB.get());
@@ -155,7 +154,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                     .add(MULBERRIES.get())
                     .add(RASPBERRIES.get())
                     .add(BLACK_RASPBERRIES.get())
-                            .add(COFFEE_BERRIES.get());
+                            .add(COFFEE_CHERRIES.get());
         this.tag(Tags.Items.DRINKS)
                                 .add(LEMONADE.get())
                                 .add(LIMEADE.get())

@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
 import net.bi83.bonappetit.core.common.event.ConcentrationEvent;
 import net.bi83.bonappetit.core.common.event.ReflectionEvent;
+import net.bi83.bonappetit.core.common.event.VigorEvent;
 import net.bi83.bonappetit.core.content.blockentity.CopperTankEntity;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -34,6 +35,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @Mod(BonAppetit.ID)
 public class BonAppetit {
     public static final String ID = "bonappetit";
+    public static final String MC = "minecraft";
+    public static final String LOADER = "neoforge";
     public static final Logger LOGGER = LogUtils.getLogger();
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
 
@@ -48,11 +51,16 @@ public class BonAppetit {
         BABlockEntities.register(modEventBus);
         BAItems.register(modEventBus);
         BACreativeTabs.register(modEventBus);
-
         BAEffects.EFFECTS.register(modEventBus);
+
+        BADataComponents.DATA_COMPONENTS.register(modEventBus);
+        BARecipeTypes.RECIPE_TYPES.register(modEventBus);
+        BARecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
+        BAMenuTypes.MENU_TYPES.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         NeoForge.EVENT_BUS.register(ConcentrationEvent.class);
+        NeoForge.EVENT_BUS.register(VigorEvent.class);
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
