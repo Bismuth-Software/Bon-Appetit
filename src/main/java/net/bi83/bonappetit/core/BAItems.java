@@ -39,6 +39,7 @@ public abstract class BAItems {
     public static final Supplier<Item> COOKING_POT = suppRegister("cooking_pot",
             () -> new CookingPotItem(BABlocks.COOKING_POT.get(), new Item.Properties().stacksTo(64)));
 
+    public static final DeferredItem<PitchforkItem> PITCHFORK = ITEMS.register("pitchfork", () -> new PitchforkItem(new Item.Properties().durability(250).stacksTo(1)));
     // Serving Items
     public static final DeferredItem<Item> PAPER_PLATE = ITEMS.register("paper_plate", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> PIE_CRUST = ITEMS.register("pie_crust", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.4f).build())));
@@ -48,8 +49,11 @@ public abstract class BAItems {
     public static final DeferredItem<Item> DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
     public static final DeferredItem<Item> WAFER = ITEMS.register("wafer", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
 
+    public static final DeferredItem<Item> DRAGON_SHARD = ITEMS.register("dragon_shard", () -> new Item(new Item.Properties()));
+
     /*|* MOD FOODS *|*/
     //---------------//
+    public static final DeferredItem<Item> JERKY = ITEMS.register("jerky", () -> new Item(new Item.Properties().food(BANutrition.JERKY)));
     /* FRUITS */
     //Cherry
     public static final DeferredItem<Item> CHERRIES = ITEMS.register("cherries", () -> new Item(new Item.Properties().food(BANutrition.CHERRIES)));
@@ -222,8 +226,10 @@ public abstract class BAItems {
     public static final DeferredItem<Item> CINNAMON_DUST = ITEMS.register("cinnamon_dust", () -> new Item(new Item.Properties()));
 
     /* MEALS */
-    public static final DeferredItem<Item> CHOCOLATE_BAR = ITEMS.register("chocolate_bar", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.3f).build())));
-    public static final DeferredItem<Item> BROWNIE = ITEMS.register("brownie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
+    public static final DeferredItem<Item> JOCKEY_SANDWICH = ITEMS.register("jockey_sandwich", () -> new Item(new Item.Properties().food(BANutrition.JOCKEY_SANDWICH)));
+
+    public static final DeferredItem<Item> CHOCOLATE_BAR = ITEMS.register("chocolate_bar", () -> new Item(new Item.Properties().food(BANutrition.CHOCOLATE_BAR)));
+    public static final DeferredItem<Item> BROWNIE = ITEMS.register("brownie", () -> new Item(new Item.Properties().food(BANutrition.BROWNIE)));
     public static final DeferredItem<Item> PLAIN_COOKIE = ITEMS.register("plain_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().fast()
             .nutrition(2)
             .saturationModifier(0.025f).build())));

@@ -22,8 +22,6 @@ public class VigorEvent {
     @SubscribeEvent
     public static void onEntityTick(EntityTickEvent.Post event) {
         if (event.getEntity() instanceof LivingEntity entity) {
-
-            // 1. Correct way to get the effect in 1.21.1
             MobEffectInstance effect = entity.getEffect(BAEffects.VIGOR);
             AttributeInstance speedInst = entity.getAttribute(Attributes.MOVEMENT_SPEED);
 
@@ -31,16 +29,13 @@ public class VigorEvent {
                 int amp = effect.getAmplifier();
                 double speedBonus = 0.2 + (amp * 0.1);
 
-                // 2. Update speed attribute
                 updateModifier(speedInst, VIGOR_SPEED_ID, speedBonus);
             } else {
-                // 3. Cleanup
                 removeModifier(speedInst, VIGOR_SPEED_ID);
             }
         }
     }
 
-    // 4. Reliable Jump Logic for Players
     @SubscribeEvent
     public static void onLivingJump(LivingEvent.LivingJumpEvent event) {
         LivingEntity entity = event.getEntity();
@@ -48,7 +43,7 @@ public class VigorEvent {
 
         if (effect != null && entity.isSprinting()) {
             int amp = effect.getAmplifier();
-            double jumpMult = 0.05 + (amp * 0.05); // Adjust these numbers to feel right
+            double jumpMult = 0.05 + (amp * 0.05);
 
             Vec3 delta = entity.getDeltaMovement();
             entity.setDeltaMovement(delta.x, delta.y + jumpMult, delta.z);

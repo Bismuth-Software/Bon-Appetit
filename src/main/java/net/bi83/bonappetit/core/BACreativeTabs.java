@@ -20,6 +20,8 @@ public class BACreativeTabs {
             .displayItems((itemDisplayParameters, output) -> {
                 //woods
                 //tools
+                output.accept(PITCHFORK);
+
                 //workstations
                 output.accept(BABlocks.COOKING_POT);
                 output.accept(BABlocks.DRYING_RACK);
@@ -132,10 +134,13 @@ public class BACreativeTabs {
                 output.accept(RAISINS);
                 output.accept(DRIED_DRAGON_FRUIT);
                 output.accept(PUMPKIN_PIE_SLICE);
+                output.accept(JERKY);
                 output.accept(CHOCOLATE_BAR);
                 output.accept(BROWNIE);
 
                 //intermediate meals (multi-fruit)
+                output.accept(JOCKEY_SANDWICH);
+
                 //feasts/good meals
                 output.accept(PANETTONE);
                 output.accept(AMBROSIA_SALAD);

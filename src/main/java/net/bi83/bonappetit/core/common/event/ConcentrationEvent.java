@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.FishingHook;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.level.Level;
@@ -38,7 +39,7 @@ public class ConcentrationEvent {
         int amplifier = shooter.getEffect(concentration).getAmplifier();
         if (shooter.hasEffect(concentration)) {
             projectile.setDeltaMovement(projectile.getDeltaMovement().scale(0.75 + (amplifier * 0.25)));
-            if (!(projectile instanceof ThrownTrident)) {
+            if (!(projectile instanceof ThrownTrident) && !(projectile instanceof FishingHook)) {
                 CONCENTRATION_PROJECTILES.add(projectile);
                 projectile.setNoGravity(true);
             }

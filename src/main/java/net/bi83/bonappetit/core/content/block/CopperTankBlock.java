@@ -173,7 +173,6 @@ public class CopperTankBlock extends BaseEntityBlock implements EntityBlock {
         }
 
         if (handler != null) {
-            // Attempt to drain the held container into the tank
             FluidStack fillTank = handler.drain(handler.getTankCapacity(0), IFluidHandler.FluidAction.SIMULATE);
             if (!fillTank.isEmpty()) {
                 int filled = tub.getTank().fill(fillTank, IFluidHandler.FluidAction.EXECUTE);
@@ -187,7 +186,6 @@ public class CopperTankBlock extends BaseEntityBlock implements EntityBlock {
                 }
             }
 
-            // Attempt to fill the held container from the tank
             FluidStack drainTank = tub.getTank().drain(handler.getTankCapacity(0), IFluidHandler.FluidAction.SIMULATE);
             if (!drainTank.isEmpty()) {
                 FluidStack drained = tub.getTank().drain(

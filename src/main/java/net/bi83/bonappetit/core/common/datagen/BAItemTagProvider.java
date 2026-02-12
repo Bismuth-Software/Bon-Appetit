@@ -79,6 +79,7 @@ public class BAItemTagProvider extends ItemTagsProvider {
                                 .add(ECLIPSE_COOKIE.get())
                                 .add(GOLDEN_COOKIE.get())
                                 .add(MACARON.get())
+                                .add(JOCKEY_SANDWICH.get())
                                 .add(PANETTONE.get())
                                 .add(AMBROSIA_SALAD.get());
 

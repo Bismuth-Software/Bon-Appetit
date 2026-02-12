@@ -34,35 +34,43 @@ public class ResonanceEffect extends MobEffect implements Holder<MobEffect> {
         boolean hasOtherBeneficial = false;
         for (MobEffectInstance instance : entity.getActiveEffects()) {
             MobEffect effect = instance.getEffect().value();
-            if (effect.getCategory() == MobEffectCategory.BENEFICIAL && effect != BAEffects.RESONANCE.get() && effect != BAEffects.DISSONANCE.get()) {hasOtherBeneficial = true; break;}
+            if (effect.getCategory() == MobEffectCategory.BENEFICIAL && effect != BAEffects.RESONANCE.get() && effect != BAEffects.DISSONANCE.get()) {
+                hasOtherBeneficial = true;
+                break;
+            }
         }
         if (!hasOtherBeneficial) return true;
 
         AreaEffectCloud cloud = new AreaEffectCloud(level, entity.getX(), entity.getY(), entity.getZ());
         cloud.setRadius(radius);
-        cloud.setDuration(100 + (amplifier * 50)); //5s + 2.5s*amplifier
+        cloud.setDuration(100 + (amplifier * 50));
         cloud.setWaitTime(0);
         cloud.setRadiusPerTick(-0.01f);
         cloud.setOwner(entity);
+
         for (MobEffectInstance instance : entity.getActiveEffects()) {
             Holder<MobEffect> holder = instance.getEffect();
             MobEffect effect = holder.value();
 
-            if (effect.getCategory() != MobEffectCategory.BENEFICIAL) continue;
+            if (effect.getCategory() != MobEffectCategory.BENEFICIAL || effect == BAEffects.RESONANCE.get()) continue;
+            int originalDuration = instance.getDuration();
+            int grantDuration;
 
-            int grantDuration = Math.min(instance.getDuration(), 600 + (amplifier * 200)); //30s + 10s*amplifier
-            if (grantDuration < 10) continue; //prevents instant effects from being transmitted
-
-            cloud.addEffect(new MobEffectInstance(instance.getEffect(), grantDuration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon()
-            ));
-        }
-        level.addFreshEntity(cloud);
-        for (MobEffectInstance instance : entity.getActiveEffects()) {
-            if (instance.getEffect().value() == this) {
-                entity.removeEffect(instance.getEffect());
-                break;
+            if (originalDuration == MobEffectInstance.INFINITE_DURATION) {
+                grantDuration = 12000;
+            } else {
+                grantDuration = Math.min(originalDuration, 600 + (amplifier * 200));
             }
+            if (grantDuration <= 20) {
+                grantDuration = 20;
+            }
+
+            cloud.addEffect(new MobEffectInstance(instance.getEffect(), grantDuration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon()));
         }
+
+        level.addFreshEntity(cloud);
+        entity.removeEffect(BAEffects.RESONANCE);
+
         return true;
     }
 

@@ -13,6 +13,10 @@ import static net.bi83.bonappetit.core.BAItems.*;
 
 public class BAItemModelProvider extends ItemModelProvider {
 
+    private static final Set<String> BLACKLIST = Set.of(
+            "pitchfork"
+    );
+
     private static final Set<String> BLOCK_ITEMS = Set.of(
             "drying_rack",
             "copper_tank"
@@ -32,6 +36,7 @@ public class BAItemModelProvider extends ItemModelProvider {
             if (item.getId() == null) return;
             String path = item.getId().getPath();
 
+            if (BLACKLIST.contains(path)) return;
             if (HANDHELD.contains(path)) {
                 handheldItem(item.get());
             } else if (BLOCK_ITEMS.contains(path)) {

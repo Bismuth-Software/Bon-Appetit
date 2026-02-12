@@ -1,7 +1,13 @@
 package net.bi83.bonappetit;
 
 import net.bi83.bonappetit.core.BABlockEntities;
+import net.bi83.bonappetit.core.BAEntities;
+import net.bi83.bonappetit.core.BAModelLayers;
 import net.bi83.bonappetit.core.common.renderer.DryingRackRenderer;
+import net.bi83.bonappetit.core.content.entity.DragonShardModel;
+import net.bi83.bonappetit.core.content.entity.DragonShardRenderer;
+import net.bi83.bonappetit.core.content.entity.PitchforkModel;
+import net.bi83.bonappetit.core.content.entity.ThrownPitchforkRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -13,15 +19,25 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 @Mod(value = BonAppetit.ID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = BonAppetit.ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = BonAppetit.ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class BonAppetitClient {
     public BonAppetitClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
+
     @SubscribeEvent
-    public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+    public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(BABlockEntities.DRYING_RACK.get(), DryingRackRenderer::new);
+        event.registerEntityRenderer(BAEntities.PITCHFORK.get(), ThrownPitchforkRenderer::new);
+        event.registerEntityRenderer(BAEntities.DRAGON_SHARD.get(), DragonShardRenderer::new);
     }
+
+    @SubscribeEvent
+    public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(BAModelLayers.PITCHFORK, PitchforkModel::createLayer);
+        event.registerLayerDefinition(BAModelLayers.DRAGON_SHARD, DragonShardModel::createBodyLayer);
+    }
+
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
         BonAppetit.LOGGER.info("Bon Appetit successfully ran clientside");

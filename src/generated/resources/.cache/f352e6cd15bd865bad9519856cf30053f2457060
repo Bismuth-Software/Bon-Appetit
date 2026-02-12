@@ -1,4 +1,4 @@
-// 1.21.1	2026-01-29T22:03:40.873137149	Item Models: bonappetit
+// 1.21.1	2026-02-11T21:34:36.444633601	Item Models: bonappetit
 5953bac818e0925ab2b3cb45857599a494346edf assets/bonappetit/models/item/ambrosia_salad.json
 7d6c0786636808d4c79d6c4d4fce64126b309b14 assets/bonappetit/models/item/apple_cake_slice.json
 74e06a9d8fd183132b74d989a86e5e2745204a87 assets/bonappetit/models/item/apple_cider.json
@@ -38,6 +38,7 @@ b47758a82989be504bea87b5c45d6517718f9521 assets/bonappetit/models/item/corn_kern
 495b883b05c0935404884e513299be0c32728704 assets/bonappetit/models/item/double_lime_popsicle.json
 fa6407b1906be0ee086bc69b628f409de5d0bf3e assets/bonappetit/models/item/dough.json
 7b82696f480bb4d41f646dd67abf5cbf2dfb0262 assets/bonappetit/models/item/dragon_fruit.json
+c45a110005092ae41500e97eadcdd48f51f7b20d assets/bonappetit/models/item/dragon_shard.json
 3cddbf93c4595baf14b8498943c2efeae073279c assets/bonappetit/models/item/dried_banana.json
 b321168d4c0b789b946ff729c72713324a8bbee8 assets/bonappetit/models/item/dried_dragon_fruit.json
 7f07279aae0b4311a646214d3862ba3df8075076 assets/bonappetit/models/item/drying_rack.json
@@ -54,6 +55,8 @@ cf97728fec83171bf8e3602f82bb51ce813d2880 assets/bonappetit/models/item/grapes.js
 ec50d3e876f8c0e6e9e1ab12266bec894e26e0b4 assets/bonappetit/models/item/green_apple.json
 e0880d68e545f353c867792fab397a024324314d assets/bonappetit/models/item/green_tea_leaves.json
 bbbb321e5ee0d7c9fb94ff9f6d402c0d81061daf assets/bonappetit/models/item/honey_apple.json
+456762ee53bf06cf9b9fff10df4d15e6807f6a4d assets/bonappetit/models/item/jerky.json
+00067c2cc8298db00bbc6cfbbabc394bf28ca2e2 assets/bonappetit/models/item/jockey_sandwich.json
 bd58d5b5f38c130660ba91ba434ba60d3b782ca5 assets/bonappetit/models/item/kiwi.json
 a57b9754f5e01c362ad8421da4faf76faf5bb449 assets/bonappetit/models/item/lemon.json
 c93d063a4813b7700d405956f9b3d316fe32920e assets/bonappetit/models/item/lemon_cake.json

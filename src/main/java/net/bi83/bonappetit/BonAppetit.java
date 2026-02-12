@@ -2,10 +2,9 @@ package net.bi83.bonappetit;
 
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
-import net.bi83.bonappetit.core.common.event.ConcentrationEvent;
-import net.bi83.bonappetit.core.common.event.ReflectionEvent;
-import net.bi83.bonappetit.core.common.event.VigorEvent;
+import net.bi83.bonappetit.core.common.event.*;
 import net.bi83.bonappetit.core.content.blockentity.CopperTankEntity;
+import net.bi83.bonappetit.core.content.effect.FlakEffect;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
@@ -49,6 +48,7 @@ public class BonAppetit {
 
         BABlocks.register(modEventBus);
         BABlockEntities.register(modEventBus);
+        BAEntities.ENTITIES.register(modEventBus);
         BAItems.register(modEventBus);
         BACreativeTabs.register(modEventBus);
         BAEffects.EFFECTS.register(modEventBus);
@@ -60,9 +60,24 @@ public class BonAppetit {
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         NeoForge.EVENT_BUS.register(ConcentrationEvent.class);
+        NeoForge.EVENT_BUS.register(FlakEvent.class);
         NeoForge.EVENT_BUS.register(VigorEvent.class);
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
+    }
+    @SubscribeEvent
+    public static void onServerTick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post event) {
+        var iterator = workQueue.iterator();
+        while (iterator.hasNext()) {
+            var entry = iterator.next();
+            int remainingTicks = entry.getValue();
+            if (remainingTicks <= 1) {
+                entry.getKey().run();
+                iterator.remove();
+            } else {
+                entry.setValue(remainingTicks - 1);
+            }
+        }
     }
 
     @SubscribeEvent

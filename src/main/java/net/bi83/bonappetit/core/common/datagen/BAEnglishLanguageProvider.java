@@ -3,6 +3,7 @@ package net.bi83.bonappetit.core.common.datagen;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.BABlocks;
 import net.bi83.bonappetit.core.BAEffects;
+import net.bi83.bonappetit.core.BAEntities;
 import net.bi83.bonappetit.core.BAItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -85,6 +86,13 @@ public class BAEnglishLanguageProvider extends LanguageProvider {
 
             String path = block.getId().getPath();
             add("block." + BA + "." + path, toTitleCase(path));
+        });
+
+        BAEntities.ENTITIES.getEntries().forEach(entity -> {
+            if (entity.getId() == null) return;
+
+            String path = entity.getId().getPath();
+            add("entity." + BA + "." + path, toTitleCase(path));
         });
 
         BAEffects.EFFECTS.getEntries().forEach(effect -> {

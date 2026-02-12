@@ -14,6 +14,8 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -34,35 +36,57 @@ public class DissonanceEffect extends MobEffect implements Holder<MobEffect> {
         boolean hasOtherHarmful = false;
         for (MobEffectInstance instance : entity.getActiveEffects()) {
             MobEffect effect = instance.getEffect().value();
-            if (effect.getCategory() == MobEffectCategory.HARMFUL && effect != BAEffects.RESONANCE.get() && effect != BAEffects.DISSONANCE.get()) {hasOtherHarmful = true; break;}
+            if (effect.getCategory() == MobEffectCategory.HARMFUL && effect != BAEffects.RESONANCE.get() && effect != BAEffects.DISSONANCE.get()) {
+                hasOtherHarmful = true;
+                break;
+            }
         }
         if (!hasOtherHarmful) return true;
 
         AreaEffectCloud cloud = new AreaEffectCloud(level, entity.getX(), entity.getY(), entity.getZ());
         cloud.setRadius(radius);
-        cloud.setDuration(100 + (amplifier * 50)); //5s + 2.5s*amplifier
+        cloud.setDuration(100 + (amplifier * 50));
         cloud.setWaitTime(0);
         cloud.setRadiusPerTick(-0.01f);
         cloud.setOwner(entity);
+
+        List<MobEffectInstance> toHalve = new ArrayList<>();
+
         for (MobEffectInstance instance : entity.getActiveEffects()) {
             Holder<MobEffect> holder = instance.getEffect();
             MobEffect effect = holder.value();
 
-            if (effect.getCategory() != MobEffectCategory.HARMFUL) continue;
+            if (effect.getCategory() != MobEffectCategory.HARMFUL || effect == BAEffects.DISSONANCE.get()) continue;
 
-            int grantDuration = Math.min(instance.getDuration(), 600 + (amplifier * 200)); //30s + 10s*amplifier
-            if (grantDuration < 10) continue; //prevents instant effects from being transmitted
+            toHalve.add(instance);
 
-            cloud.addEffect(new MobEffectInstance(instance.getEffect(), grantDuration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon()
-            ));
+            int originalDuration = instance.getDuration();
+            int grantDuration;
+
+            if (originalDuration == MobEffectInstance.INFINITE_DURATION) {
+                grantDuration = 12000;
+            } else {
+                grantDuration = Math.min(originalDuration, 600 + (amplifier * 200));
+            }
+
+            if (grantDuration <= 20) {
+                grantDuration = 20;
+            }
+
+            cloud.addEffect(new MobEffectInstance(instance.getEffect(), grantDuration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon()));
         }
+
         level.addFreshEntity(cloud);
-        for (MobEffectInstance instance : entity.getActiveEffects()) {
-            if (instance.getEffect().value() == this) {
-                entity.removeEffect(instance.getEffect());
-                break;
+
+        for (MobEffectInstance instance : toHalve) {
+            int currentDur = instance.getDuration();
+            if (currentDur != MobEffectInstance.INFINITE_DURATION) {
+                entity.addEffect(new MobEffectInstance(instance.getEffect(), currentDur / 2, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon()));
             }
         }
+
+        entity.removeEffect(BAEffects.DISSONANCE);
+
         return true;
     }
 

@@ -21,6 +21,9 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PITCHFORK.get(), 1).pattern(" ##").pattern(" S#").pattern("S  ")
+                .define('#', IRON_BARS).define('S', STICK).unlockedBy("has_iron_bars", has(IRON_BARS)).save(recipeOutput);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, PIE_CRUST.get(), 2).pattern("# #").pattern(" # ")
                 .define('#', WHEAT).unlockedBy("has_wheat", has(WHEAT)).save(recipeOutput);
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, GLASS_PITCHER.get(), 5).pattern("# #").pattern("# #").pattern(" # ")
@@ -87,6 +90,9 @@ public class BARecipeProvider extends RecipeProvider implements IConditionBuilde
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(CORN_KERNELS.get()), RecipeCategory.FOOD, POPCORN.get(), 0.25f, 600).unlockedBy("has_corn", has(CORN)).save(recipeOutput, "bonappetit:popcorn_from_campfire_cooking");
 
         //meals
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, JOCKEY_SANDWICH.get(), 1).requires(BREAD).requires(COOKED_CHICKEN).requires(JERKY).requires(POTATO).requires(BROWN_MUSHROOM)
+                .unlockedBy("has_jerky", has(JERKY)).save(recipeOutput);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, PANETTONE.get(), 1)
                 .requires(MILK_BUCKET).requires(DOUGH).requires(SUGAR).requires(BATags.Items.CITRUS_FRUITS).requires(RAISINS).requires(RAISINS)
                 .unlockedBy("has_corn", has(BATags.Items.CITRUS_FRUITS)).save(recipeOutput);
