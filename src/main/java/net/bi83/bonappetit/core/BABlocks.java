@@ -4,10 +4,7 @@ import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.content.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CakeBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
@@ -28,6 +25,7 @@ public class BABlocks {
 
     public static final DeferredBlock<CakeBlock> LEMON_CAKE = BLOCKS.register("lemon_cake", () -> new LemonCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE)));
 
+    public static final DeferredBlock<Block> GRAPEFRUIT_VINE = registerBlockNoItem("grapefruit_vine", () -> new GrapefruitVineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().sound(SoundType.WEEPING_VINES)));
     public static final DeferredBlock<Block> CORN_BASE = registerBlockNoItem("corn_base", () -> new CornCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).randomTicks().offsetType(BlockBehaviour.OffsetType.NONE).instabreak().sound(SoundType.CROP)));
     public static final DeferredBlock<Block> CORN_TOP = registerBlockNoItem("corn_top", () -> new CornCropBlockTop(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
 

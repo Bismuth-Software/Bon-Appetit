@@ -49,15 +49,10 @@ public class BAEvents {
         if (player.level().isClientSide) return;
         UUID uuid = player.getUUID();
 
-        // --- MELLOW TRACKER ---
         if (player.hasEffect(BAEffects.MELLOW)) {
             boolean isStill = player.getDeltaMovement().horizontalDistanceSqr() < 0.001;
             if (isStill && player.onGround()) {
                 int ticks = MELLOW_STILL_TICKS.merge(uuid, 1, Integer::sum);
-                if (ticks % 20 == 0) {
-                    ((ServerLevel)player.level()).sendParticles(ParticleTypes.END_ROD,
-                            player.getX(), player.getY() + 0.1, player.getZ(), 1, 0.2, 0, 0.2, 0.01);
-                }
             } else {
                 MELLOW_STILL_TICKS.put(uuid, 0);
             }
@@ -65,7 +60,6 @@ public class BAEvents {
             MELLOW_STILL_TICKS.remove(uuid);
         }
 
-        // --- TWIN STRIKE COOLDOWN ENGINE ---
         if (TWIN_STRIKE_COOLDOWN.containsKey(uuid)) {
             int time = TWIN_STRIKE_COOLDOWN.get(uuid);
             if (time > 0) TWIN_STRIKE_COOLDOWN.put(uuid, time - 1);
@@ -75,11 +69,9 @@ public class BAEvents {
     @SubscribeEvent
     public static void handleFruitCombat(LivingIncomingDamageEvent event) {
         if (event.getEntity().level().isClientSide) return;
-
         LivingEntity victim = event.getEntity();
         float damage = event.getAmount();
 
-        // 1. MANGO: INSATIABLE
         MobEffectInstance mangoEffect = victim.getEffect(BAEffects.INSATIABLE);
         if (mangoEffect != null && victim instanceof Player player) {
             int mangoAmplifier = mangoEffect.getAmplifier();
@@ -94,7 +86,6 @@ public class BAEvents {
         if (event.getSource().getEntity() instanceof LivingEntity attacker) {
             UUID attackerUUID = attacker.getUUID();
 
-            // 2. CHERRY: TWIN STRIKE (Cooldown + Charge Check)
             MobEffectInstance cherryEffect = attacker.getEffect(BAEffects.TWIN_STRIKE);
             if (cherryEffect != null && !event.getSource().is(BADamageTypes.TWIN_HIT)) {
                 int cherryAmplifier = cherryEffect.getAmplifier();
@@ -111,7 +102,6 @@ public class BAEvents {
                 }
             }
 
-            // 3. PEAR: MELLOW
             MobEffectInstance pearEffect = attacker.getEffect(BAEffects.MELLOW);
             if (pearEffect != null && attacker instanceof Player player) {
                 int pearAmplifier = pearEffect.getAmplifier();
@@ -120,12 +110,9 @@ public class BAEvents {
                     float bonus = Math.min((float)stillTicks / 20f, (5f + pearAmplifier * 2.5f));
                     event.setAmount(damage + bonus);
                     MELLOW_STILL_TICKS.put(attackerUUID, 0);
-                    player.level().playSound(null, player.getX(), player.getY(), player.getZ(),
-                            SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 0.6f, 0.5f);
                 }
             }
 
-            // 4. POMEGRANATE: PROLIFERATE
             MobEffectInstance pomegranateEffect = attacker.getEffect(BAEffects.PROLIFERATE);
             if (pomegranateEffect != null) {
                 int pomegranateAmplifier = pomegranateEffect.getAmplifier();

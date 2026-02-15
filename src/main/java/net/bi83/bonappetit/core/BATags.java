@@ -14,6 +14,7 @@ public class BATags {
     private static TagKey<EntityType<?>> createEntityTypeTag(String name) {return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.withDefaultNamespace(name));}
 
     public static class Items {
+        public static final TagKey<Item> SERVING_CONTAINERS = createItemTag("serving_containers");
         public static final TagKey<Item> CITRUS_FRUITS = createItemTag("citrus_fruits");
 
     public static class EntityTypes {

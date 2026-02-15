@@ -2,8 +2,10 @@ package net.bi83.bonappetit;
 
 import net.bi83.bonappetit.core.BABlockEntities;
 import net.bi83.bonappetit.core.BAEntities;
+import net.bi83.bonappetit.core.BAMenuTypes;
 import net.bi83.bonappetit.core.BAModelLayers;
 import net.bi83.bonappetit.core.common.renderer.DryingRackRenderer;
+import net.bi83.bonappetit.core.content.blockentity.CookingPotScreen;
 import net.bi83.bonappetit.core.content.entity.DragonShardModel;
 import net.bi83.bonappetit.core.content.entity.DragonShardRenderer;
 import net.bi83.bonappetit.core.content.entity.PitchforkModel;
@@ -15,6 +17,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -36,6 +39,11 @@ public class BonAppetitClient {
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(BAModelLayers.PITCHFORK, PitchforkModel::createLayer);
         event.registerLayerDefinition(BAModelLayers.DRAGON_SHARD, DragonShardModel::createBodyLayer);
+    }
+
+    @SubscribeEvent
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(BAMenuTypes.COOKING_POT.get(), CookingPotScreen::new);
     }
 
     @SubscribeEvent

@@ -8,6 +8,7 @@ import net.bi83.bonappetit.core.content.effect.FlakEffect;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.IEventBus;
@@ -44,7 +45,6 @@ public class BonAppetit {
     public BonAppetit(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::modifyComponents);
-        NeoForgeMod.enableMilkFluid();
 
         BABlocks.register(modEventBus);
         BABlockEntities.register(modEventBus);
@@ -57,14 +57,19 @@ public class BonAppetit {
         BARecipeTypes.RECIPE_TYPES.register(modEventBus);
         BARecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         BAMenuTypes.MENU_TYPES.register(modEventBus);
+        BAFeatures.FEATURES.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         NeoForge.EVENT_BUS.register(ConcentrationEvent.class);
+        NeoForge.EVENT_BUS.register(FervorEvent.class);
         NeoForge.EVENT_BUS.register(FlakEvent.class);
+        NeoForge.EVENT_BUS.register(DischargeEvent.class);
         NeoForge.EVENT_BUS.register(VigorEvent.class);
+        NeoForgeMod.enableMilkFluid();
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
         modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
     }
+
     @SubscribeEvent
     public static void onServerTick(net.neoforged.neoforge.event.tick.ServerTickEvent.Post event) {
         var iterator = workQueue.iterator();

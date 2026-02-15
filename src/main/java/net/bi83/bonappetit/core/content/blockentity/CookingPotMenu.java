@@ -24,7 +24,8 @@ import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 
 import java.util.Objects;
 
-public class CookingPotMenu extends RecipeBookMenu<RecipeWrapper, CookingPotRecipe> {
+public class CookingPotMenu extends RecipeBookMenu<RecipeWrapper, CookingPotRecipe>
+{
     public static final ResourceLocation EMPTY_CONTAINER_SLOT_BOWL = ResourceLocation.fromNamespaceAndPath(BonAppetit.ID, "item/empty_container_slot_bowl");
 
     public final CookingPotEntity blockEntity;
@@ -52,7 +53,7 @@ public class CookingPotMenu extends RecipeBookMenu<RecipeWrapper, CookingPotReci
         int inputStartY = 17;
         int borderSlotSize = 18;
         for (int row = 0; row < 2; ++row) {
-            for (int column = 0; column < 4; ++column) {
+            for (int column = 0; column < 3; ++column) {
                 this.addSlot(new SlotItemHandler(inventory, (row * 3) + column,
                         inputStartX + (column * borderSlotSize),
                         inputStartY + (row * borderSlotSize)));
@@ -122,7 +123,7 @@ public class CookingPotMenu extends RecipeBookMenu<RecipeWrapper, CookingPotReci
                     return ItemStack.EMPTY;
                 }
             } else if (index > indexOutput) {
-                boolean isValidContainer = slotStack.is(Items.BOWL/*BATags.SERVING_CONTAINERS*/) || slotStack.is(blockEntity.getContainer().getItem());
+                boolean isValidContainer = slotStack.is(BATags.Items.SERVING_CONTAINERS) || slotStack.is(blockEntity.getContainer().getItem());
                 if (isValidContainer && !this.moveItemStackTo(slotStack, indexContainerInput, indexContainerInput + 1, false)) {
                     return ItemStack.EMPTY;
                 } else if (!this.moveItemStackTo(slotStack, 0, indexMealDisplay, false)) {

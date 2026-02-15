@@ -1,8 +1,10 @@
 package net.bi83.bonappetit.core.common.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.BABlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -14,6 +16,7 @@ public class BABlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
+        this.tag(BlockTags.CROPS)
+                .add(BABlocks.GRAPEFRUIT_VINE.get());
     }
 }

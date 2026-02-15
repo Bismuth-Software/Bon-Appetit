@@ -1,6 +1,5 @@
 package net.bi83.bonappetit.core.content.item;
 
-import net.bi83.bonappetit.core.common.ui.CookingPotTooltip;
 import net.bi83.bonappetit.core.content.blockentity.CookingPotEntity;
 import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
@@ -10,8 +9,7 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.Optional;
 
-public class CookingPotItem extends BlockItem
-{
+public class CookingPotItem extends BlockItem {
     private static final int BAR_COLOR = Mth.color(0.4F, 0.4F, 1.0F);
 
     public CookingPotItem(Block block, Properties properties) {
@@ -33,11 +31,11 @@ public class CookingPotItem extends BlockItem
         return BAR_COLOR;
     }
 
-    @Override
-    public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
-        ItemStack mealStack = CookingPotEntity.getMealFromItem(stack);
-        return Optional.of(new CookingPotTooltip.CookingPotTooltipComponent(mealStack));
-    }
+    //@Override
+    //public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
+    //    ItemStack mealStack = CookingPotEntity.getMealFromItem(stack);
+    //    return Optional.of(new CookingPotTooltip.CookingPotTooltipComponent(mealStack));
+    //}
 
     private static int getServingCount(ItemStack stack) {
         ItemStack mealStack = CookingPotEntity.getMealFromItem(stack);

@@ -17,6 +17,8 @@ public class BAEffects {
     public static final DeferredHolder<MobEffect, InsatiableEffect> INSATIABLE = EFFECTS.register("insatiable", InsatiableEffect::new);
     public static final DeferredHolder<MobEffect, MellowEffect> MELLOW = EFFECTS.register("mellow", MellowEffect::new);
     public static final DeferredHolder<MobEffect, ProliferateEffect> PROLIFERATE = EFFECTS.register("proliferate", ProliferateEffect::new);
+    public static final DeferredHolder<MobEffect, FervorEffect> FERVOR = EFFECTS.register("fervor", FervorEffect::new);
+    public static final DeferredHolder<MobEffect, DischargeEffect> DISCHARGE = EFFECTS.register("discharge", DischargeEffect::new);
 
     public static final DeferredHolder<MobEffect, ReflectionEffect> REFLECTION = EFFECTS.register("reflection", ReflectionEffect::new);
     public static final DeferredHolder<MobEffect, ConcentrationEffect> CONCENTRATION = EFFECTS.register("concentration", ConcentrationEffect::new);

@@ -1,5 +1,7 @@
 package net.bi83.bonappetit.core.common.recipe;
 
+import net.bi83.bonappetit.BonAppetit;
+import net.bi83.bonappetit.core.content.blockentity.CookingPotRecipeBookTab;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -18,8 +20,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.bi83.bonappetit.BonAppetit;
-//import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -29,7 +29,7 @@ import java.util.Map;
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 public class CookingPotRecipeBuilder implements RecipeBuilder {
-    //private CookingPotRecipeBookTab tab;
+    private CookingPotRecipeBookTab tab;
     private final NonNullList<Ingredient> ingredients = NonNullList.create();
     private final Item result;
     private final ItemStack resultStack;
@@ -48,7 +48,7 @@ public class CookingPotRecipeBuilder implements RecipeBuilder {
         this.cookingTime = cookingTime;
         this.experience = experience;
         this.container = container != null ? new ItemStack(container) : ItemStack.EMPTY;
-        //this.tab = null;
+        this.tab = null;
     }
 
     public static CookingPotRecipeBuilder cookingPotRecipe(ItemLike mainResult, int count, int cookingTime, float experience) {
@@ -90,10 +90,10 @@ public class CookingPotRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
-    //public CookingPotRecipeBuilder setRecipeBookTab(CookingPotRecipeBookTab tab) {
-      //  this.tab = tab;
-        //return this;
-    //}
+    public CookingPotRecipeBuilder setRecipeBookTab(CookingPotRecipeBookTab tab) {
+        this.tab = tab;
+        return this;
+    }
 
     @Override
     public Item getResult() {
@@ -137,9 +137,9 @@ public class CookingPotRecipeBuilder implements RecipeBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         this.criteria.forEach(advancementBuilder::addCriterion);
-        net.bi83.bonappetit.core.common.recipe.CookingPotRecipe recipe = new CookingPotRecipe(
+        CookingPotRecipe recipe = new CookingPotRecipe(
                 "",
-                //this.tab,
+                this.tab,
                 this.ingredients,
                 this.resultStack,
                 this.container,

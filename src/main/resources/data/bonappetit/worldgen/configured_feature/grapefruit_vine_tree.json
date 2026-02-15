@@ -1,0 +1,32 @@
+{
+  "type": "bonappetit:grapefruit_vine_tree",
+  "config": {
+    "valid_base_block": {
+      "Name": "minecraft:crimson_nylium"
+    },
+    "stem_state": {
+      "Name": "minecraft:crimson_stem",
+      "Properties": {
+        "axis": "y"
+      }
+    },
+    "hat_state": {
+      "Name": "minecraft:nether_wart_block"
+    },
+    "decor_state": {
+      "Name": "minecraft:shroomlight"
+    },
+    "replaceable_blocks": {
+      "type": "minecraft:matching_blocks",
+      "blocks": [
+        "minecraft:crimson_stem",
+        "minecraft:crimson_hyphae",
+        "minecraft:crimson_nylium",
+        "minecraft:nether_wart_block",
+        "minecraft:shroomlight",
+        "minecraft:netherrack"
+      ]
+    },
+    "planted": false
+  }
+}
