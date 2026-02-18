@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bonappetit:lemon_slice"
+    },
+    {
+      "item": "bonappetit:lemon_slice"
+    },
+    {
+      "item": "bonappetit:cherries"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "bonappetit:glass_pitcher"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:pink_lemonade"
+  }
+}

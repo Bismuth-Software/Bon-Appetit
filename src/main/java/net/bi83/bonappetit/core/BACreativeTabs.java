@@ -1,5 +1,6 @@
 package net.bi83.bonappetit.core;
 
+import net.bi83.bonappetit.BAConfig;
 import net.bi83.bonappetit.BonAppetit;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -35,6 +36,7 @@ public class BACreativeTabs {
 
                 //seeds
                 output.accept(CORN_KERNELS);
+                output.accept(POMEGRANATE_SEEDS);
 
                 //veggies
                 output.accept(CORN);
@@ -79,6 +81,7 @@ public class BACreativeTabs {
                 output.accept(PEACH);
 
                 output.accept(DRAGON_FRUIT);
+                output.accept(DRAGON_FRUIT_SLICE);
 
                 output.accept(POMEGRANATE);
                 output.accept(POMEGRANATE_SLICE);
@@ -104,6 +107,8 @@ public class BACreativeTabs {
                 output.accept(BLACK_RASPBERRIES);
 
                 //grains
+                output.accept(RICE);
+
                 //tea
                 output.accept(GREEN_TEA_LEAVES);
                 output.accept(YELLOW_TEA_LEAVES);
@@ -116,6 +121,9 @@ public class BACreativeTabs {
                 output.accept(CINNAMON_DUST);
 
                 //misc
+                output.accept(ACORN);
+                output.accept(ROASTED_ACORN);
+
                 //basic ingredients/meals (<1 fruit)
                 output.accept(DOUGH);
                 output.accept(PIE_CRUST);
@@ -133,7 +141,6 @@ public class BACreativeTabs {
                 output.accept(BANANA_BREAD);
                 output.accept(RAISINS);
                 output.accept(DRIED_DRAGON_FRUIT);
-                output.accept(PUMPKIN_PIE_SLICE);
                 output.accept(JERKY);
                 output.accept(CHOCOLATE_BAR);
                 output.accept(BROWNIE);
@@ -144,6 +151,7 @@ public class BACreativeTabs {
                 //feasts/good meals
                 output.accept(PANETTONE);
                 output.accept(AMBROSIA_SALAD);
+                output.accept(JEWELED_RICE_BOWL);
 
                 //sweets
                 output.accept(PLAIN_COOKIE);
@@ -158,10 +166,17 @@ public class BACreativeTabs {
                 output.accept(DOUBLE_LIME_POPSICLE);
 
                 //pies and cake
+                output.accept(CAKE_SLICE);
                 output.accept(APPLE_PIE);
                 output.accept(APPLE_PIE_SLICE);
                 output.accept(APPLE_CAKE_SLICE);
+                output.accept(GRAPEFRUIT_PIE);
+                output.accept(GRAPEFRUIT_PIE_SLICE);
+                output.accept(ORANGE_PIE);
+                output.accept(ORANGE_PIE_SLICE);
                 output.accept(ORANGE_CAKE_SLICE);
+                output.accept(MANGO_PIE);
+                output.accept(MANGO_PIE_SLICE);
                 output.accept(BANANA_CAKE_SLICE);
                 output.accept(LEMON_TART);
                 output.accept(LEMON_MERINGUE_PIE);
@@ -169,6 +184,9 @@ public class BACreativeTabs {
                 output.accept(LEMON_CAKE);
                 output.accept(LEMON_CAKE_SLICE);
                 output.accept(LIME_CAKE_SLICE);
+                output.accept(DRAGON_FRUIT_PIE);
+                output.accept(DRAGON_FRUIT_PIE_SLICE);
+                output.accept(PUMPKIN_PIE_SLICE);
 
                 //drinks
                 output.accept(APPLE_JUICE);
@@ -178,11 +196,13 @@ public class BACreativeTabs {
                 output.accept(BANANA_SMOOTHIE);
                 output.accept(LEMONADE);
                 output.accept(LIMEADE);
+                output.accept(DRAGON_FRUIT_LATTE);
                 output.accept(COFFEE);
                 output.accept(STRAWBERRY_BANANA_SMOOTHIE);
                 output.accept(PINK_LEMONADE);
-                output.accept(PINK_LADY);
+                output.accept(PINK_LIMEADE);
                 output.accept(BLUEBERRY_LIMEADE);
+                output.accept(PINK_LADY);
             }).build());
 
     public static void register(IEventBus eventBus) {

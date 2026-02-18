@@ -31,8 +31,8 @@ public class BAEnglishLanguageProvider extends LanguageProvider {
                 "Macarons are able to be dyed like leather armor!");
 
         //effect desc
-        add("effect." + BA + ".hearttrickle.description",
-                "Temporary description!");
+        add("effect." + BA + ".twin_strike.description",
+                "Makes all attacks hit twice, with the second hit doing less damage; higher levels increase the second hit's damage.");
         add("effect." + BA + ".reflection.description",
                 "Reflects any projectiles that make contact with the user; higher levels increase the chance.");
         add("effect." + BA + ".concentration.description",
@@ -58,8 +58,12 @@ public class BAEnglishLanguageProvider extends LanguageProvider {
         add("advancements.husbandry.black_cats_paw.title", "Black Cat's Paw");
         add("advancements.husbandry.black_cats_paw.description",
                 "Obtain 777 golden cookies and question your sanity");
+        add("advancements.husbandry.not_a_lie.title", "Not a Lie");
+        add("advancements.husbandry.not_a_lie.description",
+                "You will bake every flavor of cake there is... and then there will be cake.");
 
         //tags
+        add("tag.item." + BA + ".serving_containers", "Serving Containers");
         add("tag.item." + BA + ".citrus_fruits", "Citrus Fruits");
 
         //configs

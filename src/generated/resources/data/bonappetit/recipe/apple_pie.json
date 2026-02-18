@@ -1,27 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "#": {
+  "ingredients": [
+    {
       "item": "minecraft:apple"
     },
-    "E": {
-      "tag": "c:eggs"
+    {
+      "item": "minecraft:apple"
     },
-    "P": {
-      "item": "bonappetit:pie_crust"
+    {
+      "item": "minecraft:apple"
     },
-    "S": {
+    {
       "item": "minecraft:sugar"
     },
-    "W": {
-      "item": "minecraft:wheat"
+    {
+      "tag": "c:eggs"
+    },
+    {
+      "item": "bonappetit:pie_crust"
     }
-  },
-  "pattern": [
-    "SES",
-    "###",
-    "WPW"
   ],
   "result": {
     "count": 2,

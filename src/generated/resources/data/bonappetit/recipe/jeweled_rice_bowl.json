@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:pomegranate_seeds"
+    },
+    {
+      "item": "bonappetit:lime"
+    },
+    {
+      "item": "bonappetit:roasted_acorn"
+    },
+    {
+      "item": "bonappetit:rice"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:jeweled_rice_bowl"
+  }
+}

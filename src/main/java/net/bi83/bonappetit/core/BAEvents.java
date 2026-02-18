@@ -3,24 +3,39 @@ package net.bi83.bonappetit.core;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.content.entity.goal.BeeMoveToFruitBushGoal;
 import net.bi83.bonappetit.core.content.entity.goal.BeePollinateFruitGoal;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CakeBlock;
+import net.minecraft.world.level.block.CandleBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -28,10 +43,14 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.*;
 
@@ -156,6 +175,51 @@ public class BAEvents {
                 ECHO_QUEUE.remove(i);
             } else {
                 ECHO_QUEUE.set(i, new CherryEcho(echo.attacker, echo.victim, echo.damage, echo.timer - 1));
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onCakeInteract(PlayerInteractEvent.RightClickBlock event) {
+        Level level = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState state = level.getBlockState(pos);
+        ItemStack stack = event.getItemStack();
+        if (state.is(Blocks.CAKE)) {
+            int bites = state.getValue(CakeBlock.BITES);
+            if (stack.is(BAItems.CAKE_SLICE.get()) && bites > 0) {
+                if (!level.isClientSide) {
+                    level.setBlock(pos, state.setValue(CakeBlock.BITES, bites - 1), 3);
+                    level.playSound(null, pos, SoundEvents.WOOL_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                    if (!event.getEntity().getAbilities().instabuild) {
+                        stack.shrink(1);
+                    }
+                }
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onCakeDamage(LivingIncomingDamageEvent event) {
+        if (!event.getSource().is(DamageTypes.FALL)) return;
+        LivingEntity entity = event.getEntity();
+        Level level = entity.level();
+        BlockPos landPos = BlockPos.containing(entity.getX(), entity.getY() - 0.1D, entity.getZ());
+        BlockState state = level.getBlockState(landPos);
+
+        if (state.is(Blocks.CAKE) || state.getBlock() instanceof CakeBlock || state.is(BlockTags.CANDLE_CAKES)) {
+            float newAmount = event.getAmount() * 0.2F;
+            event.setAmount(newAmount);
+            if (!level.isClientSide && entity.fallDistance > 3.0F) {
+                if (level.random.nextFloat() < 0.20F) {
+                    level.levelEvent(2001, landPos, Block.getId(state));
+                    level.playSound(null, landPos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.5F, 1.0F);
+                    level.removeBlock(landPos, false);
+                    level.gameEvent(GameEvent.BLOCK_DESTROY, landPos, GameEvent.Context.of(entity, state));
+                }
             }
         }
     }

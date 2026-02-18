@@ -68,10 +68,8 @@ public abstract class BAItems {
     public static final DeferredItem<Item> CARAMEL_APPLE = ITEMS.register("caramel_apple", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.375f)
             .effect(new MobEffectInstance(MobEffects.ABSORPTION, 150, 1), 1.0F)
             .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0), 1.0F).build())));
-    public static final DeferredItem<Item> APPLE_PIE = ITEMS.register("apple_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(0.3f)
-            .effect(new MobEffectInstance(MobEffects.ABSORPTION, 1200, 0), 1.0F).build())));
-    public static final DeferredItem<Item> APPLE_PIE_SLICE = ITEMS.register("apple_pie_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3f)
-            .effect(new MobEffectInstance(MobEffects.ABSORPTION, 300, 0), 1.0F).build())));
+    public static final DeferredItem<Item> APPLE_PIE = ITEMS.register("apple_pie", () -> new Item(new Item.Properties().food(BANutrition.APPLE_PIE)));
+    public static final DeferredItem<Item> APPLE_PIE_SLICE = ITEMS.register("apple_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.APPLE_PIE_SLICE)));
     public static final DeferredItem<Item> APPLE_CAKE_SLICE = ITEMS.register("apple_cake_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.125f).build())));
     public static final DeferredItem<Item> APPLE_JUICE = ITEMS.register("apple_juice", () -> new BAPitcherDrinkItem(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.3f)
             .effect(new MobEffectInstance(MobEffects.ABSORPTION, 600, 0), 1.0F).build())));
@@ -83,6 +81,8 @@ public abstract class BAItems {
     //Grapefruit
     public static final DeferredItem<Item> GRAPEFRUIT = ITEMS.register("grapefruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
     public static final DeferredItem<Item> GRAPEFRUIT_SLICE = ITEMS.register("grapefruit_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.175f).build())));
+    public static final DeferredItem<Item> GRAPEFRUIT_PIE = ITEMS.register("grapefruit_pie", () -> new Item(new Item.Properties().food(BANutrition.GRAPEFRUIT_PIE)));
+    public static final DeferredItem<Item> GRAPEFRUIT_PIE_SLICE = ITEMS.register("grapefruit_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.GRAPEFRUIT_PIE_SLICE)));
 
     //Orange
     public static final DeferredItem<Item> ORANGE = ITEMS.register("orange", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
@@ -91,6 +91,8 @@ public abstract class BAItems {
     public static final DeferredItem<Item> ORANGE_SLICE = ITEMS.register("orange_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.175f).build())));
     public static final DeferredItem<Item> CANDIED_ORANGE_PEELS = ITEMS.register("candied_orange_peels", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.295f)
             .effect(new MobEffectInstance(BAEffects.CONCENTRATION, 100, 0), 0.8F).build())));
+    public static final DeferredItem<Item> ORANGE_PIE = ITEMS.register("orange_pie", () -> new Item(new Item.Properties().food(BANutrition.ORANGE_PIE)));
+    public static final DeferredItem<Item> ORANGE_PIE_SLICE = ITEMS.register("orange_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.ORANGE_PIE_SLICE)));
     public static final DeferredItem<Item> ORANGE_CAKE_SLICE = ITEMS.register("orange_cake_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.125f)
             .effect(new MobEffectInstance(BAEffects.CONCENTRATION, 150, 0), 1.0F).build())));
     public static final DeferredItem<Item> ORANGE_SORBET = ITEMS.register("orange_sorbet", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.2f)
@@ -104,12 +106,14 @@ public abstract class BAItems {
 
     //Pumpkin
     public static final DeferredItem<Item> PUMPKIN_SLICE = ITEMS.register("pumpkin_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
-    public static final DeferredItem<Item> PUMPKIN_PIE_SLICE = ITEMS.register("pumpkin_pie_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.3f).build())));
+    public static final DeferredItem<Item> PUMPKIN_PIE_SLICE = ITEMS.register("pumpkin_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.PUMPKIN_PIE_SLICE)));
 
     //Mango
     public static final DeferredItem<Item> MANGO = ITEMS.register("mango", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
+    public static final DeferredItem<Item> MANGO_PIE = ITEMS.register("mango_pie", () -> new Item(new Item.Properties().food(BANutrition.MANGO_PIE)));
+    public static final DeferredItem<Item> MANGO_PIE_SLICE = ITEMS.register("mango_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.MANGO_PIE_SLICE)));
 
-    //Apricot -- MIGHT BE SCRAPPED
+    //Apricot
     public static final DeferredItem<Item> APRICOT = ITEMS.register("apricot", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
 
     //Pineapple
@@ -131,10 +135,9 @@ public abstract class BAItems {
     public static final DeferredItem<Item> LEMON_TART = ITEMS.register("lemon_tart", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.3f).build())));
     public static final DeferredItem<Item> LEMON_MERINGUE_PIE = ITEMS.register("lemon_meringue_pie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationModifier(0.35f).build())));
     public static final DeferredItem<Item> LEMON_MERINGUE_PIE_SLICE = ITEMS.register("lemon_meringue_pie_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.35f).build())));
-    public static final DeferredItem<Item> LEMON_CAKE = ITEMS.register("lemon_cake", () -> new BlockItem(BABlocks.LEMON_CAKE.get(), new Item.Properties()));
-    public static final DeferredItem<Item> LEMON_CAKE_SLICE = ITEMS.register("lemon_cake_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.125f).build())));
-    public static final DeferredItem<Item> LEMONADE = ITEMS.register("lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.45f).alwaysEdible()
-            .effect(new MobEffectInstance(BAEffects.RESONANCE, 450, 0), 1.0F).build())));
+    public static final DeferredItem<Item> LEMON_CAKE = ITEMS.register("lemon_cake", () -> new BlockItem(BABlocks.LEMON_CAKE.get(), new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> LEMON_CAKE_SLICE = ITEMS.register("lemon_cake_slice", () -> new Item(new Item.Properties().food(BANutrition.LEMON_CAKE_SLICE)));
+    public static final DeferredItem<Item> LEMONADE = ITEMS.register("lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(BANutrition.LEMONADE)));
     
     //Lime
     public static final DeferredItem<Item> LIME = ITEMS.register("lime", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
@@ -146,8 +149,7 @@ public abstract class BAItems {
     public static final DeferredItem<Item> DOUBLE_LIME_POPSICLE = ITEMS.register("double_lime_popsicle", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.425f)
             .effect(new MobEffectInstance(BAEffects.DISSONANCE, 600, 0), 1.0F).build())));
     public static final DeferredItem<Item> LIME_CAKE_SLICE = ITEMS.register("lime_cake_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.125f).build())));
-    public static final DeferredItem<Item> LIMEADE = ITEMS.register("limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible()
-                .effect(new MobEffectInstance(BAEffects.DISSONANCE, 450, 0), 1.0F).build())));
+    public static final DeferredItem<Item> LIMEADE = ITEMS.register("limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(BANutrition.LIMEADE)));
 
     //Kiwi -- MIGHT BE SCRAPPED
     public static final DeferredItem<Item> KIWI = ITEMS.register("kiwi", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
@@ -163,18 +165,24 @@ public abstract class BAItems {
     public static final DeferredItem<Item> PEACH = ITEMS.register("peach", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
 
     //Dragon Fruit
-    public static final DeferredItem<Item> DRAGON_FRUIT = ITEMS.register("dragon_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3f).build())));
+    public static final DeferredItem<Item> DRAGON_FRUIT = ITEMS.register("dragon_fruit", () -> new Item(new Item.Properties().food(BANutrition.DRAGON_FRUIT)));
+    public static final DeferredItem<Item> DRAGON_FRUIT_SLICE = ITEMS.register("dragon_fruit_slice", () -> new Item(new Item.Properties().food(BANutrition.DRAGON_FRUIT_SLICE)));
     public static final DeferredItem<Item> DRIED_DRAGON_FRUIT = ITEMS.register("dried_dragon_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.35f).build())));
+    public static final DeferredItem<Item> DRAGON_FRUIT_PIE = ITEMS.register("dragon_fruit_pie", () -> new Item(new Item.Properties().food(BANutrition.DRAGON_FRUIT_PIE)));
+    public static final DeferredItem<Item> DRAGON_FRUIT_PIE_SLICE = ITEMS.register("dragon_fruit_pie_slice", () -> new Item(new Item.Properties().food(BANutrition.DRAGON_FRUIT_PIE_SLICE)));
 
     //Pomegranate
     public static final DeferredItem<Item> POMEGRANATE = ITEMS.register("pomegranate", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.075f).build())));
     public static final DeferredItem<Item> POMEGRANATE_SLICE = ITEMS.register("pomegranate_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
+    public static final DeferredItem<Item> POMEGRANATE_SEEDS = ITEMS.register("pomegranate_seeds", () -> new Item(new Item.Properties()));
 
     //Coconut
     public static final DeferredItem<Item> COCONUT = ITEMS.register("coconut", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> COCONUT_SLICE = ITEMS.register("coconut_slice", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.2f).build())));
 
     /* BERRIES */
+    public static final DeferredItem<Item> CAKE_SLICE = ITEMS.register("cake_slice", () -> new Item(new Item.Properties().food(BANutrition.CAKE_SLICE)));
+
     //Strawberry
     public static final DeferredItem<Item> STRAWBERRIES = ITEMS.register("strawberries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.1f).build())));
     public static final DeferredItem<Item> GOLDEN_STRAWBERRIES = ITEMS.register("golden_strawberries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(1.075f).build())));
@@ -207,7 +215,7 @@ public abstract class BAItems {
     public static final DeferredItem<Item> POPCORN = ITEMS.register("popcorn", () -> new PopcornItem(new Item.Properties().food(new FoodProperties.Builder().fast().nutrition(2).saturationModifier(0.1f).build())));
 
     /* VEGETABLES */
-
+    public static final DeferredItem<Item> RICE = ITEMS.register("rice", () -> new Item(new Item.Properties().food(BANutrition.RICE)));
     /* WHATEVER THE FUCK THESE ARE */
     //Tea
     public static final DeferredItem<Item> GREEN_TEA_LEAVES = ITEMS.register("green_tea_leaves", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.75f).build())));
@@ -226,6 +234,9 @@ public abstract class BAItems {
     public static final DeferredItem<Item> CINNAMON_DUST = ITEMS.register("cinnamon_dust", () -> new Item(new Item.Properties()));
 
     /* MEALS */
+    public static final DeferredItem<Item> ACORN = ITEMS.register("acorn", () -> new Item(new Item.Properties().food(BANutrition.ACORN)));
+    public static final DeferredItem<Item> ROASTED_ACORN = ITEMS.register("roasted_acorn", () -> new Item(new Item.Properties().food(BANutrition.ROASTED_ACORN)));
+
     public static final DeferredItem<Item> JOCKEY_SANDWICH = ITEMS.register("jockey_sandwich", () -> new Item(new Item.Properties().food(BANutrition.JOCKEY_SANDWICH)));
 
     public static final DeferredItem<Item> CHOCOLATE_BAR = ITEMS.register("chocolate_bar", () -> new Item(new Item.Properties().food(BANutrition.CHOCOLATE_BAR)));
@@ -255,16 +266,16 @@ public abstract class BAItems {
             .nutrition(6)
             .saturationModifier(0.7f)
             .effect(new MobEffectInstance(BAEffects.AGILITY, 600, 0), 1.0F).build())));
-    public static final DeferredItem<Item> PINK_LEMONADE = ITEMS.register("pink_lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().alwaysEdible()
-            .nutrition(7)
-            .saturationModifier(0.6f).build())));
+    public static final DeferredItem<Item> PINK_LEMONADE = ITEMS.register("pink_lemonade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(BANutrition.PINK_LEMONADE)));
     public static final DeferredItem<Item> PINK_LADY = ITEMS.register("pink_lady", () -> new BACocktailDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().alwaysEdible()
             .nutrition(7)
             .saturationModifier(0.6f).build())));
-    public static final DeferredItem<Item> BLUEBERRY_LIMEADE = ITEMS.register("blueberry_limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(new FoodProperties.Builder().alwaysEdible()
-            .nutrition(7)
-            .saturationModifier(0.55f)
-            .effect(new MobEffectInstance(BAEffects.DISSONANCE, 450, 0), 1.0F).build())));
+    public static final DeferredItem<Item> PINK_LIMEADE = ITEMS.register("pink_limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(BANutrition.PINK_LIMEADE)));
+    public static final DeferredItem<Item> BLUEBERRY_LIMEADE = ITEMS.register("blueberry_limeade", () -> new BAPitcherDrinkItem(new Item.Properties().stacksTo(16).food(BANutrition.BLUEBERRY_LIMEADE)));
+
+    public static final DeferredItem<Item> DRAGON_FRUIT_LATTE = ITEMS.register("dragon_fruit_latte", () -> new BAPitcherDrinkItem(new Item.Properties().food(BANutrition.DRAGON_FRUIT_LATTE)));
+
+    public static final DeferredItem<Item> JEWELED_RICE_BOWL = ITEMS.register("jeweled_rice_bowl", () -> new Item(new Item.Properties().food(BANutrition.JEWELED_RICE_BOWL)));
 
     /* NON-FOODS */
     //public static final DeferredItem<DinnerwareBundleItem> DINNERWARE_BUNDLE = ITEMS.register("dinnerware_bundle", () -> new DinnerwareBundleItem(new Item.Properties()));

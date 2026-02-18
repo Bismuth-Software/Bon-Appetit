@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bonappetit:orange_pie_slice"
+    },
+    {
+      "item": "bonappetit:orange_pie_slice"
+    },
+    {
+      "item": "bonappetit:orange_pie_slice"
+    },
+    {
+      "item": "bonappetit:orange_pie_slice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:orange_pie"
+  }
+}

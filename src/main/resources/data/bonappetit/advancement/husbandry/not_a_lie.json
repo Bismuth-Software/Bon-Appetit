@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "cake": {
+      "conditions": {
+        "item": {
+          "items": "minecraft:cake"
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lemon_cake": {
+      "conditions": {
+        "item": {
+          "items": "bonappetit:lemon_cake"
+        }
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.husbandry.not_a_lie.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:cake"
+    },
+    "title": {
+      "translate": "advancements.husbandry.not_a_lie.title"
+    }
+  },
+  "requirements": [
+    [
+      "cake"
+    ],
+    [
+      "lemon_cake"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

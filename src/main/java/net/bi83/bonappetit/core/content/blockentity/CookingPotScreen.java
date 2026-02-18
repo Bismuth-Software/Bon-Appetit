@@ -1,7 +1,7 @@
 package net.bi83.bonappetit.core.content.blockentity;
 
 import net.bi83.bonappetit.BonAppetit;
-import net.bi83.bonappetit.BonAppetitConfig;
+import net.bi83.bonappetit.BAConfig;
 import net.bi83.bonappetit.core.common.helper.TextHelper;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.world.inventory.ClickType;
@@ -15,18 +15,13 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import org.apache.http.util.TextUtils;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt .*;
 import java.util.ArrayList;
@@ -54,7 +49,7 @@ public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> im
         this.titleLabelX = 28;
         this.recipeBookComponent.init(this.width, this.height, this.minecraft, this.widthTooNarrow, this.menu);
         this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
-        if (BonAppetitConfig.REGISTER_COFFEE.get()) {
+        if (BAConfig.REGISTER_COFFEE.get()) {
             this.addRenderableWidget(new ImageButton(this.leftPos + 5, this.height / 2 - 49, 20, 18, RECIPE_BUTTON, (button) ->
             {
                 this.recipeBookComponent.toggleVisibility();

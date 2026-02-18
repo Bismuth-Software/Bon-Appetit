@@ -4,13 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
 import net.bi83.bonappetit.core.common.event.*;
 import net.bi83.bonappetit.core.content.blockentity.CopperTankEntity;
-import net.bi83.bonappetit.core.content.effect.FlakEffect;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.inventory.RecipeBookType;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -18,14 +15,12 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.util.thread.SidedThreadGroups;
-import net.neoforged.neoforge.capabilities.BlockCapability;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.event.ModifyDefaultComponentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.slf4j.Logger;
 
 import java.util.AbstractMap;
@@ -58,6 +53,7 @@ public class BonAppetit {
         BARecipeSerializers.RECIPE_SERIALIZERS.register(modEventBus);
         BAMenuTypes.MENU_TYPES.register(modEventBus);
         BAFeatures.FEATURES.register(modEventBus);
+        BALootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(ReflectionEvent.class);
         NeoForge.EVENT_BUS.register(ConcentrationEvent.class);
@@ -67,7 +63,7 @@ public class BonAppetit {
         NeoForge.EVENT_BUS.register(VigorEvent.class);
         NeoForgeMod.enableMilkFluid();
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
-        modContainer.registerConfig(ModConfig.Type.COMMON, BonAppetitConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, BAConfig.SPEC);
     }
 
     @SubscribeEvent

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "tag": "c:buckets/milk"
+    },
+    {
+      "item": "minecraft:rose_bush"
+    },
+    {
+      "item": "bonappetit:glass_pitcher"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:dragon_fruit_latte"
+  }
+}

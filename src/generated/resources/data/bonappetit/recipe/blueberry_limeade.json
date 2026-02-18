@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bonappetit:lime_slice"
+    },
+    {
+      "item": "bonappetit:lime_slice"
+    },
+    {
+      "item": "bonappetit:blueberries"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "bonappetit:glass_pitcher"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bonappetit:blueberry_limeade"
+  }
+}
