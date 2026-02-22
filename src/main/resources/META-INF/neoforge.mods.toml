@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/Bismuth-Software/Bon-Appetit/issues" #option
 
 [[mods]] #mandatory
 modId="bonappetit" #mandatory
-version="0.1.0-21.1" #mandatory
+version="0.2.0-21.1" #mandatory
 displayName="Bon Appétit" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
@@ -19,6 +19,7 @@ logoFile="cubicroot.png" #optional
 credits="DynoMyte6277" #optional
 authors="Ashley, AgentPillow" #optional
 description='''Food ;3'''
+enumExtensions="META-INF/enumextensions.json"
 
 [[mixins]]
 config="bonappetit.mixins.json"
@@ -27,7 +28,6 @@ config="bonappetit.mixins.json"
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
 #[[accessTransformers]]
 #file="META-INF/accesstransformer.cfg"
-
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.

@@ -1,0 +1,27 @@
+{
+  "type": "bonappetit:cooking",
+  "container": {
+    "count": 1,
+    "id": "bonappetit:glass_pitcher"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "minecraft:rose_bush"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "bonappetit:dragon_fruit_latte"
+  }
+}

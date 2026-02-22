@@ -28,6 +28,8 @@ public class BAEffects {
             .addAttributeModifier(Attributes.ARMOR, BonAppetit.asResource("effect.resonance.armor"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, MobEffect> DISSONANCE = EFFECTS.register("dissonance", () -> new DissonanceEffect(MobEffectCategory.NEUTRAL, 0xE8FED8)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, BonAppetit.asResource("effect.dissonance.attack_damage"), 1.0F, AttributeModifier.Operation.ADD_VALUE));
+    public static final DeferredHolder<MobEffect, MobEffect> OBSCURITY = EFFECTS.register("obscurity", () -> new ObscurityEffect(MobEffectCategory.BENEFICIAL, 0xCDE262)
+            .addAttributeModifier(Attributes.SNEAKING_SPEED, BonAppetit.asResource("effect.obscurity.sneaking_speed"), 50.0F, AttributeModifier.Operation.ADD_VALUE));
     public static final DeferredHolder<MobEffect, FlakEffect> FLAK = EFFECTS.register("flak", FlakEffect::new);
 
     public static final DeferredHolder<MobEffect, MobEffect> ROOTED = EFFECTS.register("rooted", () -> new RootedEffect(MobEffectCategory.BENEFICIAL, 0xA4272C)

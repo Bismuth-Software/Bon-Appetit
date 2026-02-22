@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cake",
+  "textures": {
+    "bottom": "bonappetit:block/lime_cake_bottom",
+    "particle": "bonappetit:block/lime_cake_side",
+    "side": "bonappetit:block/lime_cake_side",
+    "top": "bonappetit:block/lime_cake_top"
+  }
+}

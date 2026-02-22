@@ -1,0 +1,36 @@
+{
+  "type": "bonappetit:cooking",
+  "container": {
+    "count": 1,
+    "id": "minecraft:bowl"
+  },
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:dragon_fruit_slice"
+    },
+    {
+      "item": "bonappetit:pomegranate_seeds"
+    },
+    {
+      "item": "bonappetit:lime"
+    },
+    {
+      "item": "bonappetit:roasted_acorn"
+    },
+    {
+      "item": "bonappetit:rice"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "bonappetit:jeweled_rice_bowl"
+  }
+}

@@ -23,7 +23,8 @@ public class BABlocks {
     public static final DeferredBlock<CopperTankBlock> COPPER_TANK = registerBlock("copper_tank",
             () -> new CopperTankBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_COPPER_BLOCK).sound(SoundType.COPPER).noOcclusion()));
 
-    public static final DeferredBlock<CakeBlock> LEMON_CAKE = BLOCKS.register("lemon_cake", () -> new LemonCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE)));
+    public static final DeferredBlock<LemonCakeBlock> LEMON_CAKE = BLOCKS.register("lemon_cake", () -> new LemonCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE)));
+    public static final DeferredBlock<LimeCakeBlock> LIME_CAKE = BLOCKS.register("lime_cake", () -> new LimeCakeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE)));
 
     public static final DeferredBlock<Block> GRAPEFRUIT_VINE = registerBlockNoItem("grapefruit_vine", () -> new GrapefruitVineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().sound(SoundType.WEEPING_VINES)));
     public static final DeferredBlock<Block> CORN_BASE = registerBlockNoItem("corn_base", () -> new CornCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT).randomTicks().offsetType(BlockBehaviour.OffsetType.NONE).instabreak().sound(SoundType.CROP)));

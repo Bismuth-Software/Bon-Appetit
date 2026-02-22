@@ -130,6 +130,8 @@ public class BACreativeTabs {
                 output.accept(WAFER);
                 output.accept(CORN_ON_A_COB);
                 output.accept(POPCORN);
+                output.accept(RAW_CORN_TORTILLA);
+                output.accept(CORN_TORTILLA);
                 output.accept(HONEY_APPLE);
                 output.accept(CANDY_APPLE);
                 output.accept(CARAMEL_APPLE);
@@ -144,8 +146,10 @@ public class BACreativeTabs {
                 output.accept(JERKY);
                 output.accept(CHOCOLATE_BAR);
                 output.accept(BROWNIE);
+                output.accept(CARAMEL);
 
                 //intermediate meals (multi-fruit)
+                output.accept(CHICKEN_QUESADILLA);
                 output.accept(JOCKEY_SANDWICH);
 
                 //feasts/good meals
@@ -167,6 +171,8 @@ public class BACreativeTabs {
 
                 //pies and cake
                 output.accept(CAKE_SLICE);
+                output.accept(CHERRY_PIE);
+                output.accept(CHERRY_PIE_SLICE);
                 output.accept(APPLE_PIE);
                 output.accept(APPLE_PIE_SLICE);
                 output.accept(APPLE_CAKE_SLICE);
@@ -179,10 +185,10 @@ public class BACreativeTabs {
                 output.accept(MANGO_PIE_SLICE);
                 output.accept(BANANA_CAKE_SLICE);
                 output.accept(LEMON_TART);
-                output.accept(LEMON_MERINGUE_PIE);
-                output.accept(LEMON_MERINGUE_PIE_SLICE);
+                output.accept(LEMON_TART_SLICE);
                 output.accept(LEMON_CAKE);
                 output.accept(LEMON_CAKE_SLICE);
+                output.accept(LIME_CAKE);
                 output.accept(LIME_CAKE_SLICE);
                 output.accept(DRAGON_FRUIT_PIE);
                 output.accept(DRAGON_FRUIT_PIE_SLICE);

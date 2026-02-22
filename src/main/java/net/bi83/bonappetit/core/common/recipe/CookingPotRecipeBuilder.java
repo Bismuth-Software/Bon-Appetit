@@ -26,8 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault @MethodsReturnNonnullByDefault
 public class CookingPotRecipeBuilder implements RecipeBuilder {
     private CookingPotRecipeBookTab tab;
     private final NonNullList<Ingredient> ingredients = NonNullList.create();

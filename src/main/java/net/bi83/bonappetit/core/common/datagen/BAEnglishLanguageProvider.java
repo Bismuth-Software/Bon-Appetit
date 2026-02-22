@@ -61,6 +61,12 @@ public class BAEnglishLanguageProvider extends LanguageProvider {
         add("advancements.husbandry.not_a_lie.title", "Not a Lie");
         add("advancements.husbandry.not_a_lie.description",
                 "You will bake every flavor of cake there is... and then there will be cake.");
+        add("advancements.adventure.shadow_strike.title", "Shadow Strike");
+        add("advancements.adventure.shadow_strike.description",
+                "Using the power of pears, perform a stealth strike on a mob");
+        add("advancements.adventure.slip_under_the_door.title", "Slip Under The Door");
+        add("advancements.adventure.slip_under_the_door.description",
+                "Stay hidden in a group of at least five mobs using the power of pears");
 
         //tags
         add("tag.item." + BA + ".serving_containers", "Serving Containers");

@@ -3,6 +3,8 @@ package net.bi83.bonappetit.core;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class BANutrition {
     public static final FoodProperties CORN = (new FoodProperties.Builder())
@@ -26,6 +28,11 @@ public class BANutrition {
     public static final FoodProperties ROASTED_ACORN = (new FoodProperties.Builder())
             .nutrition(4).saturationModifier(0.275F).build();
 
+    public static final FoodProperties RAW_CORN_TORTILLA = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.2F)
+            .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100, 0), 0.5f).build();
+    public static final FoodProperties CORN_TORTILLA = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.8F).build();
     public static final FoodProperties JERKY = (new FoodProperties.Builder())
             .nutrition(3).saturationModifier(0.1F).fast().build();
 
@@ -35,10 +42,14 @@ public class BANutrition {
     public static final FoodProperties BROWNIE = (new FoodProperties.Builder())
             .nutrition(4).saturationModifier(0.3F)
             .effect(() -> new MobEffectInstance(BAEffects.VIGOR, 300, 0), 1F).build();
+    public static final FoodProperties CARAMEL = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.2F)
+            .effect(() -> new MobEffectInstance(BAEffects.VIGOR, 200, 0), 0.85F).build();
 
+    public static final FoodProperties CHICKEN_QUESADILLA = (new FoodProperties.Builder())
+            .nutrition(10).saturationModifier(0.8F).build();
     public static final FoodProperties JOCKEY_SANDWICH = (new FoodProperties.Builder())
             .nutrition(11).saturationModifier(0.8F).build();
-            //.effect(() -> new MobEffectInstance(BAEffects.VIGOR, 300, 0), 1F).build();
 
     public static final FoodProperties JEWELED_RICE_BOWL = (new FoodProperties.Builder())
             .nutrition(12).saturationModifier(1.15F)
@@ -47,8 +58,22 @@ public class BANutrition {
             .effect(() -> new MobEffectInstance(BAEffects.SEEDED, 100, 1), 1F)
             .effect(() -> new MobEffectInstance(BAEffects.DISSONANCE, 300, 0), 1F).build();
 
+    public static final FoodProperties CANDY_APPLE = (new FoodProperties.Builder())
+            .nutrition(4).saturationModifier(0.35F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 100, 0), 1F).build();
+    public static final FoodProperties CARAMEL_APPLE = (new FoodProperties.Builder())
+            .nutrition(6).saturationModifier(0.375F)
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 150, 0), 1F)
+            .effect(() -> new MobEffectInstance(BAEffects.VIGOR, 200, 0), 1F).build();
+
     public static final FoodProperties CAKE_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.1F).fast().build();
+    public static final FoodProperties CHERRY_PIE = (new FoodProperties.Builder())
+            .nutrition(8).saturationModifier(0.35F)
+            .effect(() -> new MobEffectInstance(BAEffects.TWIN_STRIKE, 900, 1), 1f).build();
+    public static final FoodProperties CHERRY_PIE_SLICE = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.35F)
+            .effect(() -> new MobEffectInstance(BAEffects.TWIN_STRIKE, 200, 1), 1f).fast().build();
     public static final FoodProperties APPLE_PIE = (new FoodProperties.Builder())
             .nutrition(8).saturationModifier(0.35F)
             .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 900, 1), 1f).build();
@@ -73,9 +98,18 @@ public class BANutrition {
     public static final FoodProperties MANGO_PIE_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.35F)
             .effect(() -> new MobEffectInstance(BAEffects.INSATIABLE, 200, 1), 1f).fast().build();
+    public static final FoodProperties LEMON_TART = (new FoodProperties.Builder())
+            .nutrition(8).saturationModifier(0.3F)
+            .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 900, 1), 1f).build();
+    public static final FoodProperties LEMON_TART_SLICE = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.3F)
+            .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 200, 0), 1f).fast().build();
     public static final FoodProperties LEMON_CAKE_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.1F)
             .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 200, 0), 1f).fast().build();
+    public static final FoodProperties LIME_CAKE_SLICE = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.1F)
+            .effect(() -> new MobEffectInstance(BAEffects.DISSONANCE, 200, 0), 1f).fast().build();
     public static final FoodProperties DRAGON_FRUIT_PIE = (new FoodProperties.Builder())
             .nutrition(8).saturationModifier(0.35F)
             .effect(() -> new MobEffectInstance(BAEffects.FLAK, 900, 1), 1f).build();

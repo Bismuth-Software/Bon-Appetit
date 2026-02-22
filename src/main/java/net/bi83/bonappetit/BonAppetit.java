@@ -3,6 +3,7 @@ package net.bi83.bonappetit;
 import com.mojang.logging.LogUtils;
 import net.bi83.bonappetit.core.*;
 import net.bi83.bonappetit.core.common.event.*;
+import net.bi83.bonappetit.core.common.recipe.RecipeCategories;
 import net.bi83.bonappetit.core.content.blockentity.CopperTankEntity;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +15,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.fml.util.thread.SidedThreadGroups;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
@@ -38,6 +40,9 @@ public class BonAppetit {
     public static ResourceLocation asResource(String path) {return ResourceLocation.fromNamespaceAndPath(ID, path);}
     public static void queueServerWork(int tick, Runnable action) {if (Thread.currentThread().getThreadGroup() == SidedThreadGroups.SERVER) {workQueue.add(new AbstractMap.SimpleEntry(action, tick));}}
     public BonAppetit(IEventBus modEventBus, ModContainer modContainer) {
+        if (FMLEnvironment.dist.isClient()) {
+            modEventBus.addListener(RecipeCategories::init);
+        }
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::modifyComponents);
 
@@ -61,6 +66,7 @@ public class BonAppetit {
         NeoForge.EVENT_BUS.register(FlakEvent.class);
         NeoForge.EVENT_BUS.register(DischargeEvent.class);
         NeoForge.EVENT_BUS.register(VigorEvent.class);
+        NeoForge.EVENT_BUS.register(ObscurityClientEvent.class);
         NeoForgeMod.enableMilkFluid();
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
         modContainer.registerConfig(ModConfig.Type.COMMON, BAConfig.SPEC);

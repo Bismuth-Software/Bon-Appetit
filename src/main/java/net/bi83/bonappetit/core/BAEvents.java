@@ -5,10 +5,8 @@ import net.bi83.bonappetit.core.content.entity.goal.BeeMoveToFruitBushGoal;
 import net.bi83.bonappetit.core.content.entity.goal.BeePollinateFruitGoal;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,13 +15,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.Bee;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionBrewing;
@@ -33,24 +30,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CakeBlock;
-import net.minecraft.world.level.block.CandleBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.phys.AABB;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.LivingChangeTargetEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingFallEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.*;
 
@@ -152,6 +147,114 @@ public class BAEvents {
                     victim.level().playSound(null, victim.getX(), victim.getY(), victim.getZ(),
                             SoundEvents.CHERRY_SAPLING_STEP, SoundSource.PLAYERS, 0.5f, 1.2f);
                 }
+            }
+        }
+    }
+
+    private static final WeakHashMap<Player, Long> EXPOSURE_COOLDOWN = new WeakHashMap<>();
+    private static final WeakHashMap<Player, Long> SNEAK_START_TIME = new WeakHashMap<>();
+
+    @SubscribeEvent
+    public static void onEntityTick(EntityTickEvent.Pre event) {
+        if (event.getEntity() instanceof Player player) {
+            if (!player.isCrouching() || player.isSprinting()) {
+                SNEAK_START_TIME.remove(player);
+            } else {
+                SNEAK_START_TIME.putIfAbsent(player, player.level().getGameTime());
+            }
+
+            if (!player.level().isClientSide && isHidden(player) && player.level().getGameTime() % 20 == 0) {
+                var enemies = player.level().getEntitiesOfClass(Mob.class,
+                        player.getBoundingBox().inflate(4.0D, 2.0D, 4.0D),
+                        mob -> (mob instanceof net.minecraft.world.entity.monster.Monster || mob instanceof net.minecraft.world.entity.monster.Slime));
+                if (enemies.size() >= 5) {
+                    grantAdvancement(player, "slip_under_the_door");
+                }
+            }
+        }
+
+        if (event.getEntity() instanceof Mob mob && mob.getTarget() instanceof Player player) {
+            if (isHidden(player)) {
+                mob.setTarget(null);
+                mob.setLastHurtByMob(null);
+                if (mob.getBrain() != null) {
+                    mob.getBrain().eraseMemory(net.minecraft.world.entity.ai.memory.MemoryModuleType.ATTACK_TARGET);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onMobTarget(LivingChangeTargetEvent event) {
+        if (event.getNewAboutToBeSetTarget() instanceof Player player && isHidden(player)) {
+            event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onIncomingDamage(LivingIncomingDamageEvent event) {
+        if (event.getEntity() instanceof Player player && isHidden(player)) {
+            if (event.getSource().getEntity() instanceof Mob) {
+                event.setCanceled(true);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onShadowStrike(LivingDamageEvent.Pre event) {
+        if (event.getSource().getDirectEntity() instanceof Player attacker) {
+            MobEffectInstance effect = null;
+            for (var instance : attacker.getActiveEffects()) {
+                if (instance.getEffect().getRegisteredName().equals("bonappetit:obscurity")) {
+                    effect = instance;
+                    break;
+                }
+            }
+
+            if (effect != null && isHidden(attacker)) {
+                float multiplier = 1.5f + (effect.getAmplifier() * 0.5f);
+                event.setNewDamage(event.getNewDamage() * multiplier);
+
+                if (attacker.level() instanceof ServerLevel server) {
+                    server.sendParticles(ParticleTypes.SMOKE, event.getEntity().getX(), event.getEntity().getY(0.5), event.getEntity().getZ(), 10, 0.2, 0.2, 0.2, 0.05);
+                    server.playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(), SoundEvents.PLAYER_ATTACK_CRIT, SoundSource.PLAYERS, 1.0f, 0.5f);
+                }
+
+                int cooldownTicks = Math.max(20, 200 - (effect.getAmplifier() * 40));
+                grantAdvancement(attacker, "shadow_strike");
+                EXPOSURE_COOLDOWN.put(attacker, attacker.level().getGameTime() - (200 - cooldownTicks));
+            } else if (effect != null) {
+                EXPOSURE_COOLDOWN.put(attacker, attacker.level().getGameTime());
+            }
+        }
+    }
+
+    public static boolean isHidden(Player player) {
+        boolean hasObscurity = false;
+        for (var effectInstance : player.getActiveEffects()) {
+            if (effectInstance.getEffect().getRegisteredName().equals("bonappetit:obscurity")) {
+                hasObscurity = true;
+                break;
+            }
+        }
+
+        long currentTime = player.level().getGameTime();
+        long lastAttack = EXPOSURE_COOLDOWN.getOrDefault(player, 0L);
+        long sneakStart = SNEAK_START_TIME.getOrDefault(player, -1L);
+
+        boolean cooledDown = (currentTime - lastAttack >= 200);
+        boolean sneakPrepped = sneakStart != -1L && (currentTime - sneakStart >= 100);
+
+        return hasObscurity && cooledDown && player.isCrouching() && !player.isSprinting() && sneakPrepped;
+    }
+
+    private static void grantAdvancement(Player player, String id) {
+        if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+            var advancementHolder = serverPlayer.getServer().getAdvancements().get(
+                    net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("bonappetit", "adventure/" + id)
+            );
+            if (advancementHolder != null) {
+                serverPlayer.getAdvancements().award(advancementHolder, "code_trigger");
             }
         }
     }

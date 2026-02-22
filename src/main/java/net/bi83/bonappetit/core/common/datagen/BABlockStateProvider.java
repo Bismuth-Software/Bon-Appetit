@@ -24,6 +24,7 @@ public class BABlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         cakeBlock(BABlocks.LEMON_CAKE.get());
+        cakeBlock(BABlocks.LIME_CAKE.get());
     }
 
     private String name(Block block) {

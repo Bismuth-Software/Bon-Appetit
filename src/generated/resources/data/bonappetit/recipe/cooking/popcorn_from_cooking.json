@@ -1,0 +1,15 @@
+{
+  "type": "bonappetit:cooking",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "item": "bonappetit:corn_kernels"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1,
+    "id": "bonappetit:popcorn"
+  }
+}
