@@ -1,5 +1,6 @@
 package net.bi83.bonappetit.core.common.datagen;
 
+import net.bi83.bonappetit.BAConfig;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.BABlocks;
 import net.bi83.bonappetit.core.BAEffects;
@@ -73,15 +74,29 @@ public class BAEnglishLanguageProvider extends LanguageProvider {
         add("tag.item." + BA + ".citrus_fruits", "Citrus Fruits");
 
         //configs
-        add("bonappetit.configuration.title", "Bon Appétit Config");
-        add("bonappetit.configuration.section.bonappetit.common.toml", "Bon Appétit Config");
-        add("bonappetit.configuration.section.bonappetit.common.toml.title", "Bon Appétit Config");
+        add(BA + ".configuration.title", "Bon Appétit Config");
+        add(BA + ".configuration.section.bonappetit.common.toml", "Bon Appétit Config");
+        add(BA + ".configuration.section.bonappetit.common.toml.title", "Bon Appétit Config");
 
-        add("bonappetit.configuration.registerCoffee", "Coffee");
+        add(BA + ".configuration.registry", "Registry...");
+                add(BA + ".configuration.registerGrapefruit", "Grapefruit");
+                add(BA + ".configuration.registerCoffee", "Coffee");
 
-        add("bonappetit.configuration.items", "Item List");
-        add("bonappetit.configuration.magicNumberIntroduction", "Magic Number Text");
-        add("bonappetit.configuration.magicNumber", "Magic Number");
+        add(BA + ".configuration.gameplay", "Gameplay...");
+                add(BA + ".configuration.cherry", "Cherry...");
+                        add(BA + ".configuration.cherryEffectInitialMulti", "Twin Strike Initial Damage Multiplier");
+                        add(BA + ".configuration.cherryEffectAdditiveMulti", "Twin Strike Additive Damage Multiplier");
+
+        add(BA + ".configuration.tweaks", "Tweaks...");
+                add(BA + ".configuration.cakes", "Cakes...");
+                        add(BA + ".configuration.vanillaCakeEffect", "Vanilla Cake Effect");
+                        add(BA + ".configuration.cakeRepairing", "Cake Repairing");
+                        add(BA + ".configuration.cakeFallCushioning", "Cake Fall Cushioning");
+
+        add(BA + ".configuration.tooltips", "Tooltips");
+                add(BA + ".configuration.effectTooltips", "Enable Food Effect Tooltips");
+                add(BA + ".configuration.negativeEffectTooltips", "Enable Negative Food Effect Tooltips");
+                add(BA + ".configuration.chanceDisplayMode", "Effect Chance Display Mode");
 
         BAItems.ITEMS.getEntries().forEach(item -> {
             if (item.getId() == null) return;

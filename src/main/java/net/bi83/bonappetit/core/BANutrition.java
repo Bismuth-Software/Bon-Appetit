@@ -67,7 +67,8 @@ public class BANutrition {
             .effect(() -> new MobEffectInstance(BAEffects.VIGOR, 200, 0), 1F).build();
 
     public static final FoodProperties CAKE_SLICE = (new FoodProperties.Builder())
-            .nutrition(2).saturationModifier(0.1F).fast().build();
+            .nutrition(2).saturationModifier(0.1F)
+            .effect(() -> new MobEffectInstance(BAEffects.VIGOR, 200, 0), 1f).fast().build();
     public static final FoodProperties CHERRY_PIE = (new FoodProperties.Builder())
             .nutrition(8).saturationModifier(0.35F)
             .effect(() -> new MobEffectInstance(BAEffects.TWIN_STRIKE, 900, 1), 1f).build();
@@ -104,9 +105,15 @@ public class BANutrition {
     public static final FoodProperties LEMON_TART_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.3F)
             .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 200, 0), 1f).fast().build();
+    public static final FoodProperties LEMON_CAKE = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.1F)
+            .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 200, 0), 1f).fast().build();
     public static final FoodProperties LEMON_CAKE_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.1F)
             .effect(() -> new MobEffectInstance(BAEffects.RESONANCE, 200, 0), 1f).fast().build();
+    public static final FoodProperties LIME_CAKE = (new FoodProperties.Builder())
+            .nutrition(2).saturationModifier(0.1F)
+            .effect(() -> new MobEffectInstance(BAEffects.DISSONANCE, 200, 0), 1f).fast().build();
     public static final FoodProperties LIME_CAKE_SLICE = (new FoodProperties.Builder())
             .nutrition(2).saturationModifier(0.1F)
             .effect(() -> new MobEffectInstance(BAEffects.DISSONANCE, 200, 0), 1f).fast().build();

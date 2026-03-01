@@ -1,5 +1,6 @@
 package net.bi83.bonappetit.core;
 
+import net.bi83.bonappetit.BAConfig;
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.content.entity.goal.BeeMoveToFruitBushGoal;
 import net.bi83.bonappetit.core.content.entity.goal.BeePollinateFruitGoal;
@@ -10,9 +11,11 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.entity.LivingEntity;
@@ -108,7 +111,7 @@ public class BAEvents {
                 int cooldown = TWIN_STRIKE_COOLDOWN.getOrDefault(attackerUUID, 0);
 
                 if (charge >= 0.9f && cooldown <= 0) {
-                    ECHO_QUEUE.add(new CherryEcho(attacker, victim, ((damage * 0.35f) + (cherryAmplifier * 0.1f)), 5));
+                    ECHO_QUEUE.add(new CherryEcho(attacker, victim, (float)((damage * BAConfig.CHERRY_EFFECT_INITIAL_MULTI.get()) + (cherryAmplifier * BAConfig.CHERRY_EFFECT_ADDITIVE_MULTI.get())), 5));
                     TWIN_STRIKE_COOLDOWN.put(attackerUUID, 5);
 
                     attacker.level().playSound(null, attacker.getX(), attacker.getY(), attacker.getZ(),
@@ -284,6 +287,8 @@ public class BAEvents {
 
     @SubscribeEvent
     public static void onCakeInteract(PlayerInteractEvent.RightClickBlock event) {
+        if (!BAConfig.CAKE_REPAIRING.get()) return;
+
         Level level = event.getLevel();
         BlockPos pos = event.getPos();
         BlockState state = level.getBlockState(pos);
@@ -307,6 +312,7 @@ public class BAEvents {
 
     @SubscribeEvent
     public static void onCakeDamage(LivingIncomingDamageEvent event) {
+        if (!BAConfig.CAKE_FALL_CUSHIONING.get()) return;
         if (!event.getSource().is(DamageTypes.FALL)) return;
         LivingEntity entity = event.getEntity();
         Level level = entity.level();
@@ -322,6 +328,45 @@ public class BAEvents {
                     level.playSound(null, landPos, SoundEvents.WOOL_BREAK, SoundSource.BLOCKS, 1.5F, 1.0F);
                     level.removeBlock(landPos, false);
                     level.gameEvent(GameEvent.BLOCK_DESTROY, landPos, GameEvent.Context.of(entity, state));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onVanillaCakeEat(PlayerInteractEvent.RightClickBlock event) {
+        Level level = event.getLevel();
+        BlockPos pos = event.getPos();
+        BlockState state = level.getBlockState(pos);
+        Player player = event.getEntity();
+
+        if (BAConfig.VANILLA_CAKE_EFFECT.get() && state.is(Blocks.CAKE)) {
+            if (player.canEat(false)) {
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+
+                if (!level.isClientSide()) {
+                    int durationToAdd = 200;
+                    MobEffectInstance vigorInstance = player.getEffect(BAEffects.VIGOR);
+
+                    int finalDuration = durationToAdd;
+                    if (vigorInstance != null) {
+                        finalDuration = Math.min(vigorInstance.getDuration() + durationToAdd, 12000);
+                    }
+
+                    player.addEffect(new MobEffectInstance(BAEffects.VIGOR, finalDuration, 0));
+                    player.getFoodData().eat(2, 0.1F);
+                    player.awardStat(Stats.EAT_CAKE_SLICE);
+
+                    int bites = state.getValue(CakeBlock.BITES);
+                    level.gameEvent(player, GameEvent.EAT, pos);
+
+                    if (bites < 6) {
+                        level.setBlock(pos, state.setValue(CakeBlock.BITES, bites + 1), 3);
+                    } else {
+                        level.removeBlock(pos, false);
+                        level.gameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+                    }
                 }
             }
         }
@@ -363,23 +408,6 @@ public class BAEvents {
             }
         }
     }
-  /*  @SubscribeEvent
-    public static void addTooltipToModdedFoods(ItemTooltipEvent event) {
-        Item food = event.getItemStack().getItem();
-        FoodProperties vanillaFoodChanges = BAItems.ITEMS.get(food);
-        if (vanillaFoodChanges != null) {
-            List<Component> tooltip = event.getToolTip();
-            for (FoodProperties.PossibleEffect effect : vanillaFoodChanges.effects()) {
-                MobEffectInstance effectInstance = effect.effect();
-                MutableComponent effectText = Component.translatable(effectInstance.getDescriptionId());
-                Player player = event.getEntity();
-                if (effectInstance.getDuration() > 20) {
-                    effectText = Component.translatable("potion.withDuration", effectText, MobEffectUtil.formatDuration(effectInstance, 1, player == null ? 20 : player.level().tickRateManager().tickrate()));
-                }
-                tooltip.add(effectText.withStyle(effectInstance.getEffect().value().getCategory().getTooltipFormatting()));
-            }
-        }
-    }*/
 
     public static float getBoatFriction(Boat boat, float v) {
         for (var passenger : boat.getPassengers()) {

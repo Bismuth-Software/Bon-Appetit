@@ -2,6 +2,7 @@ package net.bi83.bonappetit.core.common.datagen;
 
 import net.bi83.bonappetit.BonAppetit;
 import net.bi83.bonappetit.core.BABlocks;
+import net.bi83.bonappetit.core.common.template.BAFlavorCandleCakeBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +11,7 @@ import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -39,6 +41,48 @@ public class BABlockStateProvider extends BlockStateProvider {
     private void blockWithItem(DeferredBlock<?> deferredBlock) {simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));}
     private void blockItem(DeferredBlock<?> deferredBlock) {simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("bonappetit:block/" + deferredBlock.getId().getPath()));}
     private void blockItem(DeferredBlock<?> deferredBlock, String appendix) {simpleBlockItem(deferredBlock.get(), new ModelFile.UncheckedModelFile("bonappetit:block/" + deferredBlock.getId().getPath() + appendix));}
-    public void cakeBlock(Block block) {getVariantBuilder(block).forAllStates(state -> {int bites = state.getValue(CakeBlock.BITES);String suffix = bites > 0 ? "_slice" + bites : "";String modelName = name(block) + suffix;ModelFile model = models().withExistingParent(modelName, mcLoc("block/cake" + suffix)).texture("particle", blockTexture(block).withSuffix("_side")).texture("bottom", blockTexture(block).withSuffix("_bottom")).texture("top", blockTexture(block).withSuffix("_top")).texture("side", blockTexture(block).withSuffix("_side"));if (bites > 0) {model = ((net.neoforged.neoforge.client.model.generators.BlockModelBuilder)model).texture("inside", blockTexture(block).withSuffix("_inner"));}return ConfiguredModel.builder().modelFile(model).build();});}
-    public void candleCakeBlock(Block candleCake, Block baseCake, Block candle) {ResourceLocation candleFolder = BuiltInRegistries.BLOCK.getKey(candle); ResourceLocation candleTexture = ResourceLocation.fromNamespaceAndPath(candleFolder.getNamespace(), "block/" + candleFolder.getPath());getVariantBuilder(candleCake).forAllStates(state -> {boolean isLit = state.getValue(net.minecraft.world.level.block.CandleCakeBlock.LIT);String suffix = isLit ? "_lit" : "";ModelFile model = models().withExistingParent(name(candleCake) + suffix, mcLoc("block/template_candle_cake" + suffix)).texture("particle", blockTexture(baseCake).withSuffix("_side")).texture("bottom", blockTexture(baseCake).withSuffix("_bottom")).texture("top", blockTexture(baseCake).withSuffix("_top")).texture("side", blockTexture(baseCake).withSuffix("_side")).texture("candle", candleTexture);return ConfiguredModel.builder().modelFile(model).build();});}
+    public void cakeBlock(Block block) {
+        ModelFile base = cakeModel(block, "", "block/cake");
+        this.getVariantBuilder(block).forAllStates(state -> {
+            int bites = state.getValue(CakeBlock.BITES);
+            return ConfiguredModel.builder()
+                    .modelFile(bites == 0 ? base : cakeModel(block, "_slice" + bites, "block/cake_slice" + bites))
+                    .build();
+        });
+        for (BAFlavorCandleCakeBlock candleCake : BAFlavorCandleCakeBlock.getCandleCakes()) {
+            if (candleCake.getCake() == block) {
+                this.generateCandleCakeModels(candleCake, block, candleCake.getCandle());
+            }
+        }
+    }
+    public ModelFile cakeModel(Block block, String suffix, String parent) {
+        return models().withExistingParent(name(block) + suffix, mcLoc(parent))
+                .texture("bottom", blockTexture(block).withSuffix("_bottom"))
+                .texture("side", blockTexture(block).withSuffix("_side"))
+                .texture("top", blockTexture(block).withSuffix("_top"))
+                .texture("inside", blockTexture(block).withSuffix("_inner"))
+                .texture("particle", blockTexture(block).withSuffix("_side"));
+    }
+
+    private void generateCandleCakeModels(Block candleCake, Block baseCake, Block candle) {
+        ModelFile unlit = models().withExistingParent(name(candleCake), mcLoc("template_cake_with_candle"))
+                .texture("candle", blockTexture(candle))
+                .texture("bottom", blockTexture(baseCake).withSuffix("_bottom"))
+                .texture("side", blockTexture(baseCake).withSuffix("_side"))
+                .texture("top", blockTexture(baseCake).withSuffix("_top"))
+                .texture("particle", blockTexture(baseCake).withSuffix("_side"));
+
+        ModelFile lit = models().withExistingParent(name(candleCake) + "_lit", mcLoc("template_cake_with_candle"))
+                .texture("candle", blockTexture(candle).withSuffix("_lit"))
+                .texture("bottom", blockTexture(baseCake).withSuffix("_bottom"))
+                .texture("side", blockTexture(baseCake).withSuffix("_side"))
+                .texture("top", blockTexture(baseCake).withSuffix("_top"))
+                .texture("particle", blockTexture(baseCake).withSuffix("_side"));
+
+        this.getVariantBuilder(candleCake).forAllStates(state ->
+                ConfiguredModel.builder()
+                        .modelFile(state.getValue(BlockStateProperties.LIT) ? lit : unlit)
+                        .build()
+        );
+    }
 }

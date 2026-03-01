@@ -66,7 +66,6 @@ public class BonAppetit {
         NeoForge.EVENT_BUS.register(FlakEvent.class);
         NeoForge.EVENT_BUS.register(DischargeEvent.class);
         NeoForge.EVENT_BUS.register(VigorEvent.class);
-        NeoForge.EVENT_BUS.register(ObscurityClientEvent.class);
         NeoForgeMod.enableMilkFluid();
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, BABlockEntities.COPPER_TANK.get(), (be, side) -> {if (be instanceof CopperTankEntity tank) {return tank.getTank();}return null;});});
         modContainer.registerConfig(ModConfig.Type.COMMON, BAConfig.SPEC);
@@ -90,6 +89,7 @@ public class BonAppetit {
     @SubscribeEvent
     public void modifyComponents(ModifyDefaultComponentsEvent event) {
         event.modify(Items.COOKIE, builder -> builder.set(DataComponents.FOOD, new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().build()));
+        event.modify(Items.CAKE, builder -> builder.set(DataComponents.MAX_STACK_SIZE, 16));
         event.modifyMatching(item -> item.hasCraftingRemainingItem(), builder -> builder.remove(DataComponents.BUCKET_ENTITY_DATA));
     }
 
